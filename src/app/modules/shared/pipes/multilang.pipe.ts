@@ -1,18 +1,20 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Pipe({
   name: 'multilang'
 })
 export class MultilangPipe implements PipeTransform {
 
-  constructor() {}
+  constructor(
+    private translate: TranslateService
+  ) {}
 
   transform(value: any): string {
-    const lang = 'ru';
     if (value && typeof value === 'object') {
+      const lang = this.translate.currentLang;
       const val = value[lang];
-      // return propOr(k['ru'], lang, k);
-      return val && typeof val === 'string' && val.length > 0 ? val : val['ru'];
+      return val && typeof val === 'string' && val.length > 0 ? val : value[this.translate.defaultLang];
     } else {
       return value;
     }

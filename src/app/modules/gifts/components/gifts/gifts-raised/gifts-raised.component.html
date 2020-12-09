@@ -3,9 +3,9 @@
     <div class="raised__items">
       <div class="raised__item" *ngFor="let item of table">
         <div class="raised__item-head">
-      <span class="raised__item-title">
-        {{item.title | multilang}}
-      </span>
+          <span class="raised__item-title">
+            {{item.title | multilang}}
+          </span>
         </div>
         <div class="raised__item-body">
           <span class="raised__table-value" [ngClass]="{'raised__table-value_c-1': item.mark}">

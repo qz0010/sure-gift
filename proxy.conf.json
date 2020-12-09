@@ -1,6 +1,9 @@
 [
   {
-    "context": "/api",
+    "context": [
+      "!assets/**/*.*",
+      "**/*"
+    ],
     "target": "https://donation-gift.lastick.xd.zapomni.systems",
     "changeOrigin": true,
     "secure": false,

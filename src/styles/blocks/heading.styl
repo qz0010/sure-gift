@@ -1,0 +1,75 @@
+.heading
+  color: #fff
+  &__body
+    &-row
+      & + &
+        margin-top: 28px
+    &-title
+      font-family $ff-3
+      font-size: 43px
+      font-weight: 400
+
+    &-logo
+      display: flex
+      align-items flex-end
+      & > svg
+        max-height 44px
+        width: auto
+
+  &__footer
+    margin-top: 28px
+
+    &-row
+      display: flex
+      justify-content: space-between
+      align-items center
+
+  &__logos
+    display: flex
+    align-items center
+    margin: 0 -7px
+
+    &-item
+      margin: 0 7px
+
+    &-img
+      max-height 40px
+      width: auto
+
++mobile()
+  .heading
+    text-align: center
+
+    &__body
+      &-logo
+        justify-content:center
+
+    &__logos
+      justify-content: center
+
++desktop()
+  .heading
+    &__body
+      &-row
+        & + &
+          margin-top: 22px
+
+      &-title
+        font-size: 70px
+
+      &-logo
+        & > svg
+          max-height 100px
+          width: auto
+
+    &__logos
+      margin: 0 -27px
+
+      &-item
+        margin: 0 27px
+
+      &-img
+        max-height 58px
+
+    &__footer
+      margin-top: 105px

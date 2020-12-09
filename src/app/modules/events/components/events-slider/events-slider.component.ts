@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IShowcaseEvent} from '../../../../types';
 
 @Component({
   selector: 'app-events-slider',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events-slider.component.styl']
 })
 export class EventsSliderComponent implements OnInit {
+  @Input() event: IShowcaseEvent;
 
   constructor() { }
 

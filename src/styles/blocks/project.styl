@@ -4,7 +4,9 @@
   &__image
     position: relative
     z-index: 1
-    min-height: 85vh
+    display: flex
+    flex-direction column
+    min-height: 80vh
 
     &-image
       position: absolute
@@ -39,42 +41,17 @@
       position: relative
       z-index: 2
 
-  &__heading
-    &-row
-      margin-bottom: 15px
-      &:last-child
-        margin-bottom: 0
-      &_head
-        margin-bottom: 20px
-  &__sub-title
-    font-family: $ff-2
-    font-weight: 500
-    color: $cBl-4-4
   &__body
     position: relative
     z-index: 2
-  &__footer
-    &-title
-      font-size: 34px
-      font-weight: 700
-      color: $cBl-3-2
-    &-head
-      margin-bottom: 20px
-  &__fund-title
-    font-family: $ff-2
-    font-weight: 500
-    line-height: 1.2
-  &__project-title
-    font-weight: 700
-    line-height: 1.2
-    color: #fff
 
 +desktop()
   .project
     &__image
       //padding: 112px $sideGap_d 10vh
+      justify-content flex-end
       &_project
-        padding: 110px $sideGap_d 50px
+        padding: 110px $sideGap_d 176px
       &_fund
         padding: 85px $sideGap_d 50px
 
@@ -101,8 +78,8 @@
     &__body
       padding: 0 $sideGap_d
       &_project
-        top: -30px
-        margin-bottom: -30px
+        top: -126px
+        margin-bottom: -126px
       &_fund
         top: -30px
         margin-bottom: -30px
@@ -111,63 +88,21 @@
       padding: 0 $sideGap_d
       margin-top: 70px
 
-+min_medium_2()
-  .project
-    &__heading
-      &-row
-        &_head
-          display: inline-block
-          max-width: 540px
-          //max-width: 495px
-          //margin-bottom: 0
-        &_table
-          float: right
-          width: 325px
-          margin-bottom: 0
-    &-head
-      margin-bottom: 40px
-    &-title
-      font-size: 45px
-+min_large_2()
-  .project
-    &__footer
-      &-head
-        margin-bottom: 40px
-      &-title
-        font-size: 45px
-    &__image
-      //padding: 112px $sideGap_d 10vh
-      &_fund
-        padding: 112px $sideGap_d 220px
-
-      &_project
-        padding: 250px $sideGap_d 105px
-    &__project-title
-      font-size: 60px
-      letter-spacing: -0.3px
-
-    &__fund-title
-      font-size: 92px
-      letter-spacing: -.5px
-    &__body
-      &_fund
-        top: -80px
-        margin-bottom: -80px
-
 +mobile()
   .project
     &__image
       //padding: 85px 0 10vh
-      min-height: 60vh
+      //justify-content center
+      //min-height: 60vh
 
       &_project
-        padding: 85px $sideGap 50px
+        padding: 40px $sideGap 256px
       &_fund
         padding: 85px 0 50px
 
     &__body
-      top: -20px
-      margin-bottom: -20px
+      top: -228px
+      margin-bottom: -228px
     &__footer
       margin-top: 35px
 

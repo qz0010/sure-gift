@@ -16,14 +16,33 @@ import {HowComponent} from './how/how.component';
 import {ApiService} from './services/api.service';
 import {HttpClientModule} from '@angular/common/http';
 import {CountValuesByPricePipe} from './pipes/count-values-by-price.pipe';
+import {NumerativePipe} from './pipes/numerative.pipe';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
   declarations: [
-    MultilangPipe, MoneyPipe, CartComponent, CartPanelComponent, SponsorsComponent, SocialComponent, HowComponent, CountValuesByPricePipe
+    MultilangPipe,
+    MoneyPipe,
+    CartComponent,
+    CartPanelComponent,
+    SponsorsComponent,
+    SocialComponent,
+    HowComponent,
+    CountValuesByPricePipe,
+    NumerativePipe
   ],
   exports: [
-    MultilangPipe, MoneyPipe, CartComponent, CartPanelComponent, SponsorsComponent, SocialComponent, HowComponent, CountValuesByPricePipe
+    MultilangPipe,
+    MoneyPipe,
+    CartComponent,
+    CartPanelComponent,
+    SponsorsComponent,
+    SocialComponent,
+    HowComponent,
+    CountValuesByPricePipe,
+    NumerativePipe,
+    TranslateModule
   ],
   imports: [
     CommonModule,

@@ -1,13 +1,10 @@
-<section class="mxn-section mxn-section_pad-1 mxn-section_theme-1 gifts">
+<section class="mxn-section mxn-section_pad-1 mxn-section_theme-1 gifts" *ngIf="event">
   <div class="gifts__wrap">
     <div class="gifts__row">
       <div class="gifts__col gifts__col_text">
         <div class="gifts__text">
           <div class="gifts__text-head gifts__text-head_mb-1">
-            <h4 class="gifts__text-title">
-              Киноконцерт
-              “Холодное
-              сердце”
+            <h4 class="gifts__text-title" [innerHTML]="event.name | multilang">
             </h4>
           </div>
           <div class="gifts__text-body">
@@ -20,8 +17,55 @@
                     </span>
                   </div>
                   <div class="gifts__info-tb">
-                    <span class="gifts__info-value">
-                      24-27 декабря<br>15:00 и 19:00
+                    <span class="gifts__info-value" [innerHTML]="event.date | multilang">
+                    </span>
+                  </div>
+                </div>
+
+                <div class="gifts__info-item" *ngIf="event.spot | multilang">
+                  <div class="gifts__info-th">
+                    <span class="gifts__info-title">
+                      Место проведения
+                    </span>
+                  </div>
+                  <div class="gifts__info-tb">
+                    <span class="gifts__info-value" [innerHTML]="event.spot | multilang">
+                    </span>
+                  </div>
+                </div>
+
+                <div class="gifts__info-item" *ngIf="event.conductor | multilang">
+                  <div class="gifts__info-th">
+                    <span class="gifts__info-title">
+                      Дирижёр
+                    </span>
+                  </div>
+                  <div class="gifts__info-tb">
+                    <span class="gifts__info-value" [innerHTML]="event.conductor | multilang">
+                    </span>
+                  </div>
+                </div>
+
+                <div class="gifts__info-item" *ngIf="event.orchestra | multilang">
+                  <div class="gifts__info-th">
+                    <span class="gifts__info-title">
+                      Оркестр
+                    </span>
+                  </div>
+                  <div class="gifts__info-tb">
+                    <span class="gifts__info-value" [innerHTML]="event.orchestra | multilang">
+                    </span>
+                  </div>
+                </div>
+
+                <div class="gifts__info-item" *ngIf="event.lead_singer | multilang">
+                  <div class="gifts__info-th">
+                    <span class="gifts__info-title">
+                      Солист
+                    </span>
+                  </div>
+                  <div class="gifts__info-tb">
+                    <span class="gifts__info-value" [innerHTML]="event.lead_singer | multilang">
                     </span>
                   </div>
                 </div>
@@ -32,36 +76,22 @@
       </div>
       <div class="gifts__col gifts__col_content">
         <app-tabs theme="1">
-          <app-tabs-tab tabTitle="Описание">
+          <app-tabs-tab tabTitle="Описание" *ngIf="event.description | multilang">
             <article class="event">
               <div class="event__body">
-                <div class="event__article">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi labore laborum odit provident quisquam repellat ut.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi labore laborum odit provident quisquam repellat ut.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi labore laborum odit provident quisquam repellat ut.
-                  </p>
+                <div class="event__article" [innerHTML]="event.description | multilang">
                 </div>
               </div>
               <div class="event__footer">
-                <app-events-slider></app-events-slider>
+                <app-events-slider [event]="event"></app-events-slider>
               </div>
             </article>
           </app-tabs-tab>
-          <app-tabs-tab tabTitle="Описание 2">
+          <app-tabs-tab [tabTitle]="tab.title | multilang" *ngFor="let tab of (event.tabs || [])">
             <article class="event">
               <div class="event__body">
-                <div class="event__article">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi labore laborum odit provident quisquam repellat ut.
-                  </p>
-                </div>
+                <div class="event__article" [innerHTML]="tab.text | multilang"></div>
               </div>
-              <div class="event__footer"></div>
             </article>
           </app-tabs-tab>
         </app-tabs>

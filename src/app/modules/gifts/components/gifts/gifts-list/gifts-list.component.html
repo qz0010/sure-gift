@@ -17,7 +17,12 @@
       </div>
       <div class="v-btn__footer">
         <p class="v-btn__text">
-          Благодаря вам <span class="v-btn__text-mark">{{price | countValuesByPrice}} детей посетят киноконцерт</span>
+          Благодаря вам <span class="v-btn__text-mark">
+            {{price | countValuesByPrice}} {{price | countValuesByPrice | numerative: [
+              'Child1' | translate, 'Child2' | translate, 'Child3' | translate
+        ]}} {{price | countValuesByPrice | numerative: [
+          'Visit1' | translate, 'Visit2' | translate, 'Visit3' | translate
+        ]}} киноконцерт</span>
 <!--          + <span class="v-btn__text-mark">12 детей от Mastercard</span> 1000 ₽ = 1 входной билет для ребенка-->
         </p>
       </div>

@@ -29,6 +29,9 @@ export interface IShowcaseEvent {
   slider: IMediaInfo[];
   spot: IMultiLangField;
   tabs: IShowcaseTabsTab[];
+  lead_singer: IMultiLangField;
+  orchestra: IMultiLangField;
+  conductor: IMultiLangField;
   uuid: string;
 }
 

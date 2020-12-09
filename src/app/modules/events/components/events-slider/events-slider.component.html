@@ -1,11 +1,14 @@
-<div class="e-slider">
-  <div class="e-slider__main-img" style="background-image: url('http://placekitten.com/1400/800');">
+<div class="e-slider" *ngIf="event?.poster || event?.slider">
+  <div class="e-slider__main-img"
+       *ngIf="event?.poster"
+       [ngStyle]="{'background-image': 'url(' + event.poster.path + ')'}">
   </div>
-  <div class="e-slider__related">
+  <div class="e-slider__related" *ngIf="event?.slider?.length">
     <app-scroll>
       <div class="e-slider__related-items">
-        <div class="e-slider__related-item">
-          <div class="e-slider__related-img" style="background-image: url('http://placekitten.com/1200/600');"></div>
+        <div class="e-slider__related-item" *ngFor="let item of event.slider">
+          <div class="e-slider__related-img"
+               [ngStyle]="{'background-image': 'url(' + item.path + ')'}"></div>
         </div>
       </div>
     </app-scroll>

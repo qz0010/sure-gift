@@ -15,7 +15,7 @@ import {ScrollModule} from '../scroll/scroll.module';
     CommonModule,
     SharedModule,
     TabsModule,
-    ScrollModule
+    ScrollModule,
   ]
 })
 export class EventsModule { }
