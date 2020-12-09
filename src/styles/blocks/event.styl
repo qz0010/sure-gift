@@ -1,0 +1,22 @@
+.event
+  &__article
+    & > p
+      margin: 20px 0
+      &:first-child
+        margin-top: 0
+      &:last-child
+        margin-bottom: 0
+
+  &__footer
+    margin-top: 20px
+
++min_large_2()
+  .event
+    font-size: 20px
+
+    &__article
+      & > p
+        margin: 24px 0
+
+    &__footer
+      margin-top: 24px

@@ -1,0 +1,14 @@
+.mxn-container
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+
+  +mobile()
+    gap = $sideGap * 2
+    width: "calc(100% - %s)" % gap
+
++desktop()
+  .mxn-container
+    &_gap-1
+      gap = $sideGap_d * 2
+      width: "calc(100% - %s)" % gap

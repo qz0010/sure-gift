@@ -1,0 +1,89 @@
+mobile()
+  @media all and (max-width: $w_m)
+    {block}
+desktop()
+  @media all and (min-width: $w_d)
+    {block}
+ultra_small()
+  @media all and (max-width: $w_ultra_small)
+    {block}
+extra_small()
+  @media all and (max-width: $w_extra_small)
+    {block}
+small()
+  @media all and (max-width: $w_small)
+    {block}
+medium()
+  @media all and (max-width: $w_medium)
+    {block}
+//medium_2()
+//  @media all and (max-width: $w_medium-2)
+//    {block}
+large()
+  @media all and (max-width: $w_large)
+    {block}
+//large_only()
+//  @media all and (min-width: $w_min_large) and (max-width: $w_min_extra_large)
+//    {block}
+large_2()
+  @media all and (max-width: $w_large-2)
+    {block}
+//large_2_only()
+//  @media all and (min-width: $w_min_large-2) and (max-width: $w_extra_large)
+//    {block}
+//extra_large()
+//  @media all and (max-width: $w_extra_large)
+//    {block}
+min_max()
+  @media all and (min-width: $w_max_page_width)
+    {block}
+min_init_d()
+  @media all and (min-width: $w_init_d)
+    {block}
+//min_small()
+//  @media all and (min-width: $w_min_small)
+//    {block}
+//min_small_2()
+//  @media all and (min-width: $w_min_small-2)
+//    {block}
+//min_medium()
+//  @media all and (min-width: $w_min_medium)
+//    {block}
+//min_medium_2()
+//  @media all and (min-width: $w_min_medium-2)
+//    {block}
+min_large()
+  @media all and (min-width: $w_min_large)
+    {block}
+min_large_2()
+  @media all and (min-width: $w_min_large-2)
+    {block}
+//min_extra_large()
+//  @media all and (min-width: $w_min_extra_large)
+//    {block}
+//min_extra_large_2()
+//  @media all and (min-width: $w_min_extra_large-2)
+//    {block}
+//hmin_medium()
+//  @media all and (min-height: $h_min_medium)
+//    {block}
+
+placeholder()
+  &::placeholder
+    {block}
+autocomplete()
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active
+    {block}
+
+_calc($per, $val)
+  return "calc(%s - %s)" % ($per $val)
+
+toRem($val, $base = 16px)
+  return ($val / $base)rem
+
+mLast(dir = 'right', $val = 0)
+  &:last-child
+   margin-{dir}: $val

@@ -1,0 +1,55 @@
+.plus-minus
+  user-select: none
+  &__row
+    display: flex
+    align-items: center
+  &__item
+    &:last-child
+      margin-right: 0
+  &__value
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: -0.08px;
+    color: $cBl-3-22;
+  &__btn
+    border: none
+    outline: none
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 21px
+    height: 21px
+    border-radius: 100%
+    user-select: none
+    font-family: Arial, sans-serif
+    font-size: 16px
+    font-weight: 700
+    transition: background-color $sFast ease-in-out
+    background-color: $cBl-3-3
+    color: $cBl-3-4
+    box-shadow: 0 7px 14px 0 $cBl-3-shadow-2
+
++desktop()
+  .plus-minus
+    &__item
+      &_btn
+        order: 2
+        margin-right: 10px
+        &:last-child
+          order: 3
+      &_value
+        order: 1
+        margin-right: 17px
+
++mobile()
+  .plus-minus
+    &__item
+      &_value
+        margin: 0 18px
+
+.device-desktop
+  .plus-minus__btn
+    &:not(.f-disabled)
+      cursor: pointer;
+      &:hover
+        background-color: $cBl-3-35

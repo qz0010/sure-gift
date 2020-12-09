@@ -1,0 +1,79 @@
+.tabs
+  &__head
+    line-height: 1
+
+    &_theme-1, &_theme-2
+      margin-bottom: 20px
+
+    &-item
+      position: relative
+
+      &_btn
+        &_theme-1, &_theme-2
+          margin-right: 17px
+
+      &:last-child
+        margin-right: 0
+
+    &-row
+      &_buttons
+        display: flex
+
+  &__btn
+    display: inline-block
+    position: relative
+    padding-bottom: 4px
+    margin-bottom: 3px
+    white-space: nowrap
+    transition: color $sFast ease-in-out
+    font-weight: 700
+    cursor: pointer
+    color: $cBl-3-5
+
+    &:after
+      content: ''
+      position: absolute
+      top: 100%
+      left: 0
+      width: 20%
+      visibility: hidden
+      opacity: 0
+      height: 3px
+      transition: width $sFast ease-in-out, visibility $sFast ease-in-out, opacity $sFast ease-in-out
+      background-color: $cBl-3-3
+
+    &_theme-1, &_theme-2
+      padding-bottom: 8px
+      margin-bottom: 2px
+
+      &:after
+        height: 2px
+
+    &.f-active
+      color: $cBl-3-2
+      &:after
+        width: 100%
+        visibility: visible
+        opacity: 1
+
++desktop()
+  .tabs
+    &__head
+      &_theme-1, &_theme-2
+        margin-bottom: 24px
+
+      &-item
+        &_btn
+          &_theme-1, &_theme-2
+            margin-right: 28px
+
+    &__btn
+      &_theme-2
+        font-size: 28px
+      &_theme-1, &_theme-2
+        padding-bottom: 4px
+
+.device-desktop
+  .tabs__btn
+    &:hover
+      color: $cBl-3-17

@@ -1,0 +1,12 @@
+<div class="scroll" [ngClass]="{'scroll_disabled': mouseListening, 'scroll_3d': isDesktop}">
+  <div class="scroll__container"
+       [ngClass]="{'scroll__container_desktop': isDesktop, 'scroll__container_smooth-scroll': !mouseListening && smoothScroll}"
+       #container>
+    <!--(mouseenter)="onMouseEnter()"
+         (mouseleave)="onMouseLeave()"-->
+    <!--[ngClass]="{'scroll__list_will-change': positionWillChange}"-->
+    <div class="scroll__list scroll__list_will-change">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

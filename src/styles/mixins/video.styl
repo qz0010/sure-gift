@@ -1,0 +1,18 @@
+.mxn-video
+  display: block
+  width: 100%
+  height: auto
+
+.mxn-video-wrap
+  display: inline-block
+  width: 100%
+  overflow: hidden
+
+  &_theme-1
+    border-radius: 8px
+    box-shadow: 0 12px 24px 0 $cBl-2-2
+
++mobile()
+  .mxn-video-wrap
+    &_theme-1
+      max-width: 425px

@@ -1,0 +1,31 @@
+<div class="raised">
+  <div class="raised__body">
+    <div class="raised__items">
+      <div class="raised__item" *ngFor="let item of table">
+        <div class="raised__item-head">
+      <span class="raised__item-title">
+        {{item.title | multilang}}
+      </span>
+        </div>
+        <div class="raised__item-body">
+          <span class="raised__table-value" [ngClass]="{'raised__table-value_c-1': item.mark}">
+            <ng-container *ngIf="item.type === 'money'; else valueTmp">
+              {{item.value | money}}
+            </ng-container>
+            <ng-template #valueTmp>
+              {{item.value}}
+            </ng-template>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="raised__footer">
+    <div class="scale">
+      <div class="scale__wrap">
+        <div class="scale__stick scale__stick_partner" [ngStyle]="{'width.%': cart.partnershipInc}"></div>
+        <div class="scale__stick" [ngStyle]="{'width.%': fundraisingPercent}"></div>
+      </div>
+    </div>
+  </div>
+</div>

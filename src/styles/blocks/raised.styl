@@ -1,0 +1,46 @@
+.raised
+  white-space nowrap
+
+  &__item
+    &-head
+      margin-bottom: 2px
+
+    &-title
+      opacity: .3
+
+  &__table
+    &-value
+      &_c-1
+        color: $c-3
+
+  &__footer
+    margin-top: 20px
+
++large_2()
+  .raised
+    font-size: 14px
+
+    &__item
+      & + &
+        margin: 16px 0 0 0
+
++min_large_2()
+  .raised
+    font-size: 20px
+
+    &__items
+      display: flex
+      align-items flex-end
+      margin-left: -26px
+      margin-right: -26px
+      font-size: 20px
+
+    &__item
+      width: calc(100% / 4 - 26px)
+      margin: 0 26px
+
+      &-head
+        margin-bottom: 10px
+
+    &__footer
+      margin-top: 50px

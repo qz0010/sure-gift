@@ -1,0 +1,22 @@
+.card-text
+  padding: 36px 42px
+  border-radius: 8px;
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
+  background: #fff
+
+  &__head
+    margin-bottom: 22px
+
+  &__p
+    margin-bottom: 18px
+    &:last-child
+      margin-bottom: 0
+
+  &__footer
+    margin-top: 26px
+    text-align: center
+
++desktop()
+  .card-text
+    &_maxw-1
+      max-width: 595px

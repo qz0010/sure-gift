@@ -1,0 +1,66 @@
+.checkout
+  position: relative
+
+  &_page
+    min-height 100vh
+    padding: 32px 27px 114px
+    background: $cBl-3-28
+
+  &__back-btn
+    position: absolute
+    z-index: $zHeader + 1
+
+  &__result
+    font-size: 14px
+    text-align: center
+    &-body
+      &-row
+        margin-bottom: 22px
+        &:last-child
+          margin-bottom: 0
+      .svg-ref
+        fill: $cBl-3-3
+    &-footer
+      margin-top: 58px
+      &-row
+        margin-bottom: 17px
+        &_mb-1
+          margin-bottom: 10px
+        &:last-child
+          margin-bottom: 0
+
++desktop()
+  .checkout
+    &_page
+      padding: 32px 27px 114px
+    &__back-btn
+      top: 28px
+
+@media all and (min-width: 1200px)
+  .checkout
+    &__back-btn
+      left: 27px
+
+@media all and (max-width: 1199px)
+  .checkout
+    &__back-btn
+      right: 24px
+
++mobile()
+  .checkout
+    &__back-btn
+      top: 13px
+    &__result
+      //display: flex
+      //flex-direction: column
+      //min-height: 260px
+      &-title
+        font-size: 24px
+        letter-spacing: -0.13px
+      &-btn
+        width: 100%
+        text-align: center
+        justify-content: center
+    &_page
+      padding: 20px 20px 114px
+

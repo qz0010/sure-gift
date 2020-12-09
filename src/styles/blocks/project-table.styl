@@ -1,0 +1,74 @@
+.project-table
+  font-weight: 700
+  line-height: 1
+  &__tr:last-child, &__item:last-child
+    margin-bottom: 0
+  &__item:last-child
+    margin-right: 0
+  &__td
+    &_head
+      color: $cBl-6-5
+    &_val
+      display: inline-block;
+      max-width: 320px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: default
+      &:hover
+        max-width: initial
+    &_val-1
+      color: $cBl-3-3
+    &_val-2
+      color: $cBl-3-2
+    &_val-3
+      color: $cBl-3-9
+
+.project-table
+  &__item
+    margin-bottom: 18px
+  &__tr
+    margin-bottom: 6px
+  &__td
+    &_head
+      font-size: 14px
+    &_val
+      font-size: 34px
+
++desktop()
+  .project-table
+    &__row
+      display: flex
+    &__item
+      margin-right: 80px
++min_large_2()
+  .project-table
+    &__row
+      display: flex
+    //&__item
+      //margin-right: 80px
+    &__tr
+      margin-bottom: 11px
+    &__td
+      &_head
+        font-size: 16px
+      //&_val
+      //  font-size: 34px
++min_extra_large()
+  .project-table
+    &__td
+      &_head
+        font-size: 20px
+      &_val
+        font-size: 45px
+//+mobile()
+//  .project-table
+//    &__item
+//      margin-bottom: 18px
+//    &__tr
+//      margin-bottom: 6px
+//    &__td
+//      &_head
+//        font-size: 14px
+//      &_val
+//        font-size: 34px

@@ -1,0 +1,65 @@
+.b-company
+  fill: $c-3
+  &__section
+    position: relative;
+    &_media
+      z-index: 1
+  &__text
+    font-family: $ff-2
+    letter-spacing: -0.2px
+    line-height: 1.2
+    font-weight: 500
+    color: $cBl-2-1
+
+  &__urgent
+    position: absolute;
+    left: 24px
+    top: 24px
+    font-size: 14px
+    font-weight: 700
+    color: #ff3838;
+
++mobile()
+  .b-company
+    &__section
+      margin-bottom: 18px
+
+      &:last-child
+        margin-bottom: 0
+
+      &_logo
+        margin-bottom: 26px
+
+    &__text
+      font-size: 26px
+
+    &__urgent
+      left: 12px
+      top: 10px
+      font-size: 12px
+
++desktop()
+  .b-company
+    &:after
+      content: ''
+      display: block
+      clear: both
+      height: 0
+      width: 100%
+      visibility: hidden
+
+    &__section
+      &_logo
+        display: inline-block
+
+      &_media
+        float: right
+        width: 50%
+        margin-left: 40px
+        //padding-left: 15px
+
+      &_logo
+        margin-bottom: 40px
+
+    &__text
+      font-size: 42px

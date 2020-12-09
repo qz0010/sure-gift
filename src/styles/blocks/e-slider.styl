@@ -1,0 +1,47 @@
+.e-slider
+  position: relative
+  &__related
+    &-items
+      display: flex
+    &-item
+      margin-right: 10px
+    &-img
+      width: 245px
+      height: 120px
+      border: 2px solid transparent;
+      border-radius: 7px;
+
+      &.f-active
+        border-color: #CBA150
+
+  &__main-img, &__related-img
+    background-size: cover
+    background-position: center 0
+
+
++mobile()
+  .e-slider
+    &__main-img
+      display: none
+
++desktop()
+  .e-slider
+    &__main-img
+      height: 405px
+      border-radius: 7px;
+
+    &__related
+      position: absolute;
+      left: 0
+      bottom: 0
+      width: 100%
+      padding: 0 0 20px 20px
+      //&-items
+      &-item
+        margin-right: 24px
+      &-img
+        box-sizing content-box
+        width: 155px
+        height: 104px
+        border-width: 3px;
+        border-radius: 10px;

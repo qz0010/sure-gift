@@ -1,0 +1,25 @@
+<div class="tabs tabs_theme-{{theme}}" *ngIf="tabs && tabs.length" #tabsTmp>
+  <div class="tabs__head tabs__head_theme-{{theme}}">
+    <div class="tabs__head-row tabs__head-row_theme-{{theme}}">
+      <div class="tabs__head-item tabs__head-item_title" *ngIf="title">
+        <ng-content select="[title]"></ng-content>
+      </div>
+      <div class="tabs__head-item tabs__head-item_buttons tabs__head-item_buttons_theme-{{theme}}">
+        <app-scroll>
+          <div class="tabs__head-row tabs__head-row_pad-{{pad}} tabs__head-row_buttons tabs__head-row_buttons_theme-{{theme}}">
+            <div class="tabs__head-item tabs__head-item_btn tabs__head-item_btn_theme-{{theme}}" *ngFor="let tab of tabs">
+              <ng-template [ngIf]="tab.tabIconTemplate" [ngTemplateOutlet]="tab.tabIconTemplate"></ng-template>
+              <div class="tabs__btn tabs__btn_theme-{{theme}}" (click)="selectTab(tab)" [ngClass]="{'f-active': tab.show$ | async}">
+                <ng-container *ngTemplateOutlet="tab.titleTemplate"></ng-container>
+                <ng-template [ngIf]="!tab.titleTemplate">{{ tab.title }}</ng-template>
+              </div>
+            </div>
+          </div>
+        </app-scroll>
+      </div>
+    </div>
+  </div>
+  <div class="tabs__body tabs__body_theme-{{theme}}">
+    <ng-content></ng-content>
+  </div>
+</div>

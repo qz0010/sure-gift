@@ -1,0 +1,94 @@
+.mxn-i-txt
+  outline: none
+  border: none
+  display: inline-block
+  box-sizing: border-box
+  border-radius: 2px
+  font-family: $ff-1
+  font-size: 14px
+
+  +placeholder()
+    font-family: $ff-1
+  +autocomplete()
+    background-color: initial !important
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: initial !important
+    color: initial !important
+
+  &_theme-1, &_theme-1.ng-select .ng-input > input, &_theme-1.ng-select .ng-value
+    font-family: $ff-1
+    font-size: 20px
+    font-weight: 700
+    background: transparent
+    color: $cBl-3-2
+  &_theme-1
+    padding: 0 0 11px 0
+    border-bottom: 1px solid $cBl-3-5
+    border-radius: 0
+    &.ng-select .ng-placeholder
+      color: $cBl-3-5
+    +placeholder()
+      color: $cBl-3-5
+    &.ng-dirty.ng-invalid, &.f-error, &.ng-select.f-error .ng-placeholder
+      //color: $cBl-3-16
+      border-color: $cBl-3-16
+      +placeholder()
+        color: $cBl-3-16
+    &:disabled, &.f-disabled
+      opacity: .56
+
+  &_full-width
+    width: 100%
+  &_ta-c
+    text-align: center
+  &_pr-1
+    padding-right: 65px
+  &_pr-2
+    padding-right: 140px
+
+  &_area
+    &_sz-1
+      min-height: 80px
+      //max-height: 170px
+    &_sz-2
+      min-height: 162px
+      font-size: 34px
+      letter-spacing: -0.15px
+
+//.mxn-i-txt_theme-1.ng-select
+//  .ng-placeholder
+//    color: $cBl-3-5
+//  &.ng-dirty.ng-invalid, &.f-error
+//    .ng-placeholder
+//      color: $cBl-3-16
+
+.mxn-text-counter
+  font-size: 24px
+  letter-spacing: -0.13px
+  color: $cBl-3-3
+  &_pos-a
+    position: absolute
+  &_pos-1
+    top: 0
+    right: 0
++mobile()
+  .mxn-i-txt
+    &_pr-2
+      padding-right: 70px
+  .mxn-text-counter
+    font-size: 18px
++min_large_2()
+  .mxn-i-txt
+    &_area
+      &_sz-2
+        font-size: 45px
+        letter-spacing: -0.25px
++min_extra_large()
+  .mxn-i-txt
+    &_theme-1, &_theme-1.ng-select .ng-input > input, &_theme-1.ng-select .ng-value
+      font-size: 24px
+
++ultra_small()
+  .mxn-i-txt
+    &_theme-1, &_theme-1.ng-select .ng-input > input, &_theme-1.ng-select .ng-value
+      font-size: 16px

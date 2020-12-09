@@ -1,0 +1,33 @@
+.mxn-scroll
+  overflow: hidden
+
+  &_3d
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+  &_disabled
+    pointer-events: none;
+
+  &::-webkit-scrollbar
+    display: none
+
+  &_smooth-scroll
+    scroll-behavior: smooth;
+
+.mxn-scroll-list
+  display: inline-block
+  position: relative
+  will-change: transform;
+  transition: none;
+
+  &_will-change
+    will-change: scroll-position;
+
+.mxn-scroll-container
+  overflow: hidden;
+  overflow: none;
+  overflow-x: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;

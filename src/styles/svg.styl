@@ -1,0 +1,28 @@
+//svg
+//  path
+//    fill: inherit;
+app-svg-ref
+  font-size: 0
+.svg-ref
+  font-size: 0
+  height: auto
+  transition: fill $sFast ease-in-out, stroke $sFast ease-in-out
+
+  &_i-logo
+    fill: $c-3
+  &_i-cart-reset
+    fill: $cBl-3-10
+  &_i-user
+    fill: $cBl-1-3
+
++mobile()
+  .svg-ref
+    &_i-logo
+      width: 167px
+    &_i-cart-reset
+      width: 42px
+
++desktop()
+  .svg-ref
+    &_i-logo
+      width: 404px

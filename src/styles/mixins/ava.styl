@@ -1,0 +1,60 @@
+.mxn-ava
+  &-wrap
+    display: flex
+    flex-direction: column
+    justify-content: center
+    border-radius: 100%
+    overflow: hidden
+    font-size: 0
+    &_sz-1
+      width: 120px
+      height: 120px
+      .svg-ref
+        width: 49px
+    &_theme-1
+      box-shadow: 0 12px 24px 0 $cBl-3-shadow-1
+    &_theme-2
+      background: $cBl-3-24
+      color: $cBl-3-20
+      .mxn-ava-upload
+        .svg-ref
+          fill: $cBl-3-25
+  &-upload
+    display: block
+    font-size: 0
+    &-row
+      display: block
+      font-size: 14px
+      letter-spacing: -0.08px
+      &:last-child
+        margin-bottom: 0;
+      &_mb-1
+        margin-bottom: 8px
+  &-img
+    display: inline-block
+    width: 100%
+    min-height: 100%
+    &_sz-1
+      width: 120px
+      height: 120px
+
++mobile()
+  .mxn-ava
+    &-wrap
+      width: 80px
+      height: 80px
+      &_sz-1
+        .svg-ref
+          width: 40px
+    &-img
+      &_sz-1
+        width: 80px
+        height: 80px
+
++extra_small()
+  .mxn-ava
+    &-upload
+      &_sz-1
+        font-size: 12px
+        .svg-ref
+          width: 30px

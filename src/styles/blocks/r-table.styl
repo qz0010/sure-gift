@@ -1,0 +1,82 @@
+.r-table
+  font-size: 14px
+  letter-spacing: -0.08px
+  &__tr
+    display: flex
+    justify-content: space-between
+    &_footer
+      flex-wrap: nowrap
+    &_ali-c
+      align-items: center
+    &:not(:last-child), &-wrap:not(:last-child)
+      margin-bottom: 18px
+      padding-bottom: 18px
+      border-bottom: 1px dotted $cBl-3-18
+  &__items
+    display: flex
+    align-items: center
+  &__item
+    &_mr-1
+      margin-right: 17px
+    &_mr-2
+      margin-right: 22px
+    &:last-child
+      margin-right: 0
+  &__td
+    &_mt-1
+      margin-top: 7px
+    &_head
+      max-width: 470px
+      padding-right: 10px
+    //&_value
+    //  text-align: right
+    &-row
+      margin-bottom: 7px
+      &:last-child
+        margin-bottom: 0
+  &__value
+    color: $cBl-3-2
+    &_c-1
+      color: $cBl-3-21
+    &_c-2
+      color: $cBl-3-22
+    &_c-3
+      color: $cBl-3-3
+  &__ico
+    font-size: 0
+    .svg-ref
+      transition: fill $sFast ease-in-out
+    &_c-1
+      .svg-ref
+        fill: $cBl-3-30
+  &__footer
+    margin-top: 25px
+    margin-bottom: -10px
+    &-row
+      display: flex
+      flex-wrap: wrap
+    &-item
+      margin: 0 18px 10px 0
+      &:last-child
+        margin-right: 0
+  &__text
+    max-width: 270px
++mobile()
+  .r-table
+    &__tr
+      &_wrap
+        flex-wrap: wrap
+    &__td
+      &_m-full-width
+        flex: 0 0 100%
+      &_buttons
+        margin-top: 11px
+      &_head
+        max-width: 90%
+    &__text
+     max-width: 200px
+
+.device-desktop
+  .r-table__ico_c-1:hover
+    .svg-ref
+      fill: $cBl-3-17

@@ -1,0 +1,85 @@
+.mxn-btn
+  display: inline-flex
+  align-items: center
+  box-sizing: border-box
+  border: none
+  outline: none
+  text-decoration: none
+  padding: 5px 10px
+  transition: background-color $sFast ease-in-out, color $sFast ease-in-out, opacity $sFast ease-in-out, box-shadow $sFast ease-in-out
+  border-radius: 4px
+  font-family: $ff-1
+  font-size: 14px
+  letter-spacing: -0.08px;
+  font-weight: 700
+  line-height: 1
+  cursor: pointer
+
+  &:disabled, &.disabled
+    pointer-events: none
+
+  &.f-disabled
+    cursor: default;
+
+  &_full-width
+    width: 100%
+    flex: 0 0 100%
+
+  &_ta-c
+    text-align: center
+    justify-content: center
+
+  &_theme-1
+    background-color: $cBl-3-7
+    color: $cBl-3-23
+
+    &.f-active
+      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.28);
+      background-color: $c-3
+      color: #fff
+
+  &_theme-2
+    box-shadow: 0 7px 14px 0 $cBl-3-shadow-2;
+    background-color: $cBl-3-3
+    color: $cBl-3-4
+
+  &_sz-1
+    border-radius: 16px
+
+  &_sz-2
+    min-height 42px
+    border-radius: 7px
+
+  &_minw-1
+    min-width 180px
+
+  &_minh-1
+    min-height 33px
+
++min_large_2()
+  .mxn-btn
+    font-size: 20px
+
+    &_sz-1
+      border-radius: 100px
+
+    &_sz-2
+      min-height: 55px
+
+    &_minw-1
+      min-width 272px
+
+    &_minh-1
+      min-height 48px
+
+.device-desktop
+  .mxn-btn
+    &_theme-1:not(:disabled)
+      &:not(.f-disabled):hover
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.28);
+        background-color: $c-3
+        color: #fff
+
+    &_theme-2:not(:disabled)
+      &:not(.f-disabled):hover
+        background-color: $cBl-3-35;

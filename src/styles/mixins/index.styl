@@ -1,0 +1,143 @@
+@import "media.styl"
+@import "container.styl"
+@import "btn.styl"
+@import "i-txt.styl"
+@import "controls.styl"
+@import "circle.styl"
+@import "section.styl"
+@import "scroll.styl"
+@import "anim.styl"
+@import "load.styl"
+@import "video.styl"
+@import "label.styl"
+@import "status-message.styl"
+@import "i-check.styl"
+@import "text.styl"
+@import "ava.styl"
+@import "pay-item.styl"
+
+.mxn-clearfix
+  &:after
+    content: ''
+    display: block
+    clear: both
+
+.mxn-cur-p
+  cursor: pointer
+
+.mxn-cur-def
+  cursor: default
+
+.mxn-disabled
+  opacity: .56
+  cursor: default
+
+.mxn-link
+  cursor: pointer
+  color: $cBl-3-9
+  transition: color $sFast ease-in-out
+  &.f-disabled
+    cursor: default;
+    opacity: .56
+  &_sz-5
+    font-size: 20px
+    letter-spacing: -0.11px
+  &_theme-1
+    color: $cBl-3-3
+
+.mxn-text-check
+  display: flex
+  align-items: center
+  font-size: 14px
+  letter-spacing: -0.08px
+  &-text
+    &_ml-1
+      margin-left: 18px
+
+.mxn-ellipsis-value
+  display: inline-block
+  max-width: 100%
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+.mxn-date-inputs
+  &-row
+    display: flex
+  &-input
+    width: 27px
+    margin-right: 10px
+    text-align: center
+    -webkit-appearance: none;
+    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+      -webkit-appearance: none;
+      margin: 0
+    &:last-child
+      width: 53px
+      margin-right: 0
+
+.mxn-notify-ico
+  display: inline-flex
+  align-items: center
+  width: 22px
+  height: 22px
+  overflow: hidden
+  box-sizing: border-box
+  padding: 0 2px
+  font-size: 14px
+  letter-spacing: -0.08px
+  line-height: 1
+  border-radius: 100%
+  box-shadow: 0 7px 14px 0 $cBl-3-shadow-2
+  background: $cBl-3-3
+  color: $cBl-3-4
+  cursor: default
+
+  &_sz-2
+    width: 25px
+    height: 25px
+    padding: 0 3px
+    font-size: 12px
+
+  &_ta-c
+    text-align: center
+    justify-content: center
+
+  &_pos-a
+    position: absolute
+  &_pos-1
+    top: -2px
+    left: 100%
+  &_pos-2
+    top: -14px
+    left: 98%
+
+.mxn-notify-ico-nm
+  font-size: 8px
+  margin-left: 1px
+
+.mxn-loader
+  display: block
+  height: 34px
+  width: auto
+  &_m-1
+    margin: 20px auto
+
++desktop()
+  .mxn-link
+    &_sz-5
+      font-size: 24px
+      letter-spacing: -0.13px
+
+.w-org-logo
+  display: inline-block;
+  max-width 80px
+  max-height 40px
+  width: auto;
+  height: auto;
+
+.device-desktop
+  .mxn-link:hover
+    color: $cBl-3-37
+  .mxn-link_theme-1:hover
+    color: $cBl-3-35

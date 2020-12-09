@@ -1,0 +1,32 @@
+.article
+  font-family: $ff-1
+  font-size: 14px
+  line-height: 1.2
+  color: $cBl-6-2
+
+  &__section
+    & + &
+      margin-top: 32px
+
+    &-title
+      margin-bottom: 28px
+      font-size: 28px
+      font-weight: 700
+
+    &-row
+      & + &
+        margin-top: 28px
+
+  &__text
+    &-title
+      font-size: 18px
+      margin-bottom: 12px
+
+
++min_large_2()
+  .article
+    font-size: 20px
+
+    &__section
+      & + &
+        margin-top: 40px

@@ -1,0 +1,61 @@
+.person
+  &__head
+    margin-bottom: 20px
+
+  &__ava
+    width: 166px
+    height: 166px
+    border-radius: 100%
+    background-size: cover
+    background-position: center 0
+
+  &__info
+    &-head
+      margin-bottom: 16px
+      font-size: 18px
+    &-title
+      &_sub
+        margin-top: 2px
+        color: $cBl-6-4
+
+  &__about
+    & > p
+      margin: 20px 0
+      &:last-child
+        margin-bottom: 0
+      &:first-child
+        margin-top: 0
+
++mobile()
+  .person
+    &__ava
+      margin: 0 auto
+
+    &__info
+      &-head
+        text-align: center
+
+    &__body
+      &-item
+        & + &
+          margin-top: 16px
+
++desktop()
+  .person
+    &__head
+      margin-bottom: 38px
+
+    &__body
+      display: flex
+
+      &-item
+        & + &
+          margin-left: 98px
+
+    &__info
+      &-head
+        margin-bottom: 22px
+
+    &__ava
+      width: 207px
+      height: 207px

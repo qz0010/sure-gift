@@ -1,0 +1,128 @@
+.c-table
+  font-size: 12px
+  letter-spacing: -0.07px
+
+  &__table
+    &_mb-1-1
+      margin-bottom: -17px
+
+  &__head
+    margin-bottom: 25px
+
+  &__vertical
+    &-row
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
+  &__tr
+    display: flex
+    &_bdb
+      border-bottom: 1px dashed $cBl-3-18
+    &_v-gap-1
+      padding-bottom: 19px
+      margin-bottom: 17px
+    &:last-child
+      border-bottom: none
+      padding-bottom: 0
+      margin-bottom: 0
+  &__td
+    position: relative
+    &_v-head
+      padding-right: 6px
+    &_pad-1
+      padding: 17px 16px 17px 0
+    &_pr-1
+      padding-right: 32px
+    &_flex
+      display: flex
+    &_ali-c
+      align-items: center
+    //white-space: nowrap
+    &_flxg-1
+      flex-grow: 1
+    &_num
+      word-break: break-all
+    &:last-child
+      padding-right: 0
+    &_head
+      padding-top: 0
+    &_ta-c
+      justify-content: center
+      text-align: center
+    &-inner
+      position: relative
+      text-align: left
+    &_c-1
+      color: $cBl-3-31
+    &_c-2
+      color: $cBl-3-3
+    &_c-3
+      .svg-ref
+        fill: $cBl-3-11
+      &:hover, &.f-active
+        .svg-ref
+          fill: $cBl-3-17
+    &_1-21
+      min-width: calc(100% / 21)
+    &_2-21
+      min-width: calc(100% / 21 * 2)
+    &_3-21
+      min-width: calc(100% / 21 * 3)
+    &_4-21
+      min-width: calc(100% / 21 * 4)
+    &_5-21
+      min-width: calc(100% / 21 * 5)
+    &_6-21
+      min-width: calc(100% / 21 * 6)
+    &_7-21
+      min-width: calc(100% / 21 * 7)
+    &_8-21
+      min-width: calc(100% / 21 * 8)
+    &_9-21
+      min-width: calc(100% / 21 * 9)
+    &_10-21
+      min-width: calc(100% / 21 * 10)
+    &_11-21
+      min-width: calc(100% / 21 * 11)
+    &_12-21
+      min-width: calc(100% / 21 * 12)
+    &_13-21
+      min-width: calc(100% / 21 * 13)
+    &_15-21
+      min-width: calc(100% / 21 * 15)
+    &_17-21
+      min-width: calc(100% / 21 * 17)
+    &_flxb_1-21
+      flex-basis: calc(100% / 21)
+    &_flxb_2-21
+      flex-basis: calc(100% / 21 * 2)
+    &_flxb_3-21
+      flex-basis: calc(100% / 21 * 3)
+    &_flxb_7-21
+      flex-basis: calc(100% / 21 * 7)
+    &_maxw_1-21
+      max-min-width: calc(100% / 21)
+    &_maxw_2-21
+      max-width: calc(100% / 21 * 2)
+    &_maxw_3-21
+      max-width: calc(100% / 21 * 3)
+    &_maxw_7-21
+      max-width: calc(100% / 21 * 7)
+
+    &.f-expanded
+      max-width: initial
+      width: auto
+      & .c-table__value
+        white-space: normal
+
++ultra_small()
+  .c-table
+    &__td
+      &_pr-1
+        padding-right: 16px
+
++min_small()
+  .c-table
+    &__td
+      &_minsm-4-21
+        min-width: calc(100% / 21 * 4)

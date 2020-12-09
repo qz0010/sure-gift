@@ -1,0 +1,5 @@
+<div *ngIf="show$ | async">
+<!--  @showHideTrigger-->
+  <ng-container *ngTemplateOutlet="tabContentTemplate"></ng-container>
+  <ng-content></ng-content>
+</div>

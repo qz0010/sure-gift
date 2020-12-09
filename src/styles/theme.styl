@@ -1,0 +1,37 @@
+@import "vars.styl"
+
+div, header, nav, section
+  box-sizing: border-box
+  -webkit-tap-highlight-color: transparent;
+  outline: none
+
+html, body
+  position: relative
+  height: 100%
+
+svg-icon
+  font-size: 0
+
+a
+  text-decoration: none
+  color: inherit
+
+body
+  font-family: $ff-1
+  line-height: 1.2
+  font-weight: 700
+  -webkit-font-smoothing: antialiased
+  scroll-behavior: smooth;
+  background-color: $c-main-bg;
+  color: $c-2
+
+.wrap
+  position: relative;
+  z-index: 2
+
+.page
+  &_minvh-1
+    min-height: 150vh
+//
+//.wrap
+//  transition: padding $sFast ease-in-out;

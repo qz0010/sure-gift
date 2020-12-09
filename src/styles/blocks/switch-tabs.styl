@@ -1,0 +1,45 @@
+.switch-tabs
+  display: inline-block
+  &_sz-1
+    font-size: 20px
+  &_theme-1
+    color: $cBl-3-5
+    border-bottom: 1px solid $cBl-3-13
+  &__list
+    display: flex
+  &__item
+    &_mr-1
+     margin-right: 32px
+    &_mr-2
+      margin-right: 40px
+    &_mr-3
+      margin-right: 27px
+    &:last-child
+      margin-right: 0
+  &__tab
+    position: relative
+    display: inline-block
+    padding-bottom: 9px
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: -1px
+      width: 100%
+      height: 2px
+    &_theme-1
+      &.f-active
+        color: $cBl-3-17
+        &:after
+          background: $cBl-3-3
+
++min_extra_large()
+  .switch-tabs
+    &_sz-1
+     font-size: 24px
+     letter-spacing: -0.13px
+
++ultra_small()
+  .switch-tabs
+    &_sz-1
+      font-size: 18px

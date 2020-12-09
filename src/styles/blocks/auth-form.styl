@@ -1,0 +1,141 @@
+.auth-form
+  &__head
+    //30,46,38
+    &_mb-1
+      margin-bottom: 25px
+    &_mb-2
+      margin-bottom: 32px
+    &_mb-3
+      margin-bottom: 28px
+    &-row
+      margin-bottom: 12px
+      &:last-child
+        margin-bottom: 0
+  &__item
+    margin-right: 8px
+    font-size: 0
+    &:last-child
+      margin-right: 0
+    &-row
+      display: flex
+      align-items: center
+    &-text
+      font-size: 14px
+      line-height: 1
+      letter-spacing: -0.08px
+      font-weight: 700
+      color: $cBl-3-15
+  &__icon-back
+    .svg-ref
+      width: 10px
+      fill: $cBl-3-15
+  &__card
+    max-width: 457px
+    margin: 0 auto
+    padding: 24px 16px 16px
+    border-radius: 8px
+    box-shadow: 0 12px 24px 0 $cBl-3-shadow-1;
+    background: $cBl-3-4
+    &-head
+      margin-bottom: 28px
+      &_mb-1
+        margin-bottom: 30px
+    &-logo
+      fill: $c-3
+      .svg-ref
+        width: 105px
+    &-row
+      margin-bottom: 19px
+      &:last-child
+        margin-bottom: 0
+  &__body
+    &-row
+      margin-bottom: 18px
+      &:last-child
+        margin-bottom: 0
+  &__input-wrap
+    position: relative
+
+  &__footer
+    //margin-top: 35px
+    margin-top: 20px
+    &_mt-2
+      margin-top: 37px
+    &-row
+      margin-bottom: 15px
+      &:last-child
+        margin-bottom: 0
+
+  &__i-text
+    position: absolute
+    right: 0
+    top: 18px
+    font-size: 14px
+    line-height: 1
+    font-weight: 700
+    letter-spacing: -0.8px
+    color: $cBl-3-3
+
+  &__input
+    &-items
+      display: flex
+      align-items: center
+    &-item
+      &_input
+        margin-right: 16px
+
+    &-text
+      font-size: 14px
+      font-weight: 700
+      letter-spacing: -0.08px
+      color: $cBl-3-2
+    //&-link
+    //  color: $cBl-3-3
+  &__result
+    &-footer
+      margin-top: 25px
+  &__text
+    font-size: 24px
+    font-weight: 700
+    line-height: 1.2
+    letter-spacing: -0.13px
+  &__sub-text
+    font-size: 14px
+    font-weight: 700
+    line-height: 1.2
+    letter-spacing: -0.08px
+    color: $cBl-3-11
+  &__sub-strong
+    color: $cBl-3-2
+
++desktop()
+  .auth-form
+    &__head
+      &_mb-1
+        margin-bottom: 30px
+      &_mb-2
+        margin-bottom: 38px
+      &_mb-3
+        margin-bottom: 36px
+      &-row
+        margin-bottom: 16px
+    &__card
+      padding: 30px 34px 34px
+      &_w-1
+        width: 457px
+      &-head
+        margin-bottom: 42px
+        &_mb-1
+          margin-bottom: 30px
+      &-logo
+        .svg-ref
+          width: 150px
+    &__body
+      &-row
+        margin-bottom: 28px
+    &__footer
+      margin-top: 26px
+      &_mt-2
+        margin-top: 37px
+      &-row
+        margin-bottom: 17px

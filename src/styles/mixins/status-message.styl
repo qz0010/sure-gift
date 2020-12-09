@@ -1,0 +1,37 @@
+.mxn-status-message
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  padding: 13px
+  text-align: center
+  border-radius: 6px
+  font-size: 12px
+  line-height: 1.2
+  font-weight: 700
+
+  &_sz-2
+    padding: 18px 35px
+    min-height: 70px
+
+  &-row
+    &:not(:last-child)
+      margin-bottom: 4px
+  &-title
+    font-size: 14px
+    letter-spacing: -0.08px
+  &-text
+    font-size: 12px
+    letter-spacing: -0.07px
+
+  &.f-active
+    display: block
+  &_revoked, &_error, &_deactivated
+    background-color: #FFE4E4
+    color: #ff3b38
+  &_new, &_pending, &_changed
+    background-color: rgba(255, 161, 31, 0.15)
+    color: #ffac38;
+  &_approved
+    background-color: rgba(11, 185, 57, 0.16);
+    color: #0bb939;

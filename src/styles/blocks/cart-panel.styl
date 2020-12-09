@@ -1,0 +1,53 @@
+.cart-panel
+  padding: 16px
+  background: #fff
+
+  &__values
+    display: flex
+    align-items center
+
+  &__value
+    white-space nowrap
+    color: $c-3
+
++mobile()
+  .cart-panel
+    &__values
+      align-items flex-start
+      justify-content space-between
+
+      &-item
+        //&_count
+        //  width: 20%
+        &_text
+          width: 52%
+        //&_price
+        //  width: 25%
+
+    &__col
+      & + &
+        margin-top: 16px
+
+
++desktop()
+  .cart-panel
+    display: flex
+    align-items center
+    justify-content: space-between
+    padding: 18px 20px
+    border-radius: 8px;
+    font-size: 20px
+    box-shadow: 0 17px 44px rgba(0, 0, 0, 0.484573);
+
+    &__col
+      &_buttons
+        width: 215px
+
+    &__values
+      margin: 0 -15px
+
+      &-item
+        margin: 0 15px
+
+        &_price
+          margin: 0 0 0 40px

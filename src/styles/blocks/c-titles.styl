@@ -1,0 +1,37 @@
+.c-titles
+  line-height: 1
+
+  &__head
+    margin-bottom: 20px
+
+  &__title
+    font-size: 34px
+
+  &__link
+    font-size: 20px
+    color: #0042B5
+
+
++min_large_2()
+  .c-titles
+    &__title
+      font-size: 45px
+    &__body
+      &-item
+        & + &
+          margin-top: 24px
+
++large_2()
+  .c-titles
+    &__body
+      display: flex
+      align-items center
+
+      &-item
+        & + &
+          margin-left: 35px
+
++extra_small()
+  .c-titles
+    &__body
+      justify-content: space-between;

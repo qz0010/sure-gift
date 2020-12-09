@@ -1,0 +1,423 @@
+.b-cart
+  position: relative
+  border-radius: 8px;
+  overflow: hidden
+  box-shadow: 0 12px 24px 0 $cBl-3-shadow-1
+  background-repeat: no-repeat
+  background-position: center 0
+  background-size: cover
+
+  &__content-overlay
+    position: absolute;
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+
+  &__related
+    transition: opacity $sMiddle ease-in-out, visibility $sMiddle ease-in-out
+    -webkit-transition: opacity $sMiddle ease-in-out, visibility $sMiddle ease-in-out
+    padding: 0 14px 15px
+    z-index: 2
+
+    &:active
+      -webkit-transition: opacity $sMiddle ease-in-out, visibility $sMiddle ease-in-out
+
+  &.f-popover
+    overflow: initial
+    z-index: 10
+
+  &.f-desktop
+    .b-cart__related
+      visibility: hidden
+      opacity: 0
+
+  &:hover, &.f-active
+    .b-cart__related
+      -webkit-transition: opacity $sMiddle ease-in-out, visibility $sMiddle ease-in-out
+      visibility: visible
+      opacity: 1
+
+  &_theme-fund
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+    &_1:before
+        background-image: $cBl-4-gradient-2
+    &_2:before
+        background-image: $cBl-4-gradient-1
+
+  &_theme-new
+    height: 100%
+    background: $cBl-3-4
+  &__support-value, &__table-value_value
+    transition: color $sFast ease-in-out
+  &__cart
+    font-size: 14px
+    color: $cBl-3-2
+    &-body
+      &:not(.f-sub-active)
+        .b-cart__support-value, .b-cart__table-value_value
+          color: $cBl-3-32
+    &-image
+      position: relative
+      min-height: 190px
+      border-radius: 8px 8px 0 0
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center 0
+      &:before
+        content: ''
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background: $cBl-4-gradient-2
+    &-content
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      flex: 1
+      padding: 22px 20px
+      background: $cBl-3-4
+
+  &__new
+    text-align: center
+    &-ico
+      .svg-ref
+        fill: $cBl-3-3
+    &-footer
+      margin-top: 62px
+    &-row
+      margin-bottom: 12px
+      &:last-child
+        margin-bottom: 0
+  &__section-title
+    font-size: 24px
+    letter-spacing: -0.13px
+    color: $cBl-3-17
+  &__content
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    position: relative
+    z-index: 2
+    &_sz-1
+      min-height: 444px
+    &_sz-2
+      min-height: 585px
+    &_theme-cart
+      min-height: 585px
+    &_theme-fund, &_theme-new
+      min-height: 444px
+    &_theme-new
+      justify-content: center
+      align-items: center
+      height: 100%
+    &_theme-urgent
+      min-height: 80vh
+  &__head
+    &_cart
+      margin-bottom: 20px
+    &-row
+      display: flex
+      justify-content: space-between
+      margin-bottom: 8px
+      mLast('bottom')
+
+    &-item
+      &_logo
+        text-align: right
+
+    &-logo
+      display: inline-block
+      max-width: 100%
+      max-height: 92px
+      height: auto
+
+    &-title
+      margin-bottom: 8px
+      font-family: $ff-2
+      line-height: 1.2
+      font-weight: 500
+      letter-spacing: -.2px
+      //word-break: break-word
+
+      &:last-child
+        margin-bottom: 0
+
+      &_c-1
+        color: $cBl-4-1
+      &_c-2
+        color: $cBl-4-3
+
+    &-info
+      position: relative
+      z-index: 2
+
+  &__body
+    position: relative
+    &_theme-project
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      padding: 22px 20px
+      min-height: 273px
+      border-radius: 8px 8px 0 0
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center top
+
+      &:before
+        content: ''
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        z-index: 1
+        background-image: $cBl-4-gradient-3
+
+  &__insert
+    &_theme-cart
+      padding: 19px 0
+      border-top: 1px dotted $cBl-3-18
+      border-bottom: 1px dotted $cBl-3-18
+    &_mb-1
+      margin-bottom: 17px
+
+  &__table
+    &-tr
+      display: flex
+      justify-content: space-between
+      margin-bottom: 13px
+      &:last-child
+        margin-bottom: 0
+    &-td
+      width: 45%
+      &_value
+        text-align: right
+    &-value
+      letter-spacing: -0.08px
+      &_value
+        color: $cBl-3-19
+
+  &__support
+    &-tr, &-row
+      display: flex
+      align-items: center
+    &-tr
+      justify-content: space-between
+      flex-wrap: wrap
+    &-item
+      margin-right: 16px
+      line-height: 1
+      &:last-child
+        margin-right: 0
+    &-value
+      font-size: 22px
+      color: $cBl-3-3
+      line-height: 1
+
+  &__charged
+    &-row
+      display: flex
+      align-items: center
+      justify-content: space-between
+    &-item
+      position: relative
+    &-text
+      max-width: 215px
+      font-size: 12px
+      letter-spacing: -0.7px
+      color: $cBl-3-6
+  &__popover
+    display: none
+    min-width: 220px
+    position: absolute
+    right: 0
+    top: 100%
+    padding-top: 9px
+    &.f-active
+      display: block
+    //&:hover
+    //  display: block
+    &-wrap
+      padding: 16px
+      border-radius: 8px
+      box-shadow: 0 12px 24px 0 $cBl-3-shadow-1
+      background: $cBl-3-4
+    &-item
+      margin-bottom: 18px
+      &:last-child
+        margin-bottom: 0
+    &-link
+      cursor: pointer
+      color: $cBl-3-20
+      &:hover
+        color: $cBl-3-2
+  &__dots
+    font-size: 0
+    .svg-ref
+      fill: $cBl-3-11
+    &:hover, &.f-active
+      .svg-ref
+        fill: $cBl-3-17
+    //&:hover ~ .b-cart__popover
+    //  display: block
+  &__footer
+    &_theme-project
+      padding: 24px 20px 25px
+      border-radius: 0 0 8px 8px;
+      background: $cBl-3-12
+    &_mt-1
+      margin-top: 17px
+
+    &-row
+      margin-bottom: 25px
+      &_mb-1
+        margin-bottom: 19px
+    &-tr
+      margin-bottom: 12px
+      &_mb-2
+        margin-bottom: 15px
+      &_mb-3
+        margin-bottom: 17px
+
+    &-row, &-tr
+      mLast('bottom')
+
+  &__info
+    &-row
+      margin-bottom: 9px
+      mLast('bottom')
+
+    &-title
+      font-size: 24px
+      line-height: 1.2
+      font-weight: 700
+      letter-spacing: -0.1px
+      color: $cBl-4-3
+
+  &__sub-text
+    font-size: 14px
+    line-height: 1.2
+    font-weight: 700
+    letter-spacing: -.1px
+    color: $cBl-4-2
+
+    &_theme-project
+      font-family: $ff-2
+      font-size: 16px
+      font-weight: 500
+      color: $cBl-4-3
+    &_theme-cart
+      color: inherit
+
+    &_c-1
+      color: $cBl-4-2
+    &_c-2
+      color: $cBl-4-4
+    &_c-3
+      color: $cBl-3-5
+
+  &__dt
+    font-size: 12px
+    letter-spacing: -0.07px
+    text-align: center
+    color: $cBl-3-26
+
+  &__status
+    &-text
+      font-size: 20px
+      line-height: 1.2
+      font-weight: 700
+      letter-spacing: -0.1px
+      color: $cBl-3-11
+    &-active
+      color: $cBl-3-3
+
+  &__announce
+    position: absolute
+    top: 23px
+    left: 25px
+    width: 100%
+
+  &__buttons
+    &-row
+      display: flex
+    &-item
+      margin-right: 14px
+      &:last-child
+        margin-right: 0
+      &_3-4_1
+        flex-basis: 68%
+      &_3-4_2
+        flex: 1;
+
++desktop()
+  .b-cart
+    //&__content
+    //  &_theme-fund
+    //    min-height: 408px
+
+    &__head
+      padding: 22px 25px
+      &_cart
+        padding: 0
+        margin-bottom: 22px
+
+      &-item
+        &_title
+          flex: 1 0 66%
+
+      &-title
+        font-size: 42px
+        padding-right: 13%
+        &_cart
+          font-size: 34px
+    &__announce
+      width: 416px
+
++min_large_2()
+  .b-cart
+    //&__content
+    //  &_theme-fund
+    //    min-height: 444px
+    &__support
+      &-value
+        font-size: 28px
+
++mobile()
+  .b-cart
+    &__content
+      &_sz-1
+        min-height: 342px
+      //&_theme-fund
+      //  min-height: 408px
+
+    &__head
+      padding: 15px 20px
+      &_cart
+        padding: 0
+        margin-bottom: 20px
+
+      &-item
+        &_title
+          flex: 1 0 74%
+
+      &-title
+        font-size: 35px
+        //padding-right: 32%
+        padding-right: 2px
+
+    &__footer
+      &_theme-project
+        padding-left: 16px
+        padding-right: 16px

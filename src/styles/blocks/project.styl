@@ -1,0 +1,209 @@
+.project
+  padding-bottom: 30px
+
+  &__image
+    position: relative
+    z-index: 1
+    min-height: 85vh
+
+    &-image
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      height: 100%
+      z-index: 1
+      overflow: hidden
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center top
+      //filter: blur(4px)
+
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+
+      &_theme-1
+        &:before
+          background-image: $cBl-4-gradient-1
+
+      &_theme-2
+        &:before
+          background-image: $cBl-4-gradient-2
+
+    &-content
+      position: relative
+      z-index: 2
+
+  &__heading
+    &-row
+      margin-bottom: 15px
+      &:last-child
+        margin-bottom: 0
+      &_head
+        margin-bottom: 20px
+  &__sub-title
+    font-family: $ff-2
+    font-weight: 500
+    color: $cBl-4-4
+  &__body
+    position: relative
+    z-index: 2
+  &__footer
+    &-title
+      font-size: 34px
+      font-weight: 700
+      color: $cBl-3-2
+    &-head
+      margin-bottom: 20px
+  &__fund-title
+    font-family: $ff-2
+    font-weight: 500
+    line-height: 1.2
+  &__project-title
+    font-weight: 700
+    line-height: 1.2
+    color: #fff
+
++desktop()
+  .project
+    &__image
+      //padding: 112px $sideGap_d 10vh
+      &_project
+        padding: 110px $sideGap_d 50px
+      &_fund
+        padding: 85px $sideGap_d 50px
+
+    &__heading
+      &_fund
+        margin-bottom: 30px
+      &_project
+        margin-bottom: 66px
+      &-row
+        &_mb-1
+          margin-bottom: 22px
+
+    &__project-title
+      font-size: 45px
+      letter-spacing: -0.3px
+
+    &__fund-title
+      font-size: 60px
+      letter-spacing: -.5px
+
+    &__sub-title
+      font-size: 20px
+
+    &__body
+      padding: 0 $sideGap_d
+      &_project
+        top: -30px
+        margin-bottom: -30px
+      &_fund
+        top: -30px
+        margin-bottom: -30px
+
+    &__footer
+      padding: 0 $sideGap_d
+      margin-top: 70px
+
++min_medium_2()
+  .project
+    &__heading
+      &-row
+        &_head
+          display: inline-block
+          max-width: 540px
+          //max-width: 495px
+          //margin-bottom: 0
+        &_table
+          float: right
+          width: 325px
+          margin-bottom: 0
+    &-head
+      margin-bottom: 40px
+    &-title
+      font-size: 45px
++min_large_2()
+  .project
+    &__footer
+      &-head
+        margin-bottom: 40px
+      &-title
+        font-size: 45px
+    &__image
+      //padding: 112px $sideGap_d 10vh
+      &_fund
+        padding: 112px $sideGap_d 220px
+
+      &_project
+        padding: 250px $sideGap_d 105px
+    &__project-title
+      font-size: 60px
+      letter-spacing: -0.3px
+
+    &__fund-title
+      font-size: 92px
+      letter-spacing: -.5px
+    &__body
+      &_fund
+        top: -80px
+        margin-bottom: -80px
+
++mobile()
+  .project
+    &__image
+      //padding: 85px 0 10vh
+      min-height: 60vh
+
+      &_project
+        padding: 85px $sideGap 50px
+      &_fund
+        padding: 85px 0 50px
+
+    &__body
+      top: -20px
+      margin-bottom: -20px
+    &__footer
+      margin-top: 35px
+
+    &__heading
+      margin-bottom: 25px
+      &-row
+        &_fund
+          padding-left: $sideGap
+        &_head
+          padding: 0 $sideGap
+          display: flex
+
+    &__project-title
+      font-size: 24px
+
+    &__fund-title
+      font-size: 46px
+      max-width: 360px
+
+    &__title
+      &-item
+        &_title
+          flex: 1 0 72%
+          padding-right: 15px
+
+    &__logo
+      display: block
+      max-width: 100%
+      height: auto
+      max-height: 110px
+
++ultra_small()
+  //&__project-title
+  //  font-size: 22px
+  .project
+    &__body
+      padding: 0
+    &__fund-title
+      font-size: 42px

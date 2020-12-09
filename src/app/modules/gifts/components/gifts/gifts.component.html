@@ -1,0 +1,33 @@
+<section class="mxn-section mxn-section_pad-1 mxn-section_theme-1 gifts" *ngIf="data">
+  <article class="gifts__wrap">
+    <div class="gifts__row">
+      <div class="gifts__col gifts__col_text" *ngIf="data.meta?.fiscal_position_title || data.description">
+        <div class="gifts__text">
+          <div class="gifts__text-head gifts__text-head_mb-2" *ngIf="data.meta?.fiscal_position_title">
+            <h4 class="gifts__text-title" [innerHTML]="data.meta.fiscal_position_title | multilang"></h4>
+          </div>
+          <div class="gifts__text-body" *ngIf="data.description" [innerHTML]="data.description | multilang"></div>
+        </div>
+      </div>
+      <div class="gifts__col gifts__col_content">
+        <div class="gifts__body">
+          <div class="gifts__body-row">
+            <app-gifts-raised></app-gifts-raised>
+          </div>
+<!--          <div class="gifts__body-row gifts__body-row_related">-->
+<!--            mastercard-->
+<!--          </div>-->
+          <div class="gifts__body-row">
+            <app-gifts-list></app-gifts-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+<!--  <div class="sticky">-->
+<!--    <div class="sticky__wrap">-->
+<!--      <app-cart-panel></app-cart-panel>-->
+<!--    </div>-->
+<!--  </div>-->
+</section>

@@ -1,0 +1,120 @@
+.people
+  &__head
+    margin-bottom: 20px
+    &_theme-page
+      margin-bottom: 24px
+    &-row
+      display: flex
+      justify-content: space-between
+  &__nav
+    display: flex
+    justify-content: space-between
+    width: 80px
+
+    &-item
+      transition: opacity $sFast ease-in-out
+      opacity: .1
+      cursor: pointer
+
+      &:hover
+        opacity: 1
+
+  &__title
+    font-family: $ff-2
+    font-size: 26px
+    font-weight: 500
+    letter-spacing: -0.2px
+    line-height: 1.2
+    color: $cBl-5-5
+
+    &_theme-page
+      font-family: $ff-1
+      font-size: 18px
+      font-weight: 700
+      color: $cBl-6-2
+
+  &__list
+    display: flex
+  //
+  &__item
+    mLast('right')
+
+  &__person
+    text-align: center
+
+    &-row
+      margin-bottom: 4px
+      mLast('bottom')
+
+    &-ava
+      margin: 0 auto
+      overflow: hidden
+      border-radius: 100%
+      box-shadow: 0 12px 24px 0 $cBl-5-shadow-1
+    &-ava, &-img
+      width: 112px
+      height: 112px
+    &-img
+      display: inline-block
+    &-info
+      margin-top: 14px
+    &-title, &-text
+      font-weight: 700
+      line-height: 1.2
+      letter-spacing: -0.1px
+    &-title
+      font-size: 14px
+    &-text
+      font-size: 12px
+    &-title
+      color: $cBl-5-1
+
+    &-text
+      color: $cBl-5-3
+
++desktop()
+  .people
+    &__item
+      width: 162px
+      margin-right: 54px
+
++min_large_2()
+  .people
+    &__head
+      margin-bottom: 30px
+      &_theme-page
+        margin-bottom: 42px
+      &-row
+        display: flex
+        justify-content: space-between
+
+    &__title
+      font-size: 42px
+      &_theme-page
+        font-size: 24px
+
+    &__nav
+      display: flex
+      justify-content: space-between
+      width: 80px
+
+      &-item
+        transition: opacity $sFast ease-in-out
+        opacity: .1
+        cursor: pointer
+
+        &:hover
+          opacity: 1
+    &__person
+      &-ava, &-img
+        width: 126px
+        height: 126px
+
+      &-info
+        margin-top: 18px
+
++mobile()
+  .people
+    &__item
+      width: 150px
+      margin-right: 42px

@@ -1,0 +1,36 @@
+.project-info
+  &__head
+    margin-bottom: 22px
+  &__logo
+    display: block
+    max-width: 100%
+    max-height: 74px
+    height: auto
+    width: auto
+  &__tr
+    margin-bottom: 4px
+    &:last-child
+      margin-bottom: 0
+  &__text
+    font-size: 14px
+    font-weight: 700
+    letter-spacing: -0.1px
+
++desktop()
+  .project-info
+    &__footer
+      margin-top: 16px
+      padding-top: 16px
+      border-top: 1px solid $cBl-6-5
+
++mobile()
+  .project-info
+    display: flex
+    flex-direction: column
+
+    &__body
+      order: 2
+
+    &__footer
+      order: 1
+      margin-bottom: 23px

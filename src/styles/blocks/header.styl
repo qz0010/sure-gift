@@ -1,0 +1,33 @@
+.header
+  position: absolute
+  z-index: $zHeader
+  width: 100%
+  padding: 15px $sideGap
+  left: 0
+  top: 0
+  font-size: 0
+
+  &__row
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  &__item
+    position: relative
+
+  &__logo
+    & > svg
+      height: 30px
+      width: auto
+
+  &__share-ico
+    & > svg
+      height: 28px
+      width: auto
+
+//+mobile()
+//  .header
+//
+//+desktop()
+//  .header
+//

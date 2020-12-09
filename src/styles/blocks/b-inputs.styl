@@ -1,0 +1,67 @@
+.b-inputs
+  &__body
+    &-row
+      margin-bottom: 36px
+      &:last-child
+        margin-bottom: 0
+      &-head
+        margin-bottom: 23px
+  &__footer
+    margin-top: 25px
+  &__row
+    margin-bottom: 22px
+  &__list
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -7px -14px
+    &-item
+      //flex: 1
+      width: calc(50% - 14px)
+      margin: 0 7px 14px
+  &__input-wrap
+    position: relative
+  &__items
+    &-row
+      display: flex
+    &_maxw-1
+      max-width: 380px
+  &__item
+    margin-right: 60px
+    &:last-child
+      margin-right: 0
+
++mobile()
+  .b-inputs
+    &__footer
+      &-item
+        &_btn
+          margin-top: 27px
+
++desktop()
+  .b-inputs
+    &__inputs
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+      margin-bottom: -43px
+    &__footer
+      margin-top: 30px
+      &-items
+        display: flex
+        align-items: center
+        &_jc-sb
+          justify-content: space-between
+    &__row
+      width: 48%
+      margin-bottom: 43px
+      &_full-width
+        width: 100%
+      &_w-3
+        width: 80%
+      &_w-2
+        width: auto
+    &__list
+      margin: 0 -12px -12px
+      &-item
+        width: calc(25% - 24px)
+        margin: 0 12px 12px

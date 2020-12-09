@@ -1,0 +1,100 @@
+.layout
+  position: relative
+  z-index: 10
+  max-width: $w_max_page_width
+  margin: 0 auto
+  overflow: hidden
+  background-repeat: no-repeat
+  background-position: 0 0
+
+  &__wrap
+    position: relative
+    z-index: 2
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+
+  &__head-image
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1
+    height: 85vh
+    background-repeat: no-repeat
+    background-position: center top
+    background-size: cover
+
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+
+    &_theme-1
+      &:before
+        background-image: $cBl-4-gradient-1
+
+    &_theme-2
+      &:before
+        background-image: $cBl-4-gradient-2
+
+  &__content
+    flex: 1
+
+.bg
+  position: relative
+  background-repeat: no-repeat
+  background-size: cover
+  &_page
+    min-height 100vh
+  &_theme-2
+    background-position: center bottom
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+      z-index: 1
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+
++desktop()
+  .layout
+    //&_panel
+    //  padding-bottom: 140px
+
+    &__wrap
+      &_theme-1, &_theme-2
+        padding: 28px $sideGap_d 30px
+
+      &_theme-2
+        padding-bottom: 123px
+
++large_2()
+  .layout
+    //&_panel
+    //  padding-bottom: 140px
+
+    &__wrap
+      &_theme-1, &_theme-2
+        padding: 28px ($sideGap_d / 2) 30px
+
+      &_theme-2
+        padding-bottom: 123px
+
++mobile()
+  .layout
+    //&_panel
+    //  padding-bottom: $hCartPanel_m + 20px
+
+    &__wrap
+      &_theme-1, &_theme-2
+        padding: 20px $sideGap 30px
+
+//&_theme-3
+//  padding-top: 17px
+//  padding-bottom: 27px

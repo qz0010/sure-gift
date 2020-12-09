@@ -1,0 +1,52 @@
+.mxn-i-check
+  display: inline-block
+  cursor: pointer
+  &.f-disabled
+    cursor: default
+  &-icon
+    font-size: 0
+    visibility: hidden
+    .svg-ref
+      height: 8px
+      width: auto
+      fill: $cBl-3-4
+  &-fake
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 24px
+    height: 24px
+    &_theme-1
+      background: $cBl-3-7
+      border-radius: 3px
+    &_theme-2
+      background: $cBl-3-17
+    &_toggle
+      justify-content: flex-start
+      width: 49px
+      height: 29px
+      padding: 0 1px
+      border-radius: 15px
+      transition: background $sFast ease-in-out
+  &-switcher
+    position: relative
+    left: 0
+    width: 27px
+    height: 27px
+    border-radius: 100%
+    transition: left $sFast ease-in-out
+    &_theme-1
+      background: $cBl-3-4
+      box-shadow: 1px 2px 7px 0 $cBl-3-shadow-4
+  &-input
+    &:checked
+      & ~ .mxn-i-check-fake
+        & .mxn-i-check-icon
+          visibility: visible
+        & .mxn-i-check-switcher
+          left: calc(100% - 27px)
+        &_theme-1
+          background: $cBl-3-3
+        &_theme-2
+          background: $cBl-3-3

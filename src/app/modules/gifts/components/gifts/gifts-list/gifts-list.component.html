@@ -1,0 +1,26 @@
+<div class="g-list">
+  <div class="g-list__row" *ngFor="let price of cart.prices">
+    <div class="v-btn">
+      <div class="v-btn__body">
+        <div class="v-btn__items">
+          <div class="v-btn__item">
+            <button type="button" class="mxn-btn mxn-btn_ta-c mxn-btn_sz-1 mxn-btn_minh-1 mxn-btn_minw-1 mxn-btn_theme-1">
+              Подарить {{price | countValuesByPrice}} билетов
+            </button>
+          </div>
+          <div class="v-btn__item">
+            <span class="v-btn__btn-text">
+              за {{price | money}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="v-btn__footer">
+        <p class="v-btn__text">
+          Благодаря вам <span class="v-btn__text-mark">{{price | countValuesByPrice}} детей посетят киноконцерт</span>
+<!--          + <span class="v-btn__text-mark">12 детей от Mastercard</span> 1000 ₽ = 1 входной билет для ребенка-->
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

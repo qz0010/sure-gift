@@ -1,0 +1,24 @@
+.mxn-label
+  display: block
+  visibility: hidden
+  opacity: 0
+  transform: translateY(10px)
+  transition: opacity $sFast ease-in-out, transform $sFast ease-in-out
+  margin-bottom: 4px
+  line-height: 1
+
+  &_theme-1
+    font-size: 14px
+    font-weight: 700
+    letter-spacing: -0.08px
+    color: $cBl-3-5
+  &_mb-1
+    margin-bottom: 6px
+  &_mb-2
+    margin-bottom: 14px
+  &_mb-3
+    margin-bottom: 10px
+  &.f-active
+    visibility: visible
+    opacity: 1
+    transform: translateY(0)
