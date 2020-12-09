@@ -5,7 +5,9 @@
         <div class="v-btn__items">
           <div class="v-btn__item">
             <button type="button" class="mxn-btn mxn-btn_ta-c mxn-btn_sz-1 mxn-btn_minh-1 mxn-btn_minw-1 mxn-btn_theme-1">
-              Подарить {{price | countValuesByPrice}} билетов
+              Подарить {{price | countValuesByPrice}} {{price | countValuesByPrice | numerative: [
+              'Ticket1' | translate, 'Ticket2' | translate, 'Ticket3' | translate
+            ]}}
             </button>
           </div>
           <div class="v-btn__item">
