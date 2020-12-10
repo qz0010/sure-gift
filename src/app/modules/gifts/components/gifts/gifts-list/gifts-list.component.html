@@ -1,10 +1,13 @@
 <div class="g-list">
   <div class="g-list__row" *ngFor="let price of cart.prices">
-    <div class="v-btn">
+    <div class="v-btn" [ngClass]="{'f-active': price === cart.total_cost}">
       <div class="v-btn__body">
         <div class="v-btn__items">
           <div class="v-btn__item">
-            <button type="button" class="mxn-btn mxn-btn_ta-c mxn-btn_sz-1 mxn-btn_minh-1 mxn-btn_minw-1 mxn-btn_theme-1">
+            <button type="button"
+                    class="mxn-btn mxn-btn_ta-c mxn-btn_sz-1 mxn-btn_minh-1 mxn-btn_minw-1 mxn-btn_theme-1"
+                    [ngClass]="{'f-active': price === cart.total_cost}"
+                    (click)="cart.selectPrice(price)">
               Подарить {{price | countValuesByPrice}} {{price | countValuesByPrice | numerative: [
               'Ticket1' | translate, 'Ticket2' | translate, 'Ticket3' | translate
             ]}}
@@ -24,8 +27,9 @@
               'Child1' | translate, 'Child2' | translate, 'Child3' | translate
         ]}} {{price | countValuesByPrice | numerative: [
           'Visit1' | translate, 'Visit2' | translate, 'Visit3' | translate
-        ]}} киноконцерт</span>
+        ]}}</span> киноконцерт
 <!--          + <span class="v-btn__text-mark">12 детей от Mastercard</span> 1000 ₽ = 1 входной билет для ребенка-->
+          <br>{{cart.oneValuePrice | money}} = 1 входной билет для ребенка
         </p>
       </div>
     </div>

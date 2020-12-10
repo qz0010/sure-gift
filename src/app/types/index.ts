@@ -58,6 +58,7 @@ export interface IShowcaseItem {
   // Tags?: ITag[];
   // Views?: ICertificateView[];
   _uuid?: string;
+  uuid?: string;
   activation_last_date?: string;
   activation_ttl?: string;
   description?: IMultiLangField;
@@ -83,4 +84,56 @@ export interface IShowcaseItem {
   entity_icons?: IMediaInfo[];
   entity_label?: any;
   // seo?: ICertificateSeo;
+}
+
+export interface IPaymentMethod {
+  uuid?: string;
+  _uuid?: string;
+  type: 'common' | 'applepay' | 'gift' | 'gpay';
+  name: string;
+  ext_provider_data?: any;
+}
+
+export interface ICertificateBodyItem {
+  cert_config?: string;
+  cert_view?: string;
+  count?: number;
+  price?: number;
+  addressee?: ICertificateBodyAddressee;
+  is_gift?: boolean;
+  is_corporate?: boolean;
+  sender_name?: string;
+  logo?: string;
+}
+
+export interface ICertificateBodyClient {
+  email?: string;
+  phone?: string;
+  name?: string;
+}
+
+export interface ICertificateBodyAddressee {
+  email?: string;
+  phone?: string;
+  message?: string;
+  name?: string;
+}
+
+export interface ICertificateBody {
+  items?: ICertificateBodyItem[];
+  client?: ICertificateBodyClient;
+  payment_method?: string;
+  payment_token?: string;
+  lang?: string;
+}
+
+export interface ICertificateRes {
+  _uuid: string;
+  payment: {
+    payment_url: string;
+    status: 'confirm' | 'success';
+  };
+  status: 'complete';
+  total_amount: string | number;
+  total_count: number;
 }

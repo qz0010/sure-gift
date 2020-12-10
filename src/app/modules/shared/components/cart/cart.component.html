@@ -1,0 +1,105 @@
+<ng-template #valuesTmp let-price="price">
+  <p class="r-table__text">
+    Благодаря вам <span class="r-table__text-mark">
+            {{cart.total_cost | countValuesByPrice}} {{cart.total_cost | countValuesByPrice | numerative: [
+    'Child1' | translate, 'Child2' | translate, 'Child3' | translate
+  ]}} {{cart.total_cost | countValuesByPrice | numerative: [
+    'Visit1' | translate, 'Visit2' | translate, 'Visit3' | translate
+  ]}}</span> киноконцерт
+  </p>
+</ng-template>
+
+<div class="cart mxn-container mxn-container_gap-2">
+  <section class="mxn-section mxn-section_mb-1 mxn-section_pad-1 mxn-section_theme-1">
+    <div class="mxn-section-head mxn-section-head_mb-1">
+      <div class="mxn-section-head-row mxn-section-head-row_mb-1">
+        <h4 class="mxn-title mxn-title_sz-1">Ваш взнос</h4>
+      </div>
+    </div>
+
+    <div class="r-table">
+      <div class="r-table__table">
+        <div class="r-table__tr-wrap">
+          <div class="r-table__tr r-table__tr_wrap r-table__tr_ali-c">
+            <div class="r-table__td r-table__td_head">
+            <span class="r-table__value" *ngIf="cart.currEvent?.name">
+              {{cart.currEvent.name | multilang}}
+            </span>
+            </div>
+            <div class="r-table__td r-table__td_text mxn-desktop">
+              <ng-container [ngTemplateOutlet]="valuesTmp"></ng-container>
+            </div>
+            <div class="r-table__td mxn-mobile">
+              <!--             (click)="onDelete()"-->
+              <div class="r-table__ico r-table__ico_c-1 mxn-cur-p">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+                  <path fill="#D8D8D8" fill-rule="evenodd" d="M10.5 20.988c-5.799 0-10.5-4.7-10.5-10.5C0 4.69 4.701-.012 10.5-.012S21 4.69 21 10.488c0 5.8-4.701 10.5-10.5 10.5zm1.429-10.599l2.828-2.828a1 1 0 0 0-1.414-1.415l-2.828 2.829-2.829-2.829a1 1 0 0 0-1.414 1.415l2.829 2.828-2.829 2.828a1 1 0 0 0 1.414 1.415l2.829-2.829 2.828 2.829a1 1 0 1 0 1.414-1.415L11.93 10.39z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="r-table__td r-table__td_text mxn-mobile">
+              <ng-container [ngTemplateOutlet]="valuesTmp"></ng-container>
+            </div>
+            <div class="r-table__td r-table__td_buttons r-table__td_m-full-width">
+              <div class="r-table__items r-table__items_cart">
+                <div class="r-table__item r-table__item_mr-2">
+                  <div class="r-table__items">
+                    <div class="r-table__item r-table__item_mr-1">
+<!--                                  (change)="onCountChange($event)"
+                                      (increment)="onIncrement($event)"
+                                      (decrement)="onDecrement($event)"
+                                      [source]="item"
+                                      [value]="item.amount" [decrementValue]="item | calcCommission"
+-->
+                      <app-plus-minus [max_value]="200000000"
+                                      [value]="cart.total_cost"
+                                      [valueStep]="100000"
+                                      (increment)="cart.changePriceCalc(100000)"
+                                      (decrement)="cart.changePriceCalc(-100000)">
+                      </app-plus-minus>
+                    </div>
+                  </div>
+                </div>
+                <div class="r-table__item mxn-desktop">
+                  <!--                (click)="onDelete()"-->
+                  <div class="r-table__ico r-table__ico_c-1 mxn-cur-p">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+                      <path fill="#D8D8D8" fill-rule="evenodd" d="M10.5 20.988c-5.799 0-10.5-4.7-10.5-10.5C0 4.69 4.701-.012 10.5-.012S21 4.69 21 10.488c0 5.8-4.701 10.5-10.5 10.5zm1.429-10.599l2.828-2.828a1 1 0 0 0-1.414-1.415l-2.828 2.829-2.829-2.829a1 1 0 0 0-1.414 1.415l2.829 2.828-2.829 2.828a1 1 0 0 0 1.414 1.415l2.829-2.829 2.828 2.829a1 1 0 1 0 1.414-1.415L11.93 10.39z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-table__tr-wrap">
+          <div class="r-table__tr">
+            <div class="r-table__td r-table__td_head">
+              <div class="r-table__td-row">
+                <span class="r-table__value r-table__value_c-3">
+                  Итоговая сумма взноса
+                </span>
+              </div>
+            </div>
+            <div class="r-table__td r-table__td_value">
+              <span class="r-table__value r-table__value_c-3">
+                  {{cart.total_cost | money}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-cart-personal (submitForm)="onSubmit($event)"></app-cart-personal>
+
+<!--  <section class="mxn-section mxn-section_mb-1 mxn-section_pad-1 mxn-section_theme-1">-->
+<!--    <div class="mxn-section-head mxn-section-head_mb-1">-->
+<!--      <div class="mxn-section-head-row mxn-section-head-row_mb-1">-->
+<!--        <h4 class="mxn-title mxn-title_sz-1">Персональные данные</h4>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+</div>

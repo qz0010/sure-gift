@@ -18,6 +18,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {CountValuesByPricePipe} from './pipes/count-values-by-price.pipe';
 import {NumerativePipe} from './pipes/numerative.pipe';
 import {TranslateModule} from '@ngx-translate/core';
+import {RouterModule} from '@angular/router';
+import {PlusMinusComponent} from '../plus-minus/components/plus-minus/plus-minus.component';
+// import {ExtendFormErrorsComponent} from './extend-components/form-errors/form-errors.component';
+import {CartPersonalComponent} from './components/cart/cart-personal/cart-personal.component';
+import {FormsModule} from '@angular/forms';
+import {NativeElementControlDirective} from './directives/native-element-control.directive';
 
 
 @NgModule({
@@ -30,7 +36,11 @@ import {TranslateModule} from '@ngx-translate/core';
     SocialComponent,
     HowComponent,
     CountValuesByPricePipe,
-    NumerativePipe
+    NumerativePipe,
+    PlusMinusComponent,
+    // ExtendFormErrorsComponent,
+    CartPersonalComponent,
+    NativeElementControlDirective
   ],
   exports: [
     MultilangPipe,
@@ -42,12 +52,19 @@ import {TranslateModule} from '@ngx-translate/core';
     HowComponent,
     CountValuesByPricePipe,
     NumerativePipe,
-    TranslateModule
+    TranslateModule,
+    PlusMinusComponent,
+    // ExtendFormErrorsComponent,
+    CartPersonalComponent,
+    NativeElementControlDirective
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    TabsModule
+    TabsModule,
+    RouterModule,
+    FormsModule,
+    TranslateModule
   ],
   providers: []
 })

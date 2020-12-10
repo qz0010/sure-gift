@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CartService} from '../../services/cart.service';
+import {IShowcaseItem} from '../../../../types';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-cart-panel',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-panel.component.styl']
 })
 export class CartPanelComponent implements OnInit {
+  public data: IShowcaseItem;
 
-  constructor() { }
+  constructor(
+    public cart: CartService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.data = this.route.snapshot.data.showcase;
   }
 
 }

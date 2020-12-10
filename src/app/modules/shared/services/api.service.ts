@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {IShowcaseFundraising, IShowcaseItem} from '../../../types';
+import {ICertificateBody, ICertificateRes, IPaymentMethod, IShowcaseFundraising, IShowcaseItem} from '../../../types';
 import {environment} from '../../../../environments/environment';
 
 @Injectable({
@@ -21,5 +21,13 @@ export class ApiService {
 
   public getShowCaseFundraising(uuid: string): Observable<IShowcaseFundraising> {
     return this.http.get<IShowcaseFundraising>(`${this.apiUrl}/${this.baseApi}/showcase/list/${uuid}/fundraising_results`);
+  }
+
+  public getPaymentMethods(): Observable<IPaymentMethod[]> {
+    return this.http.get<IPaymentMethod[]>(`/${this.baseApi}/showcase/payment_method`);
+  }
+
+  public newOrder(data: ICertificateBody): Observable<ICertificateRes> {
+    return this.http.put<ICertificateRes>(`/${this.baseApi}/showcase/cart`, JSON.stringify(data));
   }
 }

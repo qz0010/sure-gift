@@ -2,8 +2,18 @@
   {
     "context": [
       "!assets/**/*.*",
-      "**/*"
+      "**/*.jpg",
+      "**/*.jpeg",
+      "**/*.gif",
+      "**/*.png"
     ],
+    "target": "https://donation-gift.lastick.xd.zapomni.systems",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  },
+  {
+    "context": "/api",
     "target": "https://donation-gift.lastick.xd.zapomni.systems",
     "changeOrigin": true,
     "secure": false,

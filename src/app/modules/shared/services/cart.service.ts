@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import {IShowcaseFundraising} from '../../../types';
+import {ICertificateBody, ICertificateRes, IShowcaseEvent, IShowcaseFundraising} from '../../../types';
+import {Observable} from 'rxjs';
+import {ApiService} from './api.service';
+import {finalize} from 'rxjs/operators';
 
 
 export interface IPartnershipInc {
@@ -24,15 +27,27 @@ export class CartService {
   };
   public oneValuePrice = 100000;
   public prices: number[];
+  public currEvent: IShowcaseEvent;
+  public total_cost = 0;
+  public syncing = false;
 
   public set setterPrices(prices: number[]) {
-    this.prices = prices;
+    this.prices = prices.sort((a, b) => b - a);
   }
   public get getPrices(): number[] {
     return this.prices;
   }
 
-  constructor() { }
+  public set setterEvent(event: IShowcaseEvent) {
+    this.currEvent = event;
+  }
+  public get getEvent(): IShowcaseEvent {
+    return this.currEvent;
+  }
+
+  constructor(
+    private api: ApiService
+  ) { }
 
   public calcFundraisingPercent(data: IShowcaseFundraising): number {
     return data.total_sum / data.fundraising_plan * 100 - this.partnershipInc.percent;
@@ -40,5 +55,30 @@ export class CartService {
 
   public countValuesByPrice(price: number): number {
     return price / this.oneValuePrice;
+  }
+
+  public selectPrice(price: number): void {
+    if (this.total_cost === price) {
+      this.total_cost = 0;
+    } else {
+      this.total_cost = price;
+    }
+  }
+
+  public changePriceCalc(dir: number): void {
+    this.total_cost += dir;
+  }
+
+  public checkout(order: ICertificateBody): Observable<ICertificateRes> {
+    this.syncing = true;
+    return this.api.newOrder(order).pipe(
+      finalize(
+        () => {
+          setTimeout(() => {
+            this.syncing = false;
+          }, 1000);
+        }
+      )
+    );
   }
 }

@@ -20,6 +20,7 @@ export class ShowcaseResolver implements Resolve<Observable<any>> {
     return this.api.getShowCaseList().pipe(map(data => {
       const item: IShowcaseItem = data[0];
       this.cart.setterPrices = item.prices;
+      this.cart.setterEvent = (item.meta?.fundraising?.events || [])[0];
 
       return item;
     }));

@@ -7,5 +7,12 @@
   "Visit3": "посетят",
   "Ticket1": "билет",
   "Ticket2": "билета",
-  "Ticket3": "билетов"
+  "Ticket3": "билетов",
+  "PersonalData": {
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "phoneNumber": "Телефонный номер",
+    "email": "Email"
+  },
+  "Cart.PaymentMethodTitle": "Выберите метод оплаты"
 }

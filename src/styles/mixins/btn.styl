@@ -43,6 +43,12 @@
     background-color: $cBl-3-3
     color: $cBl-3-4
 
+  &_theme-4
+    background-color: $cBl-3-8
+    color: $cBl-3-4
+    .svg-ref
+      fill: $cBl-3-4
+
   &_sz-1
     border-radius: 16px
 
@@ -50,11 +56,27 @@
     min-height 42px
     border-radius: 7px
 
+  &_sz-6
+    padding: 14px 18px 14px 14px
+    border-radius: 22px
+    font-size: 14px
+    letter-spacing: -0.08px
+    line-height: 1
+
   &_minw-1
     min-width 180px
 
   &_minh-1
     min-height 33px
+
++desktop()
+  .mxn-btn
+    &_sz-2
+      font-size: 20px
+      min-height: 55px
+
+    &_minw-2
+      min-width 157px
 
 +min_large_2()
   .mxn-btn
@@ -62,9 +84,6 @@
 
     &_sz-1
       border-radius: 100px
-
-    &_sz-2
-      min-height: 55px
 
     &_minw-1
       min-width 272px

@@ -3,12 +3,19 @@
   margin-left: auto
   margin-right: auto
 
-  +mobile()
+
++mobile()
+  .mxn-container
     gap = $sideGap * 2
     width: "calc(100% - %s)" % gap
+    &_gap-2
+      width: 100%
 
 +desktop()
   .mxn-container
     &_gap-1
       gap = $sideGap_d * 2
       width: "calc(100% - %s)" % gap
+
+    &_gap-2
+      max-width: 926px

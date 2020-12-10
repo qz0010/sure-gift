@@ -29,9 +29,11 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "animated-scroll-to": "^2.0.12",
+    "class-transformer": "^0.3.1",
     "date-fns": "^2.16.1",
     "express": "^4.15.2",
     "ngx-device-detector": "^2.0.4",
+    "ramda": "^0.27.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

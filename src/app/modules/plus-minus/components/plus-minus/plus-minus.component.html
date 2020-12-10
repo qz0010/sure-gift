@@ -1,0 +1,32 @@
+<div class="plus-minus">
+  <div class="plus-minus__row">
+    <div class="plus-minus__item plus-minus__item_btn">
+      <div (touchstart)="onHold(0)" (touchend)="onHoldUp()"
+        (mousedown)="onHold(0)" (mouseup)="onHoldUp()" (mouseleave)="onHoldUp()" (click)="onChange(0)"
+        class="plus-minus__btn plus-minus__btn_minus mxn-cur-p">
+        <svg width="13" height="3" viewBox="0 0 13 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12.5599" y="0.900391" width="2" height="12" rx="1" transform="rotate(90 12.5599 0.900391)" fill="white"/>
+        </svg>
+      </div>
+    </div>
+    <div class="plus-minus__item plus-minus__item_value" *ngIf="showValue">
+      <span class="plus-minus__value" *ngIf="currency">
+        {{(currentValue - decrementValue) | money}}
+        <!--        {{(currentValue - decrementValue) | currency: currency}}-->
+<!--        <ng-template ngIf="mark">{{mark}}</ng-template>-->
+      </span>
+      <span class="plus-minus__value" *ngIf="!currency">
+        {{(currentValue - decrementValue)}}
+      </span>
+    </div>
+    <div class="plus-minus__item plus-minus__item_btn">
+      <div (touchstart)="onHold(1)" (touchend)="onHoldUp()"
+        (mousedown)="onHold(1)" (mouseup)="onHoldUp()" (mouseleave)="onHoldUp()" (click)="onChange(1)"
+        class="plus-minus__btn" [ngClass]="{'f-disabled': max_value >= 0 && currentValue >= max_value }">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 6.64062C12.5 6.08834 12.0523 5.64062 11.5 5.64062L7.5 5.64062L7.5 1.64062C7.5 1.08834 7.05228 0.640625 6.5 0.640625C5.94772 0.640625 5.5 1.08834 5.5 1.64062L5.5 5.64062L1.5 5.64062C0.947716 5.64062 0.5 6.08834 0.5 6.64062C0.5 7.19291 0.947715 7.64062 1.5 7.64062L5.5 7.64062L5.5 11.6406C5.5 12.1929 5.94772 12.6406 6.5 12.6406C7.05228 12.6406 7.5 12.1929 7.5 11.6406L7.5 7.64062L11.5 7.64062C12.0523 7.64062 12.5 7.19291 12.5 6.64062Z" fill="white"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

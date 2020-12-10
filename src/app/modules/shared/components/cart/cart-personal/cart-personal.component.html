@@ -1,0 +1,165 @@
+<form
+  *ngIf="personalData"
+  #form="ngForm" (ngSubmit)="onSubmit()"
+  class="mxn-section mxn-section_mb-1 mxn-section_pad-1 mxn-section_theme-1">
+  <div class="mxn-section-head mxn-section-head_mb-1">
+    <div class="mxn-section-head-row mxn-section-head-row_mb-1">
+      <h4 class="mxn-title mxn-title_sz-1">Персональные данные</h4>
+    </div>
+  </div>
+  <div class="cart__section-body">
+    <div class="b-inputs">
+      <div class="b-inputs__body">
+        <div class="b-inputs__body-row">
+          <div class="b-inputs__inputs">
+            <div class="b-inputs__row">
+              <div class="b-inputs__input-wrap">
+<!--                <app-floating-input-label [name]="'PersonalData.firstName' | translate"-->
+<!--                                          [value]="personalData.firstName"></app-floating-input-label>-->
+                <input type="text"
+                       [(ngModel)]="personalData.firstName"
+                       required
+                       name="firstName"
+                       appNativeElementControl
+                       placeholder="{{'PersonalData.firstName' | translate}}"
+                       class="mxn-i-txt mxn-i-txt_theme-1 mxn-i-txt_full-width profile__input">
+              </div>
+            </div>
+            <div class="b-inputs__row">
+              <div class="b-inputs__input-wrap">
+<!--                <app-floating-input-label [name]="'PersonalData.lastName' | translate"-->
+<!--                                          [value]="personalData.lastName"></app-floating-input-label>-->
+                <input type="text"
+                       [(ngModel)]="personalData.lastName"
+                       required
+                       name="lastName"
+                       appNativeElementControl
+                         placeholder="{{'PersonalData.lastName' | translate}}"
+                       class="mxn-i-txt mxn-i-txt_theme-1 mxn-i-txt_full-width profile__input">
+              </div>
+            </div>
+            <div class="b-inputs__row">
+              <div class="b-inputs__input-wrap">
+<!--                <app-floating-input-label [name]="'PersonalData.phoneNumber' | translate"-->
+<!--                                          [value]="personalData.phoneNumber"></app-floating-input-label>-->
+                <input type="tel"
+                       [(ngModel)]="personalData.phoneNumber"
+                       required
+                       name="phoneNumber"
+                       appNativeElementControl
+                       placeholder="{{'PersonalData.phoneNumber' | translate}}"
+                       class="mxn-i-txt mxn-i-txt_theme-1 mxn-i-txt_full-width profile__input">
+              </div>
+            </div>
+            <div class="b-inputs__row">
+              <div class="b-inputs__input-wrap">
+<!--                <app-floating-input-label [name]="'PersonalData.email' | translate"-->
+<!--                                          [value]="personalData.email"></app-floating-input-label>-->
+                <input type="email" email
+                       [(ngModel)]="personalData.email"
+                       required
+                       name="email"
+                       appNativeElementControl
+                       placeholder="{{'PersonalData.email' | translate}}"
+                       class="mxn-i-txt mxn-i-txt_theme-1 mxn-i-txt_full-width profile__input">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="b-inputs__body-row">
+          <div class="b-inputs__body-row-head">
+            <h4 class="mxn-title mxn-title_sz-1">{{'Cart.PaymentMethodTitle' | translate}}</h4>
+          </div>
+          <div class="b-inputs__list">
+            <div class="b-inputs__list-item">
+              <label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"
+                     [class.f-active]="paymentMethod === 'card'">
+                <input type="radio"
+                       [(ngModel)]="paymentMethod"
+                       name="paymentMethod"
+                       value="card" class="mxn-i-hidden">
+                <span class="mxn-pay-item-row">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="27" viewBox="0 0 40 27">
+                      <path fill="#000" fill-rule="nonzero" d="M2.91.39C1.704.39.732 1.362.732 2.57v2.808h39.23V2.569c0-1.207-.971-2.18-2.179-2.18H2.911zM.732 9.562V24.75c0 1.207.972 2.18 2.18 2.18h34.871a2.178 2.178 0 0 0 2.18-2.18V9.562H.732z"/>
+                  </svg>
+                </span>
+                <span class="mxn-pay-item-row">
+                  Банковской<br> картой
+                </span>
+              </label>
+            </div>
+            <!--<div class="b-inputs__list-item">-->
+            <!--<label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"-->
+            <!--[class.f-active]="paymentMethod === 'applepay'">-->
+            <!--<span class="mxn-pay-item-row">-->
+            <!--applepay-->
+            <!--</span>-->
+            <!--<input type="radio"-->
+            <!--[(ngModel)]="paymentMethod"-->
+            <!--name="paymentMethod"-->
+            <!--value="applepay" class="mxn-i-hidden">-->
+            <!--&lt;!&ndash;<app-svg-ref uuid="i-credit-card"></app-svg-ref>&ndash;&gt;-->
+            <!--</label>-->
+            <!--</div>-->
+            <!--<div class="b-inputs__list-item">-->
+            <!--<label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"-->
+            <!--[class.f-active]="paymentMethod === 'googlepay'">-->
+            <!--<span class="mxn-pay-item-row">-->
+            <!--googlepay-->
+            <!--</span>-->
+            <!--<input type="radio"-->
+            <!--[(ngModel)]="paymentMethod"-->
+            <!--name="paymentMethod"-->
+            <!--value="googlepay" class="mxn-i-hidden">-->
+            <!--&lt;!&ndash;<app-svg-ref uuid="i-credit-card"></app-svg-ref>&ndash;&gt;-->
+            <!--</label>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+<!--      <div class="b-inputs__footer" *ngIf="!form.valid && formError">-->
+<!--        <app-status-message [formError]="formError"></app-status-message>-->
+<!--      </div>-->
+      <div class="b-inputs__footer">
+        <div class="b-inputs__footer-items b-inputs__footer-items_jc-sb">
+          <div class="b-inputs__footer-item">
+            <div class="mxn-text-check">
+              <label class="mxn-i-check mxn-i-check_theme-1">
+                <input type="checkbox"
+                       [(ngModel)]="personalData.agreement"
+                       required
+                       name="agreement" id="agreement-checkbox"
+                       class="mxn-i-hidden mxn-i-check-input">
+                <span class="mxn-i-check-fake mxn-i-check-fake_theme-1">
+                  <span class="mxn-i-check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 16 12">
+                        <path fill="#FFF" fill-rule="nonzero" d="M2.38 3.755L.62 5.53l6.043 5.982 9.38-9.38L14.273.367l-7.62 7.62z"/>
+                    </svg>
+<!--                      <app-svg-ref uuid="i-check" width="16" height="12"></app-svg-ref>-->
+                  </span>
+                </span>
+              </label>
+              <label for="agreement-checkbox" class="mxn-text-check-text mxn-text-check-text_ml-1">
+                Нажимая кнопку "Оплатить", я соглашаюсь с <a target="_blank"
+                                                             href=""
+                                                      class="mxn-link">
+                  условиями покупки билетов и обработкой персональных данных
+                </a>
+              </label>
+            </div>
+          </div>
+          <div class="b-inputs__footer-item b-inputs__footer-item_btn">
+            <button type="submit"
+                    [disabled]="cart.syncing"
+                    [ngClass]="{
+                      'f-disabled': form.invalid
+                    }"
+                    class="mxn-btn mxn-btn_minw-2 mxn-btn_sz-2 mxn-btn_theme-2 mxn-btn_full-width mxn-btn_ta-c">
+                Оплатить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

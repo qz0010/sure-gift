@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IShowcaseItem} from '../../../../types';
 import {ActivatedRoute} from '@angular/router';
+import {CartService} from '../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-gifts',
@@ -11,7 +12,8 @@ export class GiftsComponent implements OnInit {
   public data: IShowcaseItem;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public cart: CartService
     ) { }
 
   ngOnInit(): void {
