@@ -34,6 +34,12 @@ large_2()
 //extra_large()
 //  @media all and (max-width: $w_extra_large)
 //    {block}
+min_ultra_small()
+  @media all and (min-width: $w_ultra_small + 1)
+    {block}
+min_extra_small()
+  @media all and (min-width: $w_extra_small + 1)
+    {block}
 min_max()
   @media all and (min-width: $w_max_page_width)
     {block}

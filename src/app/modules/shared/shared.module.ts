@@ -24,6 +24,7 @@ import {PlusMinusComponent} from '../plus-minus/components/plus-minus/plus-minus
 import {CartPersonalComponent} from './components/cart/cart-personal/cart-personal.component';
 import {FormsModule} from '@angular/forms';
 import {NativeElementControlDirective} from './directives/native-element-control.directive';
+import { NumberFormatPipe } from './pipes/number-format.pipe';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {NativeElementControlDirective} from './directives/native-element-control
     PlusMinusComponent,
     // ExtendFormErrorsComponent,
     CartPersonalComponent,
-    NativeElementControlDirective
+    NativeElementControlDirective,
+    NumberFormatPipe
   ],
   exports: [
     MultilangPipe,
@@ -56,7 +58,8 @@ import {NativeElementControlDirective} from './directives/native-element-control
     PlusMinusComponent,
     // ExtendFormErrorsComponent,
     CartPersonalComponent,
-    NativeElementControlDirective
+    NativeElementControlDirective,
+    NumberFormatPipe
   ],
   imports: [
     CommonModule,

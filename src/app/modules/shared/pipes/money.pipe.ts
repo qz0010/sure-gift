@@ -14,6 +14,12 @@ export class MoneyPipe implements PipeTransform {
   transform(price: number, currency?: TCurrency): string {
     const currencies = this.cart.prices_currency;
     const result = price / 100;
+    if (window.Intl && window.Intl.NumberFormat) {
+      return new Intl.NumberFormat('ru-RU', {
+        style: 'currency', currency: 'RUB', maximumSignificantDigits: 10
+      })
+        .format(result);
+    }
     return `${result} ${currencies[currency] || currencies[this.cart.default_currency]}`;
   }
 
