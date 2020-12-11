@@ -47,9 +47,9 @@ export class CartComponent implements OnInit {
       items: [
         {
           addressee: {
-            email: 'support_event@sure.so',
-            name: 'Sure.so',
-            phone: '9167072899'
+            email: client.email,
+            name: client.firstName,
+            phone: client.phoneNumber
           },
           cert_config: this.showcase.uuid || this.showcase._uuid,
           cert_view: (this.showcase.views || [])[0],
