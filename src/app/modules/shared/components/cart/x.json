@@ -1,0 +1,23 @@
+{
+  "client": {
+    "email": "sender@m.ru",
+    "phone": "+77777777777"
+  },
+  "items": [
+    {
+      "count": 1,
+      "price": 150000,
+      "cert_config": "003866cd-ed9f-4b35-b8bd-d72f20bc1b87",
+      "cert_view": "0038679a-8913-418c-b0ad-219252b3cc74",
+      "addressee": {
+        "name": "to",
+        "email": "receiver@mail.ru",
+        "phone": "+79789219532"
+      },
+      "is_corporate": false,
+      "is_gift": true,
+      "sender_name": "from"
+    }
+  ],
+  "payment_method": "0d5c7958-e8dd-11e8-bc97-af5e3638f611"
+}

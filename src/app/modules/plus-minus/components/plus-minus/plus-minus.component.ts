@@ -19,7 +19,9 @@ export class PlusMinusComponent implements OnInit {
   @Input() count: number;
   @Input() valueStep: number;
   @Input() decrementValue = 0;
-  @Input() value: number;
+  @Input('value') set setterValue(value: number) {
+    this.currentValue = value;
+  }
   @Input() max_count: number;
   @Input() max_value: number;
   @Input() disabled = false;
@@ -40,14 +42,13 @@ export class PlusMinusComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentValue = this.value;
   }
 
   onChange(type) {
     const currCount = this.count || 0;
     const resultCount = type === 1 ? currCount >= this.max_count ? currCount : currCount + 1 : currCount !== 0 ? currCount - 1 : 0;
     this.count = resultCount;
-    this.sum = this.sum - (this.value * currCount - this.value * resultCount);
+    this.sum = this.sum - (this.currentValue * currCount - this.currentValue * resultCount);
 
     if (type === 1) {
       if (

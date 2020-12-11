@@ -137,3 +137,23 @@ export interface ICertificateRes {
   total_amount: string | number;
   total_count: number;
 }
+
+export interface IShowcaseOrderItem {
+  activation_range?: string;
+  amount?: number;
+  media?: IMediaInfo;
+  name?: IMultiLangField;
+  number?: string;
+  pdf?: string;
+}
+
+export interface IShowcaseOrder {
+  _uuid?: string;
+  code?: string;
+  created_at?: string;
+  items?: IShowcaseOrderItem[];
+  payment?: {status: string};
+  status?: TOrderStatus;
+  total_amount?: string;
+  total_count?: number;
+}

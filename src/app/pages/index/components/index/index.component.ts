@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {IShowcaseItem} from '../../../../types';
+import {CartService} from '../../../../modules/shared/services/cart.service';
 
 @Component({
   selector: 'app-index',
@@ -11,7 +12,8 @@ export class IndexComponent implements OnInit {
   public data: IShowcaseItem;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public cart: CartService
   ) { }
 
   ngOnInit(): void {

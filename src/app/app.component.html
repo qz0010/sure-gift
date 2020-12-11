@@ -1,5 +1,5 @@
 <div class="device-{{deviceType}}">
-    <div class="wrap">
+    <div class="wrap" [ngClass]="{'wrap_cart': cart.total_cost > 0}">
       <router-outlet></router-outlet>
     </div>
 </div>

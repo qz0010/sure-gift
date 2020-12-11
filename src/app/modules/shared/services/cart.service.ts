@@ -66,7 +66,8 @@ export class CartService {
   }
 
   public changePriceCalc(dir: number): void {
-    this.total_cost += dir;
+    const price = this.total_cost + dir;
+    this.total_cost = price >= 0 ? price : 0;
   }
 
   public checkout(order: ICertificateBody): Observable<ICertificateRes> {
