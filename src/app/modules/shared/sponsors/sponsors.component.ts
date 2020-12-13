@@ -73,6 +73,16 @@ export class SponsorsComponent implements OnInit {
           </p>
         `
       },
+      person: {
+        ava: '/assets/img/smbat.png',
+        name: 'Сергей Смбатян',
+        sub_name: 'Главный дирижер и художественный руководитель АССО',
+        text: `
+        <p>
+          «Искренне надеюсь, что нам с оркестром удастся с помощью этих новогодних благотворительных концертов подарить детям из Арцаха, которые по воле судьбы оказались без крова, хоть немного тепла и радости».
+        </p>
+      `,
+      },
       social: null
     },
     {
@@ -86,7 +96,7 @@ export class SponsorsComponent implements OnInit {
         `
       },
       person: {
-        ava: '/assets/img/suren.png',
+        ava: '/assets/img/lezh.jpg',
         name: 'Кристина Лежанская',
         sub_name: 'CEO, Founder',
         text: `
@@ -111,7 +121,7 @@ export class SponsorsComponent implements OnInit {
         `
       },
       person: {
-        ava: '/assets/img/suren.png',
+        ava: '/assets/img/yar.jpg',
         name: 'Ярослав Давлятов',
         sub_name: 'CEO, Founder',
         text: `
@@ -135,9 +145,9 @@ export class SponsorsComponent implements OnInit {
         }
       ]
     },
-    {
-      tabTitle: 'Mastercard',
-    },
+    // {
+    //   tabTitle: 'Mastercard',
+    // },
   ];
   constructor() { }
 
