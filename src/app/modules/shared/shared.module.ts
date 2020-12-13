@@ -28,6 +28,7 @@ import { NumberFormatPipe } from './pipes/number-format.pipe';
 import {DocComponent} from './components/doc/doc.component';
 import { CartPartnershipComponent } from './components/cart-partnership/cart-partnership.component';
 import {ClickOutsideDirective} from './directives/click-outside.directive';
+import {PaymentMethodFilterPipe} from './pipes/payment_method_filter.pipe';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {ClickOutsideDirective} from './directives/click-outside.directive';
     NumberFormatPipe,
     DocComponent,
     CartPartnershipComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    PaymentMethodFilterPipe
   ],
   exports: [
     MultilangPipe,
@@ -68,7 +70,8 @@ import {ClickOutsideDirective} from './directives/click-outside.directive';
     NumberFormatPipe,
     DocComponent,
     CartPartnershipComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    PaymentMethodFilterPipe
   ],
   imports: [
     CommonModule,

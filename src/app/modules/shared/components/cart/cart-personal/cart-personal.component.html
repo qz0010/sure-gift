@@ -61,15 +61,16 @@
             <h4 class="mxn-title mxn-title_sz-1">{{'Cart.PaymentMethodTitle' | translate}}</h4>
           </div>
           <div class="b-inputs__list b-inputs__list_pay">
-            <div class="b-inputs__list-item b-inputs__list-item_pay" *ngFor="let p of paymentMethods">
-              <label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"
-                     [class.f-active]="paymentMethod === p.type">
-                <input type="radio"
-                       [(ngModel)]="paymentMethod"
-                       name="paymentMethod"
-                       value="card" class="mxn-i-hidden"
-                       (ngModelChange)="onPaymentMethodClick(p)">
-                <span class="mxn-pay-item-row">
+            <ng-template ngFor [ngForOf]="paymentMethods | payment_method_filter" let-p>
+              <div class="b-inputs__list-item b-inputs__list-item_pay" *ngIf="p.type !== 'gpay'">
+                <label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"
+                       [class.f-active]="paymentMethod === p.type">
+                  <input type="radio"
+                         [(ngModel)]="paymentMethod"
+                         name="paymentMethod"
+                         value="card" class="mxn-i-hidden"
+                         (ngModelChange)="onPaymentMethodClick(p)">
+                  <span class="mxn-pay-item-row">
                   <ng-template [ngIf]="p.type === 'common'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="27" viewBox="0 0 40 27">
                       <path fill="#000" fill-rule="nonzero"
@@ -104,11 +105,13 @@
                     </svg>
                   </ng-template>
                 </span>
-                <span class="mxn-pay-item-row" *ngIf="p.type === 'common'">
+                  <span class="mxn-pay-item-row" *ngIf="p.type === 'common'">
                   {{p.name | multilang}}
                 </span>
-              </label>
-            </div>
+                </label>
+              </div>
+            </ng-template>
+
           </div>
         </div>
       </div>

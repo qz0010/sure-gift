@@ -87,7 +87,7 @@ export interface IShowcaseItem {
   // seo?: ICertificateSeo;
 }
 
-export type TPaymentMethodType = 'common' | 'applepay' | 'gift' | 'gpay';
+export type TPaymentMethodType = 'common' | 'applepay' | 'gift' | 'gpay' | '_custom';
 
 export interface IPaymentMethod {
   uuid?: string;
