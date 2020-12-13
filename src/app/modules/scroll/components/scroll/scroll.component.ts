@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {Observable, Subscription} from 'rxjs';
-import animateScrollTo from 'animated-scroll-to';
+// import animateScrollTo from 'animated-scroll-to';
 
 export interface IScrollOnClick {
   mobileOnly?: boolean;
