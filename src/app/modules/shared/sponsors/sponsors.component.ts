@@ -123,7 +123,7 @@ export class SponsorsComponent implements OnInit {
       person: {
         ava: '/assets/img/yar.jpg',
         name: 'Ярослав Давлятов',
-        sub_name: 'CEO, Founder',
+        sub_name: 'Co-founder',
         text: `
         <p>
           «Наша компания Zapomni Events, входящая в группу компаний Zapomni, развивает направление киноконцертов совместно с такими студиями как Disney, DreamWorks, Animaccord, Союзмультфильм и другими на территории России и стран СНГ с 2017 года. И я очень рад, что теперь, благодаря этой акции, шедевры мировой анимации и музыкального искусства подарят радость и новогоднее настроение детям в Армении».
