@@ -24,7 +24,7 @@ export interface IPayRes {
 })
 export class PaymentService {
   private session: PaymentRequest;
-  private readonly label = 'Zapomni.Gift';
+  private readonly label = 'Sure';
   private readonly appleMethods = 'https://apple.com/apple-pay';
   private readonly googleMethods = 'https://google.com/pay';
   private paymentDetails: any = {

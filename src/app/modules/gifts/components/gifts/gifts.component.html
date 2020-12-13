@@ -3,8 +3,10 @@
     <div class="gifts__row">
       <div class="gifts__col gifts__col_text" *ngIf="data.meta?.fiscal_position_title || data.description">
         <div class="gifts__text">
-          <div class="gifts__text-head gifts__text-head_mb-2" *ngIf="data.meta?.fiscal_position_title">
-            <h4 class="gifts__text-title" [innerHTML]="data.meta.fiscal_position_title | multilang"></h4>
+          <div class="gifts__text-head gifts__text-head_mb-2">
+            <h4 class="gifts__text-title">
+              Подарить билет ребёнку
+            </h4>
           </div>
           <div class="gifts__text-body" *ngIf="data.description" [innerHTML]="data.description | multilang"></div>
         </div>
