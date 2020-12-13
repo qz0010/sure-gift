@@ -5,12 +5,14 @@ import {ApiService} from './api.service';
 import {map} from 'rxjs/operators';
 import {IShowcaseItem} from '../../../types';
 import {CartService} from './cart.service';
+import {GlobalResolveDataService} from './global-resolve-data.service';
 
 @Injectable({providedIn: 'root'})
 export class ShowcaseResolver implements Resolve<Observable<any>> {
   constructor(
     private api: ApiService,
-    private cart: CartService
+    private cart: CartService,
+    private globalResolveData: GlobalResolveDataService
   ) {
   }
 
@@ -21,6 +23,8 @@ export class ShowcaseResolver implements Resolve<Observable<any>> {
       const item: IShowcaseItem = data[0];
       this.cart.setterPrices = item.prices;
       this.cart.setterEvent = (item.meta?.fundraising?.events || [])[0];
+      this.globalResolveData.setterEvent = (item.meta?.fundraising?.events || [])[0];
+      this.globalResolveData.setterShowcase = item;
 
       return item;
     }));

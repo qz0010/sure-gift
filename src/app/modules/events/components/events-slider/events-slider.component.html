@@ -3,18 +3,18 @@
        *ngIf="event?.poster"
        [ngStyle]="{'background-image': 'url(' + event.poster.path + ')'}">
   </div>
-  <div class="e-slider__related" *ngIf="event?.slider?.length">
-    <app-scroll>
-      <div class="e-slider__related-items">
-        <div class="e-slider__related-item e-slider__related-item_poster">
-          <div class="e-slider__related-img"
-               [ngStyle]="{'background-image': 'url(' + event.poster.path + ')'}"></div>
-        </div>
-        <div class="e-slider__related-item" *ngFor="let item of event.slider">
-          <div class="e-slider__related-img"
-               [ngStyle]="{'background-image': 'url(' + item.path + ')'}"></div>
-        </div>
-      </div>
-    </app-scroll>
-  </div>
+<!--  <div class="e-slider__related" *ngIf="event?.slider?.length">-->
+<!--    <app-scroll>-->
+<!--      <div class="e-slider__related-items">-->
+<!--        <div class="e-slider__related-item e-slider__related-item_poster">-->
+<!--          <div class="e-slider__related-img"-->
+<!--               [ngStyle]="{'background-image': 'url(' + event.poster.path + ')'}"></div>-->
+<!--        </div>-->
+<!--        <div class="e-slider__related-item" *ngFor="let item of event.slider">-->
+<!--          <div class="e-slider__related-img"-->
+<!--               [ngStyle]="{'background-image': 'url(' + item.path + ')'}"></div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </app-scroll>-->
+<!--  </div>-->
 </div>

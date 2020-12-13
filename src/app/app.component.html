@@ -1,5 +1,10 @@
 <div class="device-{{deviceType}}">
-    <div class="wrap" [ngClass]="{'wrap_cart': cart.total_cost > 0}">
+    <div class="wrap"
+         [ngStyle]="{
+            'padding-bottom.px': wrapPb
+           }">
       <router-outlet></router-outlet>
     </div>
+
+    <app-cart-panel *ngIf="showCart && cart.total_cost > 0"></app-cart-panel>
 </div>

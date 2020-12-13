@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ICertificateBody, ICertificateRes, IShowcaseEvent, IShowcaseFundraising} from '../../../types';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {ApiService} from './api.service';
 import {finalize} from 'rxjs/operators';
 
@@ -30,6 +30,7 @@ export class CartService {
   public currEvent: IShowcaseEvent;
   public total_cost = 0;
   public syncing = false;
+  public panelSetRect$ = new Subject();
 
   public set setterPrices(prices: number[]) {
     this.prices = prices.sort((a, b) => b - a);

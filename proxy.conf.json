@@ -2,19 +2,18 @@
   {
     "context": [
       "!assets/**/*.*",
-      "**/*.jpg",
-      "**/*.jpeg",
-      "**/*.gif",
-      "**/*.png"
+      "**/*.*"
     ],
-    "target": "https://donation-gift.lastick.xd.zapomni.systems",
+    "target#": "https://donation-gift.lastick.xd.zapomni.systems",
+    "target": "https://kids.sure.so",
     "changeOrigin": true,
     "secure": false,
     "logLevel": "debug"
   },
   {
     "context": "/api",
-    "target": "https://donation-gift.lastick.xd.zapomni.systems",
+    "target#": "https://donation-gift.lastick.xd.zapomni.systems",
+    "target": "https://kids.sure.so",
     "changeOrigin": true,
     "secure": false,
     "proxyTimeout": 10000,

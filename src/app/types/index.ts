@@ -19,6 +19,7 @@ export interface IMediaInfo {
 export interface IShowcaseTabsTab {
   title: IMultiLangField;
   text: IMultiLangField;
+  poster: IMediaInfo;
 }
 
 export interface IShowcaseEvent {
