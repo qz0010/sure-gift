@@ -35,4 +35,8 @@ export class ApiService {
     //    return this.http.get<IShowcaseOrder>(`/api/gift/v2/showcase/order/${uuid}`);
     return this.http.get<IShowcaseOrder>(`/${this.baseApi}/showcase/order/${uuid}`);
   }
+
+  public validateMerchant(payment_method_uuid, data): Observable<any> {
+    return this.http.post(`/${this.baseApi}/showcase/payment_method/${payment_method_uuid}/merchant_validation`, data);
+  }
 }

@@ -5,6 +5,7 @@ import {IReqCheckout} from '../../../../../types/req';
 import {FormService} from '../../../services/form.service';
 import {IUser} from '../../../../../types/User';
 import {NgForm} from '@angular/forms';
+import {IPaymentMethod, TPaymentMethodType} from '../../../../../types';
 
 @Component({
   selector: 'app-cart-personal',
@@ -15,12 +16,16 @@ export class CartPersonalComponent
   // extends ExtendFormErrorsComponent
   implements OnInit, OnDestroy
 {
+  @Input() paymentMethods: IPaymentMethod[];
+
+  @Output() selectPaymentMethod = new EventEmitter<IPaymentMethod>();
   @Output() submitForm = new EventEmitter<IUser>();
 
   public personalData: IReqCheckout;
-  public paymentMethod: 'card' | 'applepay' | 'googlepay' = 'card';
+  public paymentMethod: TPaymentMethodType = 'common';
   private subsriptions: Subscription[] = [];
   private formName = 'cartPersonalForm';
+
   @ViewChild('form', {static: false}) formRef: NgForm;
 
   constructor(
@@ -47,6 +52,11 @@ export class CartPersonalComponent
   ngOnDestroy(): void {
     // super.ngOnDestroy();
     this.subsriptions.map(s => s.unsubscribe());
+  }
+
+  onPaymentMethodClick(pm: IPaymentMethod): void {
+    this.paymentMethod = pm.type;
+    this.selectPaymentMethod.emit(pm);
   }
 
   onSubmit() {

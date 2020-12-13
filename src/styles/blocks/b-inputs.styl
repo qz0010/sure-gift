@@ -18,6 +18,7 @@
       //flex: 1
       width: calc(50% - 14px)
       margin: 0 7px 14px
+
   &__input-wrap
     position: relative
   &__items
@@ -32,10 +33,15 @@
 
 +mobile()
   .b-inputs
+    &__list
+      &_pay
+        justify-content: center
+
     &__footer
       &-item
         &_btn
           margin-top: 27px
+
 
 +desktop()
   .b-inputs

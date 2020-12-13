@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {ICertificateBody, ICertificateRes, IShowcaseEvent, IShowcaseFundraising} from '../../../types';
+import {ICertificateBody, ICertificateRes, IPaymentMethod, IShowcaseEvent, IShowcaseFundraising} from '../../../types';
 import {Observable, Subject} from 'rxjs';
 import {ApiService} from './api.service';
 import {finalize} from 'rxjs/operators';
+import {PaymentService} from './payment.service';
 
 
 export interface IPartnershipInc {
@@ -47,7 +48,8 @@ export class CartService {
   }
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private payment: PaymentService
   ) { }
 
   public calcFundraisingPercent(data: IShowcaseFundraising): number {
@@ -71,16 +73,19 @@ export class CartService {
     this.total_cost = price >= 0 ? price : 0;
   }
 
-  public checkout(order: ICertificateBody): Observable<ICertificateRes> {
+  public checkout(order: ICertificateBody, pm: IPaymentMethod): Promise<any> {
     this.syncing = true;
-    return this.api.newOrder(order).pipe(
-      finalize(
+
+    return this.payment.checkout(pm, this.total_cost, {
+      type: 'gift',
+      data: order
+    }, order.client)
+      .finally(
         () => {
           setTimeout(() => {
             this.syncing = false;
           }, 1000);
         }
-      )
-    );
+      );
   }
 }

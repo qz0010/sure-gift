@@ -87,10 +87,12 @@ export interface IShowcaseItem {
   // seo?: ICertificateSeo;
 }
 
+export type TPaymentMethodType = 'common' | 'applepay' | 'gift' | 'gpay';
+
 export interface IPaymentMethod {
   uuid?: string;
   _uuid?: string;
-  type: 'common' | 'applepay' | 'gift' | 'gpay';
+  type: TPaymentMethodType;
   name: string;
   ext_provider_data?: any;
 }
@@ -157,4 +159,14 @@ export interface IShowcaseOrder {
   status?: TOrderStatus;
   total_amount?: string;
   total_count?: number;
+}
+
+export type TCertificateOrderType = 'gift' | 'corporate';
+
+export interface ICertificateOrder {
+  type: TCertificateOrderType;
+  gift?: IShowcaseItem;
+  data?: ICertificateBody;
+  total_cost?: number;
+  agreement?: boolean;
 }

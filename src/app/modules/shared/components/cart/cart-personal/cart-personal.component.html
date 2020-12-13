@@ -14,11 +14,12 @@
           <div class="b-inputs__inputs">
             <div class="b-inputs__row">
               <div class="b-inputs__input-wrap">
-<!--                <app-floating-input-label [name]="'PersonalData.firstName' | translate"-->
-<!--                                          [value]="personalData.firstName"></app-floating-input-label>-->
+                <!--                <app-floating-input-label [name]="'PersonalData.firstName' | translate"-->
+                <!--                                          [value]="personalData.firstName"></app-floating-input-label>-->
                 <input type="text"
                        [(ngModel)]="personalData.firstName"
                        required
+                       autocomplete="off"
                        name="firstName"
                        appNativeElementControl
                        placeholder="{{'PersonalData.firstName' | translate}}"
@@ -27,24 +28,12 @@
             </div>
             <div class="b-inputs__row">
               <div class="b-inputs__input-wrap">
-<!--                <app-floating-input-label [name]="'PersonalData.lastName' | translate"-->
-<!--                                          [value]="personalData.lastName"></app-floating-input-label>-->
-                <input type="text"
-                       [(ngModel)]="personalData.lastName"
-                       required
-                       name="lastName"
-                       appNativeElementControl
-                         placeholder="{{'PersonalData.lastName' | translate}}"
-                       class="mxn-i-txt mxn-i-txt_theme-1 mxn-i-txt_full-width profile__input">
-              </div>
-            </div>
-            <div class="b-inputs__row">
-              <div class="b-inputs__input-wrap">
-<!--                <app-floating-input-label [name]="'PersonalData.phoneNumber' | translate"-->
-<!--                                          [value]="personalData.phoneNumber"></app-floating-input-label>-->
+                <!--                <app-floating-input-label [name]="'PersonalData.phoneNumber' | translate"-->
+                <!--                                          [value]="personalData.phoneNumber"></app-floating-input-label>-->
                 <input type="tel"
                        [(ngModel)]="personalData.phoneNumber"
                        required
+                       autocomplete="off"
                        name="phoneNumber"
                        appNativeElementControl
                        placeholder="{{'PersonalData.phoneNumber' | translate}}"
@@ -53,11 +42,12 @@
             </div>
             <div class="b-inputs__row">
               <div class="b-inputs__input-wrap">
-<!--                <app-floating-input-label [name]="'PersonalData.email' | translate"-->
-<!--                                          [value]="personalData.email"></app-floating-input-label>-->
+                <!--                <app-floating-input-label [name]="'PersonalData.email' | translate"-->
+                <!--                                          [value]="personalData.email"></app-floating-input-label>-->
                 <input type="email" email
                        [(ngModel)]="personalData.email"
                        required
+                       autocomplete="off"
                        name="email"
                        appNativeElementControl
                        placeholder="{{'PersonalData.email' | translate}}"
@@ -70,56 +60,61 @@
           <div class="b-inputs__body-row-head">
             <h4 class="mxn-title mxn-title_sz-1">{{'Cart.PaymentMethodTitle' | translate}}</h4>
           </div>
-          <div class="b-inputs__list">
-            <div class="b-inputs__list-item">
+          <div class="b-inputs__list b-inputs__list_pay">
+            <div class="b-inputs__list-item b-inputs__list-item_pay" *ngFor="let p of paymentMethods">
               <label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"
-                     [class.f-active]="paymentMethod === 'card'">
+                     [class.f-active]="paymentMethod === p.type">
                 <input type="radio"
                        [(ngModel)]="paymentMethod"
                        name="paymentMethod"
-                       value="card" class="mxn-i-hidden">
+                       value="card" class="mxn-i-hidden"
+                       (ngModelChange)="onPaymentMethodClick(p)">
                 <span class="mxn-pay-item-row">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="27" viewBox="0 0 40 27">
-                      <path fill="#000" fill-rule="nonzero" d="M2.91.39C1.704.39.732 1.362.732 2.57v2.808h39.23V2.569c0-1.207-.971-2.18-2.179-2.18H2.911zM.732 9.562V24.75c0 1.207.972 2.18 2.18 2.18h34.871a2.178 2.178 0 0 0 2.18-2.18V9.562H.732z"/>
-                  </svg>
+                  <ng-template [ngIf]="p.type === 'common'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="27" viewBox="0 0 40 27">
+                      <path fill="#000" fill-rule="nonzero"
+                            d="M2.91.39C1.704.39.732 1.362.732 2.57v2.808h39.23V2.569c0-1.207-.971-2.18-2.179-2.18H2.911zM.732 9.562V24.75c0 1.207.972 2.18 2.18 2.18h34.871a2.178 2.178 0 0 0 2.18-2.18V9.562H.732z"/>
+                    </svg>
+                  </ng-template>
+                  <ng-template [ngIf]="p.type === 'applepay'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="63" height="27" viewBox="0 0 63 27">
+                    <g>
+                        <path
+                          d="M12.152 3.48c.743-.929 1.247-2.176 1.114-3.45-1.088.053-2.414.716-3.183 1.646-.69.796-1.3 2.096-1.14 3.317 1.22.106 2.44-.61 3.209-1.513M13.252 5.232c-1.773-.106-3.28 1.006-4.126 1.006-.847 0-2.144-.953-3.546-.927-1.824.026-3.517 1.058-4.443 2.7-1.905 3.282-.503 8.151 1.349 10.825.9 1.323 1.983 2.78 3.412 2.727 1.35-.053 1.878-.874 3.519-.874 1.639 0 2.115.874 3.544.847 1.481-.026 2.407-1.323 3.307-2.647 1.032-1.508 1.454-2.964 1.48-3.044-.026-.026-2.856-1.112-2.882-4.367-.027-2.726 2.222-4.023 2.328-4.103-1.27-1.878-3.254-2.09-3.942-2.143"
+                          transform="translate(-.25)"/>
+                        <g>
+                            <path
+                              d="M7.722.495c3.853 0 6.535 2.655 6.535 6.522 0 3.88-2.738 6.55-6.632 6.55H3.36v6.783H.278V.495h7.444zM3.36 10.979h3.536c2.683 0 4.21-1.444 4.21-3.949 0-2.504-1.527-3.935-4.196-3.935H3.36v7.884zM15.063 16.236c0-2.532 1.94-4.087 5.38-4.28l3.962-.233v-1.115c0-1.61-1.087-2.573-2.903-2.573-1.72 0-2.793.825-3.055 2.119h-2.806c.165-2.614 2.394-4.54 5.971-4.54 3.509 0 5.751 1.857 5.751 4.76v9.976h-2.848v-2.38h-.068c-.84 1.61-2.67 2.627-4.568 2.627-2.835 0-4.816-1.76-4.816-4.361zm9.342-1.307v-1.142l-3.564.22c-1.775.124-2.779.908-2.779 2.146 0 1.266 1.046 2.092 2.642 2.092 2.078 0 3.701-1.431 3.701-3.316zM30.053 25.675v-2.408c.22.055.715.055.962.055 1.376 0 2.12-.578 2.573-2.064 0-.028.262-.88.262-.894l-5.229-14.49h3.22l3.66 11.78h.055l3.66-11.78h3.138l-5.422 15.232c-1.238 3.51-2.67 4.638-5.669 4.638-.248 0-.99-.028-1.21-.07z"
+                              transform="translate(-.25) translate(20.964 1.048)"/>
+                        </g>
+                    </g>
+                </svg>
+                  </ng-template>
+                  <ng-template [ngIf]="p.type === 'gpay'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="68" height="28" viewBox="0 0 68 28">
+                        <g fill="none">
+                            <g fill="#3C4043">
+                                <path d="M2.493 11.8v7.929H.015V.156h6.57C8.172.125 9.71.734 10.834 1.857c2.246 2.123 2.385 5.697.277 7.992l-.277.28C9.679 11.24 8.263 11.8 6.586 11.8H2.493zm0-9.24v6.836h4.154c.924.031 1.816-.343 2.447-1.014 1.292-1.358 1.262-3.543-.077-4.854-.631-.625-1.477-.968-2.37-.968H2.493zM18.326 5.9c1.831 0 3.278.5 4.34 1.483 1.061.983 1.584 2.357 1.584 4.09v8.256h-2.37v-1.857h-.107c-1.031 1.53-2.385 2.294-4.093 2.294-1.446 0-2.677-.437-3.647-1.311-.954-.812-1.492-2.014-1.462-3.278 0-1.389.524-2.482 1.554-3.309 1.031-.827 2.416-1.233 4.14-1.233 1.477 0 2.677.281 3.631.812v-.578c0-.858-.37-1.67-1.016-2.232-.661-.593-1.507-.92-2.385-.92-1.384 0-2.477.592-3.277 1.779l-2.185-1.39c1.17-1.732 2.939-2.606 5.293-2.606zm-3.2 9.724c0 .656.307 1.264.815 1.639.554.437 1.231.671 1.924.655 1.046 0 2.046-.421 2.785-1.17.815-.78 1.23-1.701 1.23-2.763-.769-.624-1.846-.936-3.23-.92-1 0-1.847.249-2.524.733-.662.484-1 1.092-1 1.826zM37.853 6.337L29.574 25.613 27.02 25.613 30.097 18.871 24.666 6.337 27.358 6.337 31.282 15.952 31.328 15.952 35.16 6.337z" transform="translate(.694) translate(29.39 1.56)"/>
+                            </g>
+                            <path fill="#4285F4" d="M21.865 11.644c0-.765-.061-1.53-.184-2.279H11.233v4.324h5.985c-.246 1.389-1.046 2.637-2.215 3.418v2.81h3.57c2.092-1.952 3.292-4.84 3.292-8.273z" transform="translate(.694)"/>
+                            <path fill="#34A853" d="M11.233 22.632c2.985 0 5.508-.999 7.34-2.716l-3.57-2.81c-1 .688-2.278 1.078-3.77 1.078-2.893 0-5.34-1.982-6.217-4.636H1.34v2.903c1.877 3.793 5.708 6.181 9.894 6.181z" transform="translate(.694)"/>
+                            <path fill="#FBBC04" d="M5.016 13.548c-.461-1.389-.461-2.903 0-4.308V6.353H1.34c-1.585 3.168-1.585 6.914 0 10.083l3.677-2.888z" transform="translate(.694)"/>
+                            <path fill="#EA4335" d="M11.233 4.604c1.585-.03 3.108.578 4.247 1.686l3.17-3.215C16.633 1.17 13.986.125 11.232.156c-4.186 0-8.017 2.404-9.894 6.197l3.677 2.903c.877-2.67 3.324-4.652 6.217-4.652z" transform="translate(.694)"/>
+                        </g>
+                    </svg>
+                  </ng-template>
                 </span>
-                <span class="mxn-pay-item-row">
-                  Банковской<br> картой
+                <span class="mxn-pay-item-row" *ngIf="p.type === 'common'">
+                  {{p.name | multilang}}
                 </span>
               </label>
             </div>
-            <!--<div class="b-inputs__list-item">-->
-            <!--<label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"-->
-            <!--[class.f-active]="paymentMethod === 'applepay'">-->
-            <!--<span class="mxn-pay-item-row">-->
-            <!--applepay-->
-            <!--</span>-->
-            <!--<input type="radio"-->
-            <!--[(ngModel)]="paymentMethod"-->
-            <!--name="paymentMethod"-->
-            <!--value="applepay" class="mxn-i-hidden">-->
-            <!--&lt;!&ndash;<app-svg-ref uuid="i-credit-card"></app-svg-ref>&ndash;&gt;-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--<div class="b-inputs__list-item">-->
-            <!--<label class="mxn-pay-item mxn-pay-item_sz-1 mxn-pay-item_theme-1 mxn-cur-p"-->
-            <!--[class.f-active]="paymentMethod === 'googlepay'">-->
-            <!--<span class="mxn-pay-item-row">-->
-            <!--googlepay-->
-            <!--</span>-->
-            <!--<input type="radio"-->
-            <!--[(ngModel)]="paymentMethod"-->
-            <!--name="paymentMethod"-->
-            <!--value="googlepay" class="mxn-i-hidden">-->
-            <!--&lt;!&ndash;<app-svg-ref uuid="i-credit-card"></app-svg-ref>&ndash;&gt;-->
-            <!--</label>-->
-            <!--</div>-->
           </div>
         </div>
       </div>
-<!--      <div class="b-inputs__footer" *ngIf="!form.valid && formError">-->
-<!--        <app-status-message [formError]="formError"></app-status-message>-->
-<!--      </div>-->
+      <!--      <div class="b-inputs__footer" *ngIf="!form.valid && formError">-->
+      <!--        <app-status-message [formError]="formError"></app-status-message>-->
+      <!--      </div>-->
       <div class="b-inputs__footer">
         <div class="b-inputs__footer-items b-inputs__footer-items_jc-sb">
           <div class="b-inputs__footer-item">
@@ -133,29 +128,30 @@
                 <span class="mxn-i-check-fake mxn-i-check-fake_theme-1">
                   <span class="mxn-i-check-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 16 12">
-                        <path fill="#FFF" fill-rule="nonzero" d="M2.38 3.755L.62 5.53l6.043 5.982 9.38-9.38L14.273.367l-7.62 7.62z"/>
+                        <path fill="#FFF" fill-rule="nonzero"
+                              d="M2.38 3.755L.62 5.53l6.043 5.982 9.38-9.38L14.273.367l-7.62 7.62z"/>
                     </svg>
-<!--                      <app-svg-ref uuid="i-check" width="16" height="12"></app-svg-ref>-->
+                    <!--                      <app-svg-ref uuid="i-check" width="16" height="12"></app-svg-ref>-->
                   </span>
                 </span>
               </label>
               <label for="agreement-checkbox" class="mxn-text-check-text mxn-text-check-text_ml-1">
                 Нажимая кнопку "Оплатить", я соглашаюсь с <a target="_blank"
                                                              href=""
-                                                      class="mxn-link">
-                  условиями покупки билетов и обработкой персональных данных
-                </a>
+                                                             class="mxn-link">
+                условиями покупки билетов и обработкой персональных данных
+              </a>
               </label>
             </div>
           </div>
           <div class="b-inputs__footer-item b-inputs__footer-item_btn">
             <button type="submit"
-                    [disabled]="cart.syncing"
+                    [disabled]="cart.syncing || cart.total_cost === 0"
                     [ngClass]="{
                       'f-disabled': form.invalid
                     }"
                     class="mxn-btn mxn-btn_minw-2 mxn-btn_sz-2 mxn-btn_theme-2 mxn-btn_full-width mxn-btn_ta-c">
-                Оплатить
+              Оплатить
             </button>
           </div>
         </div>

@@ -100,7 +100,10 @@
     </div>
   </section>
 
-  <app-cart-personal (submitForm)="onSubmit($event)"></app-cart-personal>
+  <app-cart-personal [paymentMethods]="paymentMethods"
+                     (selectPaymentMethod)="onSelectPaymentMethod($event)"
+                     (submitForm)="onSubmit($event)">
+  </app-cart-personal>
 
 <!--  <section class="mxn-section mxn-section_mb-1 mxn-section_pad-1 mxn-section_theme-1">-->
 <!--    <div class="mxn-section-head mxn-section-head_mb-1">-->

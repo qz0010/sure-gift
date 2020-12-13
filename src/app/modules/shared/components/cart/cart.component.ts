@@ -11,20 +11,24 @@ import {CartService} from '../../services/cart.service';
   styleUrls: ['./cart.component.styl']
 })
 export class CartComponent implements OnInit {
+  public paymentMethods: IPaymentMethod[];
   public commonPaymentMethod: IPaymentMethod;
   public showcase: IShowcaseItem;
+  public selectedPaymentMethod: IPaymentMethod;
 
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
-    public cart: CartService
+    public cart: CartService,
   ) { }
 
   ngOnInit(): void {
     this.showcase = this.route.snapshot.data.showcase;
 
     this.api.getPaymentMethods().subscribe(data => {
+      this.paymentMethods = data;
       this.commonPaymentMethod = data.find(item => item.type === 'common');
+      this.selectedPaymentMethod = this.commonPaymentMethod;
     });
   }
 
@@ -32,12 +36,15 @@ export class CartComponent implements OnInit {
 
   }
 
+  onSelectPaymentMethod(pm: IPaymentMethod): void {
+    this.selectedPaymentMethod = pm;
+  }
+
   onSubmit(client: IUser): void {
-    if (!this.commonPaymentMethod || !this.showcase) {
+    if (!this.selectedPaymentMethod || !this.showcase) {
       return;
     }
     const order: ICertificateBody = {
-      payment_method: this.commonPaymentMethod.uuid || this.commonPaymentMethod._uuid,
       lang: 'ru',
       client: {
         email: client.email,
@@ -57,16 +64,12 @@ export class CartComponent implements OnInit {
           is_corporate: false,
           is_gift: true,
           price: this.cart.total_cost,
-          sender_name: `${client.firstName} ${client.lastName}`
+          sender_name: `${client.firstName}`
         }
       ]
     };
 
-    this.cart.checkout(order).subscribe(data => {
-      if (data?.payment?.payment_url) {
-        location.href = data.payment.payment_url;
-      }
-    });
+    this.cart.checkout(order, this.selectedPaymentMethod).finally();
   }
 }
 
