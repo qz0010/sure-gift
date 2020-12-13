@@ -13,20 +13,20 @@
       <section class="mxn-section mxn-section_mb-1 mxn-section_pad-1 mxn-section_theme-1 checkout__result-section">
         <div class="checkout__result">
           <div class="checkout__result-body">
-<!--            <ng-template [ngIf]="isSuccess === null">-->
-<!--              <div class="checkout__result-body-row">-->
-<!--                ...-->
-<!--              </div>-->
-<!--            </ng-template>-->
-<!--            <ng-template [ngIf]="isSuccess !== null && !isSuccess">-->
-<!--              <div class="checkout__result-body-row">-->
-<!--                <h4 class="checkout__result-title mxn-title mxn-title_sz-2">-->
-<!--                  Что-то пошло не так...-->
-<!--                </h4>-->
-<!--              </div>-->
-<!--            </ng-template>-->
+            <ng-template [ngIf]="isSuccess === null">
+              <div class="checkout__result-body-row">
+                ...
+              </div>
+            </ng-template>
+            <ng-template [ngIf]="isSuccess !== null && !isSuccess">
+              <div class="checkout__result-body-row">
+                <h4 class="checkout__result-title mxn-title mxn-title_sz-2">
+                  Что-то пошло не так...
+                </h4>
+              </div>
+            </ng-template>
 
-<!--            <ng-template [ngIf]="isSuccess !== null && isSuccess">-->
+            <ng-template [ngIf]="isSuccess !== null && isSuccess">
               <div class="checkout__result-body-row">
                 <h4 class="checkout__result-title mxn-title mxn-title_sz-2">
                   {{'Checkout.OkTitle' | translate}}
@@ -36,10 +36,12 @@
                 <p class="mxn-text mxn-text_sz-2 mxn-text_theme-2">
                   Благодаря вам {{+data.total_amount | countValuesByPrice}} {{+data.total_amount | countValuesByPrice | numerative: [
                     'Child1' | translate, 'Child2' | translate, 'Child3' | translate
-                  ]}} смогут бесплатно посетить киноконцерт Disney «Холодное сердце». За всеми анонсами вы можете следить на нашем сайте и в наших социальных сетях
+                  ]}} {{+data.total_amount | countValuesByPrice | numerative: [
+                  'Can1' | translate, 'Can2' | translate, 'Can3' | translate
+                ]}} бесплатно посетить киноконцерт Disney «Холодное сердце». За всеми анонсами вы можете следить на нашем сайте и в наших социальных сетях
                 </p>
               </div>
-<!--            </ng-template>-->
+            </ng-template>
 
             <div class="checkout__result-body-row checkout__result-body-row_flex-c">
               <app-social type="link"></app-social>

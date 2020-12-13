@@ -8,6 +8,9 @@
   "Ticket1": "билет",
   "Ticket2": "билета",
   "Ticket3": "билетов",
+  "Can1": "сможет",
+  "Can2": "смогут",
+  "Can3": "смогут",
   "PersonalData": {
     "firstName": "Имя",
     "lastName": "Фамилия",

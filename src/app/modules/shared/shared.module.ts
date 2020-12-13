@@ -27,6 +27,7 @@ import {NativeElementControlDirective} from './directives/native-element-control
 import { NumberFormatPipe } from './pipes/number-format.pipe';
 import {DocComponent} from './components/doc/doc.component';
 import { CartPartnershipComponent } from './components/cart-partnership/cart-partnership.component';
+import {ClickOutsideDirective} from './directives/click-outside.directive';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { CartPartnershipComponent } from './components/cart-partnership/cart-par
     NativeElementControlDirective,
     NumberFormatPipe,
     DocComponent,
-    CartPartnershipComponent
+    CartPartnershipComponent,
+    ClickOutsideDirective
   ],
   exports: [
     MultilangPipe,
@@ -65,7 +67,8 @@ import { CartPartnershipComponent } from './components/cart-partnership/cart-par
     NativeElementControlDirective,
     NumberFormatPipe,
     DocComponent,
-    CartPartnershipComponent
+    CartPartnershipComponent,
+    ClickOutsideDirective
   ],
   imports: [
     CommonModule,

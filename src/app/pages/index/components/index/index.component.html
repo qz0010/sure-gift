@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="heading__footer">
-            <div class="heading__footer__row">
+            <div class="heading__footer-row">
               <div class="heading__footer-item">
                 <div class="heading__logos" *ngIf="data.entity_icons?.length">
                   <div class="heading__logos-item" *ngFor="let item of data.entity_icons">
@@ -45,7 +45,27 @@
                 </div>
               </div>
               <div class="heading__footer-item">
-
+<!--                <div class="h-share h-share_theme-">-->
+<!--                  <div class="h-share__head">-->
+<!--                    <button type="button" class="mxn-btn h-share__btn" (click)="showShare = true">-->
+<!--                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33">-->
+<!--                        <path fill="#fff" d="M27.194 5.345c-.33-.33-.824-.434-1.259-.265L4.751 13.318c-.478.186-.78.66-.748 1.172.032.511.392.943.89 1.067l9.679 2.41 2.41 9.679c.123.497.555.857 1.067.89.025.002.05.002.075.002.485 0 .92-.298 1.096-.75L27.46 6.603c.169-.435.065-.928-.265-1.258zM18.37 23.48l-1.341-5.386 2.271-4.856-4.856 2.272-5.386-1.341 15.237-5.926L18.37 23.48z"/>-->
+<!--                      </svg>-->
+<!--                      <span class="h-share__btn-text">Поделиться</span>-->
+<!--                    </button>-->
+<!--                  </div>-->
+<!--                  <div class="h-share__nav" [ngClass]="{'f-active': showShare}" [appClickOutside]="showShare" (clickOutside)="showShare = false">-->
+<!--                    <div class="h-share__list">-->
+<!--                      <ng-template ngFor [ngForOf]="social.data" let-item>-->
+<!--                        <div class="h-share__item" *ngIf="item.share_url">-->
+<!--                          <span class="h-share__link h-share__link_{{item.short_name}}" (click)="social.share(item)">-->
+<!--                            {{item.formatted_name}}-->
+<!--                          </span>-->
+<!--                        </div>-->
+<!--                      </ng-template>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
               </div>
             </div>
           </div>

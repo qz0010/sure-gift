@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {IShowcaseItem} from '../../../../types';
 import {CartService} from '../../../../modules/shared/services/cart.service';
+import {SocialService} from '../../../../modules/shared/services/social.service';
 
 @Component({
   selector: 'app-index',
@@ -10,10 +11,12 @@ import {CartService} from '../../../../modules/shared/services/cart.service';
 })
 export class IndexComponent implements OnInit {
   public data: IShowcaseItem;
+  public showShare = false;
 
   constructor(
     private route: ActivatedRoute,
-    public cart: CartService
+    public cart: CartService,
+    public social: SocialService
   ) { }
 
   ngOnInit(): void {
