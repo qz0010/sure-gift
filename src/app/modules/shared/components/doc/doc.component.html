@@ -1,0 +1,12 @@
+<div class="doc" *ngIf="doc && (doc.showHidePopup | async)">
+  <div class="doc__wrap">
+    <div class="doc__body">
+      <article class="doc__article" [innerHTML]="doc.data.src | multilang" *ngIf="doc && doc.data && doc.data.src"></article>
+    </div>
+    <div class="doc__footer">
+      <span class="doc__footer-btn" (click)="doc.closePopup()">
+        Закрыть
+      </span>
+    </div>
+  </div>
+</div>

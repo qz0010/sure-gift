@@ -1,10 +1,11 @@
 <div class="device-{{deviceType}}">
-    <div class="wrap"
-         [ngStyle]="{
+  <div class="wrap"
+       [ngStyle]="{
             'padding-bottom.px': wrapPb
            }">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
+  </div>
 
-    <app-cart-panel *ngIf="showCart && cart.total_cost > 0"></app-cart-panel>
+  <app-cart-panel *ngIf="showCart && cart.total_cost > 0"></app-cart-panel>
+  <app-doc></app-doc>
 </div>

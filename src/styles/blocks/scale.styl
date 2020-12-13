@@ -7,5 +7,24 @@
     background: $cBl-3-7;
 
   &__stick
+    position: relative
+    z-index: 2
     border-radius: 0 22px 22px 0
     background: $c-3
+
+    & + &
+      z-index: 1
+      border-radius: 0 22px 22px 0
+
+      &:before
+        content: ''
+        position:  absolute;
+        left: -7px
+        top: 0
+        height: 100%
+        width: 100%
+        background: inherit
+
+    &_partner
+      background: #F79E1B
+

@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ICertificateBody, ICertificateRes, IPaymentMethod, IShowcaseFundraising, IShowcaseItem, IShowcaseOrder} from '../../../types';
+import {
+  ICertificateBody,
+  ICertificateRes,
+  IPaymentMethod,
+  ISettings,
+  IShowcaseFundraising,
+  IShowcaseItem,
+  IShowcaseOrder
+} from '../../../types';
 import {environment} from '../../../../environments/environment';
 
 @Injectable({
@@ -38,5 +46,9 @@ export class ApiService {
 
   public validateMerchant(payment_method_uuid, data): Observable<any> {
     return this.http.post(`/${this.baseApi}/showcase/payment_method/${payment_method_uuid}/merchant_validation`, data);
+  }
+
+  public getSettings(): Observable<ISettings> {
+    return this.http.get<ISettings>(`/${this.baseApi}/showcase/settings`);
   }
 }

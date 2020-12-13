@@ -6,6 +6,7 @@ import {FormService} from '../../../services/form.service';
 import {IUser} from '../../../../../types/User';
 import {NgForm} from '@angular/forms';
 import {IPaymentMethod, TPaymentMethodType} from '../../../../../types';
+import {DocService} from '../../../services/doc.service';
 
 @Component({
   selector: 'app-cart-personal',
@@ -30,7 +31,8 @@ export class CartPersonalComponent
 
   constructor(
     public cart: CartService,
-    private formService: FormService
+    private formService: FormService,
+    public doc: DocService
   ) {
     // super();
   }

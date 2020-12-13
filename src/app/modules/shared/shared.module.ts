@@ -25,6 +25,8 @@ import {CartPersonalComponent} from './components/cart/cart-personal/cart-person
 import {FormsModule} from '@angular/forms';
 import {NativeElementControlDirective} from './directives/native-element-control.directive';
 import { NumberFormatPipe } from './pipes/number-format.pipe';
+import {DocComponent} from './components/doc/doc.component';
+import { CartPartnershipComponent } from './components/cart-partnership/cart-partnership.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { NumberFormatPipe } from './pipes/number-format.pipe';
     // ExtendFormErrorsComponent,
     CartPersonalComponent,
     NativeElementControlDirective,
-    NumberFormatPipe
+    NumberFormatPipe,
+    DocComponent,
+    CartPartnershipComponent
   ],
   exports: [
     MultilangPipe,
@@ -59,7 +63,9 @@ import { NumberFormatPipe } from './pipes/number-format.pipe';
     // ExtendFormErrorsComponent,
     CartPersonalComponent,
     NativeElementControlDirective,
-    NumberFormatPipe
+    NumberFormatPipe,
+    DocComponent,
+    CartPartnershipComponent
   ],
   imports: [
     CommonModule,

@@ -23,7 +23,7 @@
   <div class="raised__footer">
     <div class="scale">
       <div class="scale__wrap">
-        <div class="scale__stick scale__stick_partner" [ngStyle]="{'width.%': cart.partnershipInc}"></div>
+        <div class="scale__stick scale__stick_partner" [ngStyle]="{'width.%': cart.partnershipInc?.percent}"></div>
         <div class="scale__stick" [ngStyle]="{'width.%': fundraisingPercent}"></div>
       </div>
     </div>

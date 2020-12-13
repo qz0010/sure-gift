@@ -24,7 +24,7 @@ export class CartService {
   };
   public readonly default_currency = 'rub';
   public partnershipInc: IPartnershipInc = {
-    percent: 0
+    percent: 30
   };
   public oneValuePrice = 100000;
   public prices: number[];

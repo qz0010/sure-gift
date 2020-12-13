@@ -1,0 +1,76 @@
+.cart-partner
+  font-size: 14px
+  color: #B5B5B5
+
+  &__body, &__row
+    display: flex
+    align-items center
+
+  &__body
+    display: flex
+    align-items center
+
+    &-item
+      position: relative
+      &_popover
+        cursor: pointer
+      &:hover
+        .cart-partner__popover
+          display: block
+
+      & + &
+        margin-left: 16px
+  //&__row
+  //  display: flex
+  //  align-items center
+
+  &__item
+    & + &
+      margin-left: 10px
+
+  &__wrap
+    padding: 8px 16px 8px 6px
+    border: 1px solid #C4C4C4
+    border-radius: 4px
+
+  &__popover
+    display: none
+    position: absolute;
+    top calc(100% + 13px)
+    right: 0
+    width: 275px
+    padding: 20px
+    z-index: 10
+    font-size: 20px
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, .14);
+    background: #fff
+    color: #B5B5B5
+
+    &-row
+      display: flex
+      align-items center
+
+      & + &
+        margin-top: 24px
+
+    &-ico
+      flex: 0 0 40px
+      height: 14px
+      border-radius: 16px
+      background: #FF3838;
+      margin-right: 20px
+
+      &_partner
+        background: #F79E1B;
+
++desktop()
+  .cart-partner
+    font-size: 18px
+
+    &__wrap
+      padding: 10px 20px
+
+    &__body
+      &-item
+       & + &
+         margin-left: 28px

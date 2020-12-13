@@ -170,3 +170,44 @@ export interface ICertificateOrder {
   total_cost?: number;
   agreement?: boolean;
 }
+
+export interface IWidgetSettings {
+  defaultLang?: string;
+  // additionalLanguages?: ILanguages[];
+  buy_text?: IMultiLangField;
+  buy_title?: IMultiLangField;
+  calendar?: { expanded: boolean; length: number };
+  limits?: { tickets_in_order: number };
+  // routes?: ISettingsRoutes;
+  show_back_text?: boolean;
+  show_close_frame?: boolean;
+  show_rules?: boolean;
+  schedules?: { prices: boolean };
+  events_hide_time?: boolean;
+  authentication?: 'mpl' | string;
+  card_auth?: boolean;
+  card_conditions?: { url: string; text: string };
+  header_promo_logo?: boolean;
+  header_logo?: {img: string, svg?: string, url?: string};
+  logo_replacement?: boolean;
+  event_promo_logo?: boolean;
+  orderResult?: { backBtn: boolean };
+  cart?: { name: boolean };
+  hide_spots?: boolean;
+  own_event?: boolean;
+  enablePromocodes?: boolean;
+  routeSettings?: {index?: {user_friendly_url: string}};
+  hide_routes?: string[];
+  noScrollRoutes?: string[];
+  origin_url?: string;
+}
+
+export interface ISettings {
+  // FilterTags?: ITag[];
+  allowed_payment_methods?: string[];
+  // auth_method?: IAuthMethod[];
+  gift_offer?: IMultiLangField;
+  name?: IMultiLangField;
+  offer?: IMultiLangField;
+  widget_settings?: IWidgetSettings;
+}
