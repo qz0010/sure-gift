@@ -29,6 +29,8 @@ import {DocComponent} from './components/doc/doc.component';
 import { CartPartnershipComponent } from './components/cart-partnership/cart-partnership.component';
 import {ClickOutsideDirective} from './directives/click-outside.directive';
 import {PaymentMethodFilterPipe} from './pipes/payment_method_filter.pipe';
+import {ApplepayButtonComponent} from './components/applepay-button/applepay-button.component';
+import {GpayButtonComponent} from './components/gpay-button/gpay-button.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import {PaymentMethodFilterPipe} from './pipes/payment_method_filter.pipe';
     DocComponent,
     CartPartnershipComponent,
     ClickOutsideDirective,
-    PaymentMethodFilterPipe
+    PaymentMethodFilterPipe,
+    ApplepayButtonComponent,
+    GpayButtonComponent
   ],
   exports: [
     MultilangPipe,
@@ -71,7 +75,9 @@ import {PaymentMethodFilterPipe} from './pipes/payment_method_filter.pipe';
     DocComponent,
     CartPartnershipComponent,
     ClickOutsideDirective,
-    PaymentMethodFilterPipe
+    PaymentMethodFilterPipe,
+    ApplepayButtonComponent,
+    GpayButtonComponent
   ],
   imports: [
     CommonModule,

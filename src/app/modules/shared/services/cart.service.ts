@@ -4,6 +4,8 @@ import {Observable, Subject} from 'rxjs';
 import {ApiService} from './api.service';
 import {finalize} from 'rxjs/operators';
 import {PaymentService} from './payment.service';
+import {IUser} from '../../../types/User';
+import {GlobalResolveDataService} from './global-resolve-data.service';
 
 
 export interface IPartnershipInc {
@@ -49,7 +51,8 @@ export class CartService {
 
   constructor(
     private api: ApiService,
-    private payment: PaymentService
+    private payment: PaymentService,
+    private globalResolveData: GlobalResolveDataService
   ) { }
 
   public calcFundraisingPercent(data: IShowcaseFundraising): number {
@@ -73,8 +76,38 @@ export class CartService {
     this.total_cost = price >= 0 ? price : 0;
   }
 
-  public checkout(order: ICertificateBody, pm: IPaymentMethod): Promise<any> {
+  public createOrderBody(client: IUser): ICertificateBody {
+    const  {showcase} = this.globalResolveData;
+
+    return {
+      lang: 'ru',
+      client: {
+        email: client.email,
+        name: client.firstName,
+        phone: client.phoneNumber
+      },
+      items: [
+        {
+          addressee: {
+            email: client.email,
+            name: client.firstName,
+            phone: client.phoneNumber
+          },
+          cert_config: showcase.uuid || showcase._uuid,
+          cert_view: (showcase.views || [])[0],
+          count: 1,
+          is_corporate: false,
+          is_gift: true,
+          price: this.total_cost,
+          sender_name: `${client.firstName}`
+        }
+      ]
+    };
+  }
+
+  public checkout(pm: IPaymentMethod, client: IUser): Promise<any> {
     this.syncing = true;
+    const order = this.createOrderBody(client);
 
     return this.payment.checkout(pm, this.total_cost, {
       type: 'gift',

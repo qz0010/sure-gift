@@ -40,32 +40,7 @@ export class CartComponent implements OnInit {
     if (!this.selectedPaymentMethod || !this.showcase) {
       return;
     }
-    const order: ICertificateBody = {
-      lang: 'ru',
-      client: {
-        email: client.email,
-        name: client.firstName,
-        phone: client.phoneNumber
-      },
-      items: [
-        {
-          addressee: {
-            email: client.email,
-            name: client.firstName,
-            phone: client.phoneNumber
-          },
-          cert_config: this.showcase.uuid || this.showcase._uuid,
-          cert_view: (this.showcase.views || [])[0],
-          count: 1,
-          is_corporate: false,
-          is_gift: true,
-          price: this.cart.total_cost,
-          sender_name: `${client.firstName}`
-        }
-      ]
-    };
-
-    this.cart.checkout(order, this.selectedPaymentMethod).finally();
+    this.cart.checkout(this.selectedPaymentMethod, client).finally();
   }
 }
 

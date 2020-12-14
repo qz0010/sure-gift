@@ -5,7 +5,7 @@ import {IReqCheckout} from '../../../../../types/req';
 import {FormService} from '../../../services/form.service';
 import {IUser} from '../../../../../types/User';
 import {NgForm} from '@angular/forms';
-import {IPaymentMethod, TPaymentMethodType} from '../../../../../types';
+import {ICertificateBody, IPaymentMethod, TPaymentMethodType} from '../../../../../types';
 import {DocService} from '../../../services/doc.service';
 
 @Component({
@@ -24,7 +24,8 @@ export class CartPersonalComponent
 
   public personalData: IReqCheckout;
   public paymentMethod: TPaymentMethodType = 'common';
-  private subsriptions: Subscription[] = [];
+  public order: ICertificateBody;
+  private subscriptions: Subscription[] = [];
   private formName = 'cartPersonalForm';
 
   @ViewChild('form', {static: false}) formRef: NgForm;
@@ -53,7 +54,7 @@ export class CartPersonalComponent
 
   ngOnDestroy(): void {
     // super.ngOnDestroy();
-    this.subsriptions.map(s => s.unsubscribe());
+    this.subscriptions.map(s => s.unsubscribe());
   }
 
   onPaymentMethodClick(pm: IPaymentMethod): void {
