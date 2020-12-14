@@ -32,10 +32,6 @@ export class CartComponent implements OnInit {
     });
   }
 
-  checkout() {
-
-  }
-
   onSelectPaymentMethod(pm: IPaymentMethod): void {
     this.selectedPaymentMethod = pm;
   }
