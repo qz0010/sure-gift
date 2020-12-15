@@ -9,6 +9,7 @@ export interface IRaisedTableItem {
   title: IMultiLangField;
   value?: number;
   type?: 'money' | 'number';
+  code?: keyof IShowcaseFundraising;
   mark?: boolean;
 }
 
@@ -36,6 +37,8 @@ export class GiftsRaisedComponent implements OnInit {
     }
   ];
   public fundraisingPercent = 0;
+  public fundraisingPartnerPercent = 0;
+  public fundraisingPartnerPrice = 0;
 
   constructor(
     private api: ApiService,
@@ -45,9 +48,14 @@ export class GiftsRaisedComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getShowCaseFundraising(this.route.snapshot.data?.showcase?._uuid).subscribe((data) => {
+      const partnerValue = this.cart.calcFundraisingPartnerValue(data);
+
       this.data = data;
+      this.fundraisingPercent = this.cart.calcFundraisingPercent(data) - partnerValue.percent;
+      this.fundraisingPartnerPercent = partnerValue.percent;
+      this.fundraisingPartnerPrice = partnerValue.price;
+
       this.makeTable();
-      this.fundraisingPercent = this.cart.calcFundraisingPercent(data);
     });
   }
 
@@ -56,21 +64,25 @@ export class GiftsRaisedComponent implements OnInit {
       {
         ...(this.table[0]),
         value: this.data.total_sum,
+        code: 'total_sum',
         type: 'money'
       },
       {
         ...(this.table[1]),
         value: this.data.total_qty,
+        code: 'total_qty',
         type: 'number'
       },
       {
         ...(this.table[2]),
         value: this.data.fundraising_plan,
+        code: 'fundraising_plan',
         type: 'money'
       },
       {
         ...(this.table[3]),
         value: this.data.fundraising_slots,
+        code: 'fundraising_slots',
         type: 'number'
       },
     ];

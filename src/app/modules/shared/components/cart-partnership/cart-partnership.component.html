@@ -1,4 +1,16 @@
 <div class="cart-partner">
+  <ng-template #popoverTmp>
+    <div class="cart-partner__popover" [ngClass]="{'f-desktop': isDesktop}">
+      <div class="cart-partner__popover-row">
+        <span class="cart-partner__popover-ico"></span>
+        <span class="cart-partner__popover-item">Ваши взносы</span>
+      </div>
+      <div class="cart-partner__popover-row">
+        <span class="cart-partner__popover-ico cart-partner__popover-ico_partner"></span>
+        <span class="cart-partner__popover-item">Взнос Mastercard</span>
+      </div>
+    </div>
+  </ng-template>
   <div class="cart-partner__body">
     <div class="cart-partner__body-item">
       <div class="cart-partner__wrap">
@@ -20,23 +32,15 @@
         </div>
       </div>
     </div>
-<!--    <div class="cart-partner__body-item cart-partner__body-item_popover">-->
-<!--      <svg class="cart-partner__info-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"-->
-<!--        (click)="showInfo = !showInfo" [appClickOutside]="showInfo" (clickOutside)="showInfo = false">-->
-<!--        <rect x="13" y="10.043" width="7.97546" height="2" transform="rotate(90 13 10.043)" fill="#FF3838"/>-->
-<!--        <path d="M22 12C22 17.4827 17.5554 21.9272 12.0728 21.9272C6.59009 21.9272 2.14551 17.4827 2.14551 12C2.14551 6.51733 6.59009 2.07275 12.0728 2.07275C17.5554 2.07275 22 6.51733 22 12Z" stroke="#FF3838" stroke-width="2"/>-->
-<!--        <rect x="13" y="6.01758" width="2.06512" height="2" transform="rotate(90 13 6.01758)" fill="#FF3838"/>-->
-<!--      </svg>-->
-<!--      <div class="cart-partner__popover" *ngIf="showInfo">-->
-<!--        <div class="cart-partner__popover-row">-->
-<!--          <span class="cart-partner__popover-ico"></span>-->
-<!--          <span class="cart-partner__popover-item">Ваши взносы</span>-->
-<!--        </div>-->
-<!--        <div class="cart-partner__popover-row">-->
-<!--          <span class="cart-partner__popover-ico cart-partner__popover-ico_partner"></span>-->
-<!--          <span class="cart-partner__popover-item">Взнос Mastercard</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="cart-partner__body-item cart-partner__body-item_popover" [appClickOutside]="showInfo" (clickOutside)="showInfo = false">
+      <svg class="cart-partner__info-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        (click)="showInfo = !showInfo">
+        <rect x="13" y="10.043" width="7.97546" height="2" transform="rotate(90 13 10.043)" fill="#FF3838"/>
+        <path d="M22 12C22 17.4827 17.5554 21.9272 12.0728 21.9272C6.59009 21.9272 2.14551 17.4827 2.14551 12C2.14551 6.51733 6.59009 2.07275 12.0728 2.07275C17.5554 2.07275 22 6.51733 22 12Z" stroke="#FF3838" stroke-width="2"/>
+        <rect x="13" y="6.01758" width="2.06512" height="2" transform="rotate(90 13 6.01758)" fill="#FF3838"/>
+      </svg>
+      <ng-container [ngTemplateOutlet]="popoverTmp" *ngIf="isDesktop"></ng-container>
+      <ng-container [ngTemplateOutlet]="popoverTmp" *ngIf="!isDesktop && showInfo"></ng-container>
+    </div>
   </div>
 </div>

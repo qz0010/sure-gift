@@ -26,12 +26,13 @@ export class CartService {
   };
   public readonly default_currency = 'rub';
   public partnershipInc: IPartnershipInc = {
-    percent: 0
+    percent: 30
   };
   public oneValuePrice = 100000;
   public prices: number[];
   public currEvent: IShowcaseEvent;
   public total_cost = 0;
+  public fundraisingPartnerValue;
   public syncing = false;
   public panelSetRect$ = new Subject();
 
@@ -40,6 +41,10 @@ export class CartService {
   }
   public get getPrices(): number[] {
     return this.prices;
+  }
+
+  public set setterFundraisingPartnerValue(value) {
+    this.fundraisingPartnerValue = value;
   }
 
   public set setterEvent(event: IShowcaseEvent) {
@@ -55,12 +60,21 @@ export class CartService {
     private globalResolveData: GlobalResolveDataService
   ) { }
 
+  public calcFundraisingPartnerValue(data: IShowcaseFundraising): {price: number, percent: number} {
+    const {total_sum, fundraising_plan} = data;
+    const price = Math.round(total_sum / 100 * this.partnershipInc.percent - 0.01);
+    const value = {price, percent: price / fundraising_plan * 100};
+
+    this.setterFundraisingPartnerValue = value;
+    return value;
+  }
+
   public calcFundraisingPercent(data: IShowcaseFundraising): number {
-    return data.total_sum / data.fundraising_plan * 100 - this.partnershipInc.percent;
+    return data.total_sum / data.fundraising_plan * 100;
   }
 
   public countValuesByPrice(price: number): number {
-    return price / this.oneValuePrice;
+    return Math.round(price / this.oneValuePrice - 0.01);
   }
 
   public selectPrice(price: number): void {

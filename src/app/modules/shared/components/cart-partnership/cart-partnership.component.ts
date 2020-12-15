@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from '../../services/cart.service';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
   selector: 'app-cart-partnership',
@@ -8,10 +9,14 @@ import {CartService} from '../../services/cart.service';
 })
 export class CartPartnershipComponent implements OnInit {
   public showInfo = false;
+  public isDesktop: boolean;
 
   constructor(
-    public cart: CartService
-  ) { }
+    public cart: CartService,
+    private device: DeviceDetectorService
+  ) {
+    this.isDesktop = device.isDesktop();
+  }
 
   ngOnInit(): void {
   }

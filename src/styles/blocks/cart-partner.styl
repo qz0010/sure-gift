@@ -34,7 +34,6 @@
     border-radius: 4px
 
   &__popover
-    //display: none
     position: absolute;
     top calc(100% + 13px)
     right: 0
@@ -45,6 +44,9 @@
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, .14);
     background: #fff
     color: #B5B5B5
+
+    &.f-desktop
+      display: none
 
     &-row
       display: flex
@@ -62,6 +64,9 @@
 
       &_partner
         background: #F79E1B;
+
+      &:hover .cart-partner__popover
+        display: block
 
 +desktop()
   .cart-partner
