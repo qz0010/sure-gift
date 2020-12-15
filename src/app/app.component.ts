@@ -22,8 +22,10 @@ export class AppComponent {
     private device: DeviceDetectorService,
     private route: ActivatedRoute,
     private router: Router,
-    public cart: CartService
+    public cart: CartService,
+    private translate: TranslateService
   ) {
+    this.translate.use(this.translate.defaultLang);
     this.deviceType = this.device.isDesktop() ? 'desktop' : 'mobile';
 
     this.router.events.subscribe(event => {

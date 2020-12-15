@@ -10,6 +10,7 @@ import {Observable} from 'rxjs';
 export class GlobalResolveDataService {
   public showcase: IShowcaseItem;
   public event: IShowcaseEvent;
+
   public settings$: Observable<ISettings> = this.api.getSettings().pipe(shareReplay(1));
   public offer$: Observable<ISettings> = this.api.getOffer().pipe(shareReplay(1));
 

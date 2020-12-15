@@ -9,7 +9,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SharedModule} from './modules/shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-export function createTranslateLoader(http: HttpClient) {
+export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 

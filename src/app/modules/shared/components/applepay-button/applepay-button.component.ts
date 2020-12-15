@@ -1,12 +1,14 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { isNil, isEmpty, path } from 'ramda';
-import {ICertificateBody, ICertificateOrder, IPaymentMethod} from '../../../../types';
+import {ICertificateBody, ICertificateOrder, IPaymentMethod, IShowcaseCurrency} from '../../../../types';
 import {PaymentService} from '../../services/payment.service';
 import {ApiService} from '../../services/api.service';
 import {LoggerService} from '../../services/logger.service';
 import {CartService} from '../../services/cart.service';
 import {IUser} from '../../../../types/User';
 import {PlatformService} from '../../services/platform.service';
+import {GlobalResolveDataService} from '../../services/global-resolve-data.service';
+import {TranslateService} from '@ngx-translate/core';
 
 declare const ApplePaySession: any;
 
@@ -30,7 +32,9 @@ export class ApplepayButtonComponent implements OnInit, AfterViewInit {
     private api: ApiService,
     private logger: LoggerService,
     private cart: CartService,
-    private platform: PlatformService
+    private platform: PlatformService,
+    private globalResolveData: GlobalResolveDataService,
+    private translate: TranslateService
   ) {
   }
 
@@ -60,10 +64,13 @@ export class ApplepayButtonComponent implements OnInit, AfterViewInit {
         const { paymentMethodData, paymentDetails } = self.payment.getOptions(self.pm, self.total_cost);
 
         const version = 3;
+        const lang = self.translate.currentLang || self.translate.defaultLang;
+        const currency: IShowcaseCurrency = self.globalResolveData.showcase?.Currency;
+        const currencyCode: string = currency?.code?.replace('RUR', 'RUB');
 
         const request = {
-          countryCode: 'RU',
-          currencyCode: 'RUB',
+          countryCode: lang,
+          currencyCode,
           merchantCapabilities: paymentMethodData.data.merchantCapabilities,
           supportedNetworks: paymentMethodData.data.supportedNetworks,
           total: {

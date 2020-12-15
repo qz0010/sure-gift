@@ -55,9 +55,22 @@ export interface IShowcaseItemMeta {
   fundraising: IShowcaseFundraising;
 }
 
+export interface IShowcaseCurrency {
+  code: string;
+  created_at: string;
+  id: string;
+  meta: any;
+  minor: number;
+  name: IMultiLangField;
+  sign: string;
+  updated_at: string;
+  _uuid: string;
+}
+
 export interface IShowcaseItem {
   // Tags?: ITag[];
   // Views?: ICertificateView[];
+  Currency?: IShowcaseCurrency;
   _uuid?: string;
   uuid?: string;
   activation_last_date?: string;

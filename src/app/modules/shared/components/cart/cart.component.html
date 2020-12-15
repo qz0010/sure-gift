@@ -58,11 +58,11 @@
                                       [source]="item"
                                       [value]="item.amount" [decrementValue]="item | calcCommission"
 -->
-                      <app-plus-minus [max_value]="200000000"
+                      <app-plus-minus [max_value]="((showcase?.prices_range || [])[1] || 1000000000) / 100"
                                       [value]="cart.total_cost"
-                                      [valueStep]="100000"
-                                      (increment)="cart.changePriceCalc(100000)"
-                                      (decrement)="cart.changePriceCalc(-100000)">
+                                      [valueStep]="(showcase?.prices_range || [100])[0]"
+                                      (increment)="cart.changePriceCalc($event.valueStep)"
+                                      (decrement)="cart.changePriceCalc(-$event.valueStep)">
                       </app-plus-minus>
                     </div>
                   </div>

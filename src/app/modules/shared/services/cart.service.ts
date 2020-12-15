@@ -6,6 +6,7 @@ import {finalize} from 'rxjs/operators';
 import {PaymentService} from './payment.service';
 import {IUser} from '../../../types/User';
 import {GlobalResolveDataService} from './global-resolve-data.service';
+import {TranslateService} from '@ngx-translate/core';
 
 
 export interface IPartnershipInc {
@@ -17,14 +18,7 @@ export interface IPartnershipInc {
   providedIn: 'root'
 })
 export class CartService {
-  public readonly prices_currency = {
-    rur: '₽',
-    rub: '₽',
-    usd: '$',
-    eur: '€',
-    amd: '֏',
-  };
-  public readonly default_currency = 'rub';
+  public readonly default_currency = 'RUB';
   public partnershipInc: IPartnershipInc = {
     percent: 30
   };
@@ -57,7 +51,8 @@ export class CartService {
   constructor(
     private api: ApiService,
     private payment: PaymentService,
-    private globalResolveData: GlobalResolveDataService
+    private globalResolveData: GlobalResolveDataService,
+    private translate: TranslateService
   ) { }
 
   public calcFundraisingPartnerValue(data: IShowcaseFundraising): {price: number, percent: number} {
@@ -94,7 +89,7 @@ export class CartService {
     const  {showcase} = this.globalResolveData;
 
     return {
-      lang: 'ru',
+      lang: this.translate.currentLang || this.translate.defaultLang,
       client: {
         email: client.email,
         name: client.firstName,

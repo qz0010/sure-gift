@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { prop, path, isNil, isEmpty } from 'ramda';
 import {ApiService} from './api.service';
-import {ICertificateBody, ICertificateOrder, IPaymentMethod} from '../../../types';
+import {ICertificateBody, ICertificateOrder, IPaymentMethod, IShowcaseCurrency} from '../../../types';
 import {Observable, of, throwError} from 'rxjs';
 import {fromPromise} from 'rxjs/internal-compatibility';
 import {catchError, map} from 'rxjs/operators';
+import {GlobalResolveDataService} from './global-resolve-data.service';
+import {TranslateService} from '@ngx-translate/core';
 
 export interface IContacts {
   phone?: string;
@@ -51,7 +53,12 @@ export class PaymentService {
   private paymentMethodData;
   private paymentOptions;
 
-  constructor(private api: ApiService) {}
+  constructor(
+    private api: ApiService,
+    private globalResolveData: GlobalResolveDataService,
+    private translate: TranslateService
+  ) {
+  }
 
   private setOptions(method: IPaymentMethod, total_cost: number, contacts: IContacts = {}): any {
     if (method) {
@@ -75,6 +82,7 @@ export class PaymentService {
     if (method) {
       const paymentOptions = {};
       const currencyCode: string = path(['currency', 'alias'], method.ext_provider_data) || 'RUR';
+      const lang = this.translate.currentLang || this.translate.defaultLang;
 
       const paymentDetails = {
         total: {
@@ -101,12 +109,14 @@ export class PaymentService {
             merchantName: settings.merchant.name,
           },
         };
+        googlePaymentsConfiguration.transactionInfo.countryCode = lang.toUpperCase();
         googlePaymentsConfiguration.transactionInfo.totalPrice = (total_cost * 0.01).toFixed(2);
         googlePaymentsConfiguration.transactionInfo.currencyCode = currencyCode;
         paymentMethodData = {
           supportedMethods: 'https://google.com/pay',
           data: googlePaymentsConfiguration,
         };
+
       }
       return { paymentOptions, paymentDetails, paymentMethodData, googlePaymentsConfiguration };
     } else {
