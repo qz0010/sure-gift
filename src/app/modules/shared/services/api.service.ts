@@ -51,4 +51,8 @@ export class ApiService {
   public getSettings(): Observable<ISettings> {
     return this.http.get<ISettings>(`/${this.baseApi}/showcase/settings`);
   }
+
+  public getOffer(): Observable<any> {
+    return this.http.get<any>(`/${this.baseApi}/showcase/offer`);
+  }
 }

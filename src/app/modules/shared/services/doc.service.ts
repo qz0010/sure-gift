@@ -27,7 +27,14 @@ export class DocService {
     private globalResolveData: GlobalResolveDataService
   ) {
     globalResolveData.settings$.subscribe(s => {
-      this.init(s);
+      if (s.offer) {
+        this.init(s);
+      } else {
+        globalResolveData.offer$.subscribe(value => {
+          this.docs.gift_offer = value;
+          this.docs.offer = value;
+        });
+      }
     });
   }
 
