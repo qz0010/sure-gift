@@ -26,7 +26,7 @@ export class GiftsRaisedComponent implements OnInit {
       mark: true
     },
     {
-      title: {ru: 'Собрано билетов'},
+      title: {ru: 'Подарено билетов'},
       mark: true
     },
     {
