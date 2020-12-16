@@ -52,12 +52,6 @@
                 <div class="r-table__item r-table__item_mr-2">
                   <div class="r-table__items">
                     <div class="r-table__item r-table__item_mr-1">
-<!--                                  (change)="onCountChange($event)"
-                                      (increment)="onIncrement($event)"
-                                      (decrement)="onDecrement($event)"
-                                      [source]="item"
-                                      [value]="item.amount" [decrementValue]="item | calcCommission"
--->
                       <app-plus-minus [max_value]="((showcase?.prices_range || [])[1] || 1000000000) / 100"
                                       [value]="cart.total_cost"
                                       [valueStep]="cart.pricesRange[0]"

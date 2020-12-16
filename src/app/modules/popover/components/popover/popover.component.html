@@ -1,0 +1,3 @@
+<div class="b" *ngIf="(showHide$ | async)?.show" [ngStyle]="{'top.px': position?.top, 'left.px': position?.left}">
+  <ng-template #container></ng-template>
+</div>

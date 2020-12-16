@@ -31,6 +31,7 @@ import {ClickOutsideDirective} from './directives/click-outside.directive';
 import {PaymentMethodFilterPipe} from './pipes/payment_method_filter.pipe';
 import {ApplepayButtonComponent} from './components/applepay-button/applepay-button.component';
 import {GpayButtonComponent} from './components/gpay-button/gpay-button.component';
+import { ShareNavComponent } from './components/share-nav/share-nav.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {GpayButtonComponent} from './components/gpay-button/gpay-button.componen
     ClickOutsideDirective,
     PaymentMethodFilterPipe,
     ApplepayButtonComponent,
-    GpayButtonComponent
+    GpayButtonComponent,
+    ShareNavComponent
   ],
   exports: [
     MultilangPipe,
@@ -77,7 +79,8 @@ import {GpayButtonComponent} from './components/gpay-button/gpay-button.componen
     ClickOutsideDirective,
     PaymentMethodFilterPipe,
     ApplepayButtonComponent,
-    GpayButtonComponent
+    GpayButtonComponent,
+    ShareNavComponent
   ],
   imports: [
     CommonModule,

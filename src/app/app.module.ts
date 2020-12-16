@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SharedModule} from './modules/shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PopoverModule} from './modules/popover/popover.module';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -29,7 +30,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
             }
         }),
         SharedModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        PopoverModule
     ],
   providers: [],
   bootstrap: [AppComponent]

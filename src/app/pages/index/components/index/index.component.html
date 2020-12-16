@@ -1,27 +1,14 @@
 <app-main-layout>
   <ng-template #shareTmp>
-    <div class="h-share h-share_theme-">
-      <div class="h-share__head" (click)="dynamicRender.appendComponentToBody(shareNavTmp)">
-        <button type="button" class="mxn-btn h-share__btn">
+    <div class="h-share h-share_theme-" [appClickOutside]="showShare" (clickOutside)="closeShare()">
+      <div class="h-share__head">
+        <button type="button" class="mxn-btn h-share__btn" (click)="onShareClick($event)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.3243 23.9969C14.07 23.9808 13.8275 23.8842 13.6318 23.7211C13.4362 23.5579 13.2976 23.3367 13.2362 23.0895L10.7796 13.2206L0.908367 10.7633C0.661485 10.7014 0.44067 10.5626 0.277823 10.367C0.114975 10.1715 0.0185265 9.92918 0.0024095 9.6752C-0.0137075 9.42122 0.0513419 9.16869 0.18816 8.95409C0.324979 8.7395 0.526483 8.57395 0.763562 8.48136L22.3671 0.0806953C22.5837 -0.0030387 22.8201 -0.0221017 23.0474 0.025819C23.2747 0.0737396 23.4832 0.186584 23.6476 0.350664C23.812 0.514743 23.9253 0.723006 23.9737 0.950186C24.0221 1.17737 24.0035 1.4137 23.9201 1.63052L15.5194 23.2343C15.4315 23.4602 15.2774 23.6542 15.0772 23.7909C14.877 23.9275 14.6401 24.0004 14.3977 24L14.3243 23.9969Z" fill="white"/>
           </svg>
           <span class="h-share__btn-text">Поделиться</span>
         </button>
       </div>
-      <ng-template #shareNavTmp>
-        <div class="h-share__nav">
-          <div class="h-share__list">
-            <ng-template ngFor [ngForOf]="social.data" let-item>
-              <div class="h-share__item" *ngIf="item.share_url">
-                          <span class="h-share__link h-share__link_{{item.short_name}}" (click)="social.share(item)">
-                            {{item.formatted_name}}
-                          </span>
-              </div>
-            </ng-template>
-          </div>
-        </div>
-      </ng-template>
     </div>
   </ng-template>
 
@@ -33,9 +20,9 @@
       </div>
       <div class="project__image-content">
         <div class="heading">
-<!--          <div class="heading__share heading__share_m">-->
-<!--            <ng-container [ngTemplateOutlet]="shareTmp"></ng-container>-->
-<!--          </div>-->
+          <div class="heading__share heading__share_m">
+            <ng-container [ngTemplateOutlet]="shareTmp"></ng-container>
+          </div>
           <div class="heading__body">
             <div class="heading__body-row">
               <div class="heading__body-logo">
@@ -74,9 +61,9 @@
                 </div>
               </div>
               <div class="heading__footer-item">
-<!--                <div class="heading__share heading__share_d">-->
-<!--                  <ng-container [ngTemplateOutlet]="shareTmp"></ng-container>-->
-<!--                </div>-->
+                <div class="heading__share heading__share_d">
+                  <ng-container [ngTemplateOutlet]="shareTmp"></ng-container>
+                </div>
               </div>
             </div>
           </div>
