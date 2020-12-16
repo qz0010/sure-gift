@@ -27,7 +27,10 @@
               'Child1' | translate, 'Child2' | translate, 'Child3' | translate
         ]}} {{price | countValuesByPrice | numerative: [
           'Visit1' | translate, 'Visit2' | translate, 'Visit3' | translate
-        ]}}</span> киноконцерт
+        ]}}</span> киноконцерт <span class="c-4" *ngIf="price | countValuesByPrice:{partner: true}">+ {{ price | countValuesByPrice:{partner: true} }} {{
+          price | countValuesByPrice:{partner: true} | numerative: [
+          'Child1' | translate, 'Child2' | translate, 'Child3' | translate
+        ]}} от Mastercard</span>
 <!--          + <span class="v-btn__text-mark">12 детей от Mastercard</span> 1000 ₽ = 1 входной билет для ребенка-->
           <br>{{cart.oneValuePrice | money}} = 1 входной билет для ребенка
         </p>

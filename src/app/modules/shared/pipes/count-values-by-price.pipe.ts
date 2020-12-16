@@ -11,7 +11,7 @@ export class CountValuesByPricePipe implements PipeTransform {
   ) {
   }
 
-  transform(price: number): number {
-    return this.cart.countValuesByPrice(price);
+  transform(price: number, opt: {partner?: boolean} = {}): number {
+    return this.cart.countValuesByPrice(price, opt.partner);
   }
 }

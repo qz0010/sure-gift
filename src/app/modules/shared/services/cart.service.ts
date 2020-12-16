@@ -68,8 +68,16 @@ export class CartService {
     return data.total_sum / data.fundraising_plan * 100;
   }
 
-  public countValuesByPrice(price: number): number {
-    return Math.round(price / this.oneValuePrice - 0.01);
+  public countValuesByPrice(price: number, partner = false): number {
+    const value = Math.round(price / this.oneValuePrice - 0.01);
+
+    if (partner) {
+      if (!this.partnershipInc?.percent) {
+        return null;
+      }
+      return Math.round(value / 100 * this.partnershipInc.percent - 0.01);
+    }
+    return value;
   }
 
   public selectPrice(price: number): void {
