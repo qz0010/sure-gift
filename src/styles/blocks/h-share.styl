@@ -1,18 +1,11 @@
 .h-share
   position: relative;
-  color: #000;
-
-  &_theme-2
-    color: #fff;
-    .h-share__btn
-      color: #fff;
-      & > svg-icon > svg > path
-        fill: #fff
+  color: #fff;
 
   &__nav
-    position: absolute;
-    top: calc(100% + 14px);
-    right: 0
+    //position: absolute;
+    //top: calc(100% + 14px);
+    //right: 0
     width: 184px
     padding: 19px 12px 19px 16px
     transition opacity $sFast ease-in-out, visibility $sFast ease-in-out
@@ -23,10 +16,10 @@
     background-color: #ffffff;
     color: #000;
 
-    &:not(.f-active)
-      visibility: hidden;
-      opacity: 0;
-      pointer-events none
+    //&:not(.f-active)
+    //  visibility: hidden;
+    //  opacity: 0;
+    //  pointer-events none
 
   &__item
     margin-bottom: 20px
@@ -34,13 +27,20 @@
       margin-bottom: 0
 
   &__btn
-    font-size: 16px
-    padding: 0
-    border-radius: 8px
-    font-weight: 600
+    color: #fff
+
     &-text
-      display: none;
-      margin-left: 10px
+      margin-left: 12px
+
+    & > svg
+      vertical-align: middle
+  //  font-size: 16px
+  //  padding: 0
+  //  border-radius: 8px
+  //  font-weight: 600
+  //  &-text
+  //    display: none;
+  //    margin-left: 10px
 
   &__link
     display: flex;
@@ -56,15 +56,23 @@
         width: auto;
         height: auto;
 
-+desktop()
++small()
   .h-share
     &__btn
-      padding: 8px 22px 8px 14px
+      padding: 0
       &-text
-        display: inline;
+        display: none
 
-.device-desktop
-  .h-share
-    &__btn
-      &:hover
-        background-color: rgba(175, 168, 160, .2);
+
+//+desktop()
+//  .h-share
+//    &__btn
+//      padding: 8px 22px 8px 14px
+//      &-text
+//        display: inline;
+
+//.device-desktop
+//  .h-share
+//    &__btn
+//      &:hover
+//        background-color: rgba(175, 168, 160, .2);

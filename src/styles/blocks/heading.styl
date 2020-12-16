@@ -23,11 +23,6 @@
   &__footer
     margin-top: 28px
 
-    &-row
-      display: flex
-      justify-content: space-between
-      align-items center
-
   &__logos
     display: flex
     align-items center
@@ -41,6 +36,28 @@
       width: auto
       max-width 100%
       height: auto
+
++min_small()
+  .heading
+    &__share
+      &_m
+        display: none
+    &__footer
+      &-row
+        display: flex
+        justify-content: space-between
+        align-items center
+
++small()
+  .heading
+    &__share
+      &_d
+        display: none
+
+      &_m
+        position: absolute
+        right: 0
+        bottom: 100%
 
 +mobile()
   .heading
