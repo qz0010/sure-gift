@@ -60,7 +60,7 @@
 -->
                       <app-plus-minus [max_value]="((showcase?.prices_range || [])[1] || 1000000000) / 100"
                                       [value]="cart.total_cost"
-                                      [valueStep]="(showcase?.prices_range || [])[0] || 100000"
+                                      [valueStep]="cart.pricesRange[0]"
                                       (increment)="cart.changePriceCalc($event.valueStep)"
                                       (decrement)="cart.changePriceCalc(-$event.valueStep)">
                       </app-plus-minus>

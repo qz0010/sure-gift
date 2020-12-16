@@ -24,6 +24,7 @@ export class CartService {
   };
   public oneValuePrice = 100000;
   public prices: number[];
+  public pricesRange: number[] = [];
   public currEvent: IShowcaseEvent;
   public total_cost = 0;
   public fundraisingPartnerValue;
@@ -32,6 +33,7 @@ export class CartService {
 
   public set setterPrices(prices: number[]) {
     this.prices = prices.sort((a, b) => b - a);
+    this.pricesRange[0] = Math.min(...prices);
   }
   public get getPrices(): number[] {
     return this.prices;
