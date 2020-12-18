@@ -4,8 +4,7 @@
       <div class="gifts__col gifts__col_text" *ngIf="data.meta?.fiscal_position_title || data.description">
         <div class="gifts__text">
           <div class="gifts__text-head gifts__text-head_mb-2">
-            <h4 class="gifts__text-title">
-              Подари билеты детям
+            <h4 class="gifts__text-title" [innerHTML]="'GiftsTitle' | translate">
             </h4>
           </div>
           <div class="gifts__text-body" *ngIf="data.description" [innerHTML]="data.description | multilang"></div>

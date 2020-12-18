@@ -6,6 +6,7 @@ import {SocialService} from '../../../../modules/shared/services/social.service'
 import {PopoverService} from '../../../../modules/popover/services/popover.service';
 import {GiftsRaisedComponent} from '../../../../modules/gifts/components/gifts/gifts-raised/gifts-raised.component';
 import {ShareNavComponent} from '../../../../modules/shared/components/share-nav/share-nav.component';
+import {GlobalResolveDataService} from '../../../../modules/shared/services/global-resolve-data.service';
 
 @Component({
   selector: 'app-index',
@@ -20,11 +21,12 @@ export class IndexComponent implements OnInit {
     private route: ActivatedRoute,
     public cart: CartService,
     public social: SocialService,
-    public popoverService: PopoverService
+    public popoverService: PopoverService,
+    public globalResolveDataService: GlobalResolveDataService
   ) { }
 
   ngOnInit(): void {
-    this.data = this.route.snapshot.data.showcase;
+    this.data = this.globalResolveDataService.showcase;
   }
 
   public onShareClick(e: Event): void {

@@ -7,18 +7,23 @@ import {CheckoutModule} from './pages/checkout/checkout.module';
 import {CheckoutPageComponent} from './pages/checkout/components/checkout-page/checkout-page.component';
 import {ResultModule} from './pages/result/result.module';
 import {ResultComponent} from './pages/result/components/result/result.component';
+import {InitResolver} from './modules/shared/services/init.resolver';
 
 const routes: Routes = [
-  {path: '', component: IndexComponent, resolve: {
-    showcase: ShowcaseResolver,
+  // {path: '', component: IndexComponent, resolve: {
+  //     showcase: ShowcaseResolver,
+  //     init: InitResolver
+  //   }},
+  {path: ':lang', component: IndexComponent, resolve: {
+    // showcase: ShowcaseResolver,
+    init: InitResolver
   }},
-  {path: 'checkout', component: CheckoutPageComponent, resolve: {
-    showcase: ShowcaseResolver,
+  {path: ':lang/checkout', component: CheckoutPageComponent, resolve: {
+    // showcase: ShowcaseResolver,
+    init: InitResolver
   }},
-  {path: 'result/:order_uuid/cert', component: ResultComponent},
-  {path: 'result/:order_uuid/cert/:lang', component: ResultComponent},
-  {path: 'result/:order_uuid/cert', component: ResultComponent},
-  {path: '**', redirectTo: ''}
+  {path: ':lang/result/:order_uuid/cert', component: ResultComponent, resolve: {init: InitResolver}},
+  {path: '**', redirectTo: 'ru'}
 ];
 
 @NgModule({

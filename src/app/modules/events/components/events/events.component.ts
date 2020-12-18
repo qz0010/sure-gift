@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {IShowcaseEvent, IShowcaseItem} from '../../../../types';
+import {GlobalResolveDataService} from '../../../shared/services/global-resolve-data.service';
 
 @Component({
   selector: 'app-events',
@@ -12,11 +13,12 @@ export class EventsComponent implements OnInit {
   public event: IShowcaseEvent;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public globalResolveDataService: GlobalResolveDataService
   ) { }
 
   ngOnInit(): void {
-    const showcase = this.route.snapshot.data.showcase;
+    const showcase = this.globalResolveDataService.showcase;
     const events: IShowcaseEvent[] = showcase?.meta?.fundraising?.events || [];
 
     this.showcase = showcase;

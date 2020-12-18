@@ -69,7 +69,7 @@ export class ApplepayButtonComponent implements OnInit, AfterViewInit {
         const currencyCode: string = currency?.code?.replace('RUR', 'RUB');
 
         const request = {
-          countryCode: lang,
+          countryCode: lang.toUpperCase(),
           currencyCode,
           merchantCapabilities: paymentMethodData.data.merchantCapabilities,
           supportedNetworks: paymentMethodData.data.supportedNetworks,

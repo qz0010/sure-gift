@@ -25,8 +25,9 @@
             </svg>
           </div>
           <div class="cart-partner__item">
-            <p class="cart-partner__text">
-              Генеральный партнер <span class="c-3">увеличивает</span> каждую транзакцию на <span class="c-3">30%</span>
+            <p class="cart-partner__text" [innerHTML]="'PartnerText' | translate: {
+              num: cart.partnershipInc.percent + '%'
+            }">
             </p>
           </div>
         </div>

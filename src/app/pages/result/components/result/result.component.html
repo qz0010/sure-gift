@@ -1,7 +1,7 @@
 <div class="checkout checkout_page">
   <div class="mxn-container mxn-container_gap-2">
     <div class="mxn-logo-head mxn-logo-head_mb-1">
-      <a href="/" routerLink="/">
+      <a href="/" routerLink="/{{translate.currentLang}}">
         <svg class="mxn-logo-head-svg mxn-logo-head-svg_sz-1" xmlns="http://www.w3.org/2000/svg" width="168" height="50"
              viewBox="0 0 168 50">
           <path fill="#FF3838" fill-rule="evenodd"
@@ -21,7 +21,7 @@
             <ng-template [ngIf]="isSuccess !== null && !isSuccess">
               <div class="checkout__result-body-row">
                 <h4 class="checkout__result-title mxn-title mxn-title_sz-2">
-                  Что-то пошло не так...
+                  {{'DefaultErrorText' | translate}}...
                 </h4>
               </div>
             </ng-template>
@@ -34,12 +34,22 @@
               </div>
               <div class="checkout__result-body-row" *ngIf="data?.total_amount">
                 <p class="mxn-text mxn-text_sz-2 mxn-text_theme-2">
-                  Благодаря вам {{+data.total_amount | countValuesByPrice}} {{+data.total_amount | countValuesByPrice | numerative: [
+                  {{'ResultText' | translate: {
+                  count: (+data.total_amount | countValuesByPrice) + ' ' + (+data.total_amount | countValuesByPrice | numerative: [
                     'Child1' | translate, 'Child2' | translate, 'Child3' | translate
-                  ]}} {{+data.total_amount | countValuesByPrice | numerative: [
-                  'Can1' | translate, 'Can2' | translate, 'Can3' | translate
-                ]}} бесплатно посетить киноконцерт Disney «Холодное сердце». За всеми анонсами вы можете следить на нашем сайте и в наших социальных сетях
+                  ]),
+                  can: (+data.total_amount | countValuesByPrice | numerative: [
+                    'Can4' | translate, 'Can5' | translate, 'Can6' | translate
+                  ])
+                } }}
                 </p>
+<!--                <p class="mxn-text mxn-text_sz-2 mxn-text_theme-2">-->
+<!--                  Благодаря вам {{+data.total_amount | countValuesByPrice}} {{+data.total_amount | countValuesByPrice | numerative: [-->
+<!--                    'Child1' | translate, 'Child2' | translate, 'Child3' | translate-->
+<!--                  ]}} {{+data.total_amount | countValuesByPrice | numerative: [-->
+<!--                  'Can1' | translate, 'Can2' | translate, 'Can3' | translate-->
+<!--                ]}} бесплатно посетить киноконцерт Disney «Холодное сердце». За всеми анонсами вы можете следить на нашем сайте и в наших социальных сетях-->
+<!--                </p>-->
               </div>
             </ng-template>
 

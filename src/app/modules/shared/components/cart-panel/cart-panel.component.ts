@@ -7,6 +7,7 @@ import {expandAnimationHide, expandAnimationShow} from '../../../../animations';
 import {Subject} from 'rxjs';
 import {debounceTime, takeUntil} from 'rxjs/operators';
 import {GlobalResolveDataService} from '../../services/global-resolve-data.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart-panel',
@@ -37,7 +38,8 @@ export class CartPanelComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     public cart: CartService,
     private route: ActivatedRoute,
-    public globalResolveData: GlobalResolveDataService
+    public globalResolveData: GlobalResolveDataService,
+    public translate: TranslateService
   ) {
   }
 

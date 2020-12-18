@@ -3,6 +3,8 @@ import {ApiService} from '../../../../shared/services/api.service';
 import {ActivatedRoute} from '@angular/router';
 import {IMultiLangField, IShowcaseFundraising} from '../../../../../types';
 import {CartService} from '../../../../shared/services/cart.service';
+import {TranslateService} from '@ngx-translate/core';
+import {GlobalResolveDataService} from '../../../../shared/services/global-resolve-data.service';
 
 
 export interface IRaisedTableItem {
@@ -22,18 +24,18 @@ export class GiftsRaisedComponent implements OnInit {
   public data: IShowcaseFundraising;
   public table: IRaisedTableItem[] = [
     {
-      title: {ru: 'Собрано средств'},
+      title: {ru: 'Собрано средств', en: 'Funds raised'},
       mark: true
     },
     {
-      title: {ru: 'Подарено билетов'},
+      title: {ru: 'Подарено билетов', en: 'Tickets donated'},
       mark: true
     },
     {
-      title: {ru: 'Цель'},
+      title: {ru: 'Цель', en: 'Goal'},
     },
     {
-      title: {ru: 'Всего билетов'},
+      title: {ru: 'Всего билетов', en: 'Total tickets'},
     }
   ];
   public fundraisingPercent = 0;
@@ -43,11 +45,13 @@ export class GiftsRaisedComponent implements OnInit {
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
-    public cart: CartService
+    public cart: CartService,
+    public translate: TranslateService,
+    public globalResolveDataService: GlobalResolveDataService
   ) { }
 
   ngOnInit(): void {
-    this.api.getShowCaseFundraising(this.route.snapshot.data?.showcase?._uuid).subscribe((data) => {
+    this.api.getShowCaseFundraising(this.globalResolveDataService?.showcase?._uuid, this.translate.currentLang).subscribe((data) => {
       const partnerValue = this.cart.calcFundraisingPartnerValue(data);
 
       this.data = data;
@@ -63,7 +67,7 @@ export class GiftsRaisedComponent implements OnInit {
     this.table = [
       {
         ...(this.table[0]),
-        value: this.data.total_sum,
+        value: Math.round(this.data.total_qty * this.cart.pricesRange[0]),
         code: 'total_sum',
         type: 'money'
       },

@@ -4,7 +4,7 @@
   class="mxn-section mxn-section_mb-1 mxn-section_pad-1 mxn-section_theme-1">
   <div class="mxn-section-head mxn-section-head_mb-1">
     <div class="mxn-section-head-row mxn-section-head-row_mb-1">
-      <h4 class="mxn-title mxn-title_sz-1">Персональные данные</h4>
+      <h4 class="mxn-title mxn-title_sz-1">{{'PersonalTitle' | translate}}</h4>
     </div>
   </div>
   <div class="cart__section-body">
@@ -80,8 +80,8 @@
                 </span>
             </label>
             <label for="agreement-checkbox" class="mxn-text-check-text mxn-text-check-text_ml-1">
-              Нажимая кнопку "Оплатить", я соглашаюсь с <span class="mxn-link" (click)="doc.openPopup('gift_offer')">
-                  условиями покупки билетов и обработкой персональных данных
+              {{'OfferText1' | translate}} <span class="mxn-link" (click)="doc.openPopup('gift_offer')">
+                  {{'OfferText2' | translate}}
                 </span>
             </label>
           </div>

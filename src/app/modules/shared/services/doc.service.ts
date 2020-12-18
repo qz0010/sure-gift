@@ -26,16 +26,16 @@ export class DocService {
     private global: GlobalService,
     private globalResolveData: GlobalResolveDataService
   ) {
-    globalResolveData.settings$.subscribe(s => {
-      if (s.offer) {
-        this.init(s);
-      } else {
-        globalResolveData.offer$.subscribe(value => {
-          this.docs.gift_offer = value;
-          this.docs.offer = value;
-        });
-      }
-    });
+    // globalResolveData.settings$.subscribe(s => {
+    //   if (s.offer) {
+    //     this.init(s);
+    //   } else {
+    //     globalResolveData.offer$.subscribe(value => {
+    //       this.docs.gift_offer = value;
+    //       this.docs.offer = value;
+    //     });
+    //   }
+    // });
   }
 
   init(s: ISettings) {

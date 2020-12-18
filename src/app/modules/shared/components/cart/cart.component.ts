@@ -4,6 +4,7 @@ import {ICertificateBody, IPaymentMethod, IShowcaseItem} from '../../../../types
 import {IUser} from '../../../../types/User';
 import {ActivatedRoute} from '@angular/router';
 import {CartService} from '../../services/cart.service';
+import {GlobalResolveDataService} from '../../services/global-resolve-data.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,10 +21,11 @@ export class CartComponent implements OnInit {
     private api: ApiService,
     private route: ActivatedRoute,
     public cart: CartService,
+    public globalResolveDataService: GlobalResolveDataService
   ) { }
 
   ngOnInit(): void {
-    this.showcase = this.route.snapshot.data.showcase;
+    this.showcase = this.globalResolveDataService.showcase;
 
     this.api.getPaymentMethods().subscribe(data => {
       this.paymentMethods = data;

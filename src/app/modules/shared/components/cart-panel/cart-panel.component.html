@@ -7,9 +7,11 @@
         </span>
       </div>
       <div class="cart-panel__values-item cart-panel__values-item_text"
-           *ngIf="data?.meta?.fiscal_position_title | multilang">
+           >
+<!--        *ngIf="data?.meta?.fiscal_position_title | multilang"-->
         <span class="cart-panel__text">
-          {{data.meta.fiscal_position_title | multilang}}
+          {{'GiftsTitle' | translate}}
+<!--          {{data.meta.fiscal_position_title | multilang}}-->
         </span>
       </div>
       <div class="cart-panel__values-item cart-panel__values-item_price">
@@ -23,8 +25,8 @@
     <div class="cart-panel__buttons">
       <button type="button"
               class="cart-panel__btn mxn-btn mxn-btn_full-width mxn-btn_ta-c mxn-btn_sz-2 mxn-btn_theme-2"
-              routerLink="/checkout">
-        Оплатить
+              routerLink="{{translate.currentLang}}/checkout">
+        {{'Donate' | translate}}
       </button>
     </div>
   </div>

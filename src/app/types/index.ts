@@ -213,6 +213,7 @@ export interface IWidgetSettings {
   hide_routes?: string[];
   noScrollRoutes?: string[];
   origin_url?: string;
+  locale?: string;
 }
 
 export interface ISettings {

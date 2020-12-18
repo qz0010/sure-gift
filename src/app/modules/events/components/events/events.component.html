@@ -13,7 +13,7 @@
                 <div class="gifts__info-item">
                   <div class="gifts__info-th">
                     <span class="gifts__info-title">
-                      Дата и время
+                      {{'DateTitle' | translate}}
                     </span>
                   </div>
                   <div class="gifts__info-tb">
@@ -25,7 +25,7 @@
                 <div class="gifts__info-item" *ngIf="event.spot | multilang">
                   <div class="gifts__info-th">
                     <span class="gifts__info-title">
-                      Место проведения
+                      {{'LocationTitle' | translate}}
                     </span>
                   </div>
                   <div class="gifts__info-tb">
@@ -37,7 +37,7 @@
                 <div class="gifts__info-item" *ngIf="event.conductor | multilang">
                   <div class="gifts__info-th">
                     <span class="gifts__info-title">
-                      Дирижёр
+                      {{'ConductorTitle' | translate}}
                     </span>
                   </div>
                   <div class="gifts__info-tb">
@@ -49,7 +49,7 @@
                 <div class="gifts__info-item" *ngIf="event.orchestra | multilang">
                   <div class="gifts__info-th">
                     <span class="gifts__info-title">
-                      Оркестр
+                      {{'Orchestra' | translate}}
                     </span>
                   </div>
                   <div class="gifts__info-tb">
@@ -61,7 +61,7 @@
                 <div class="gifts__info-item" *ngIf="event.lead_singer | multilang">
                   <div class="gifts__info-th">
                     <span class="gifts__info-title">
-                      Солист
+                      {{'Soloist' | translate}}
                     </span>
                   </div>
                   <div class="gifts__info-tb">
@@ -76,7 +76,7 @@
       </div>
       <div class="gifts__col gifts__col_content">
         <app-tabs theme="1">
-          <app-tabs-tab tabTitle="Описание" *ngIf="event.description | multilang">
+          <app-tabs-tab [tabTitle]="'Description' | translate" *ngIf="event.description | multilang">
             <article class="event">
               <div class="event__body">
                 <div class="event__article" [innerHTML]="event.description | multilang">

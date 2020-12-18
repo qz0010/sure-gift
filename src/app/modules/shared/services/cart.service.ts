@@ -34,6 +34,7 @@ export class CartService {
   public set setterPrices(prices: number[]) {
     this.prices = prices.sort((a, b) => b - a);
     this.pricesRange[0] = Math.min(...prices);
+    this.oneValuePrice = this.pricesRange[0];
   }
   public get getPrices(): number[] {
     return this.prices;
@@ -58,8 +59,8 @@ export class CartService {
   ) { }
 
   public calcFundraisingPartnerValue(data: IShowcaseFundraising): {price: number, percent: number} {
-    const {total_sum, fundraising_plan} = data;
-    const price = Math.round(total_sum / 100 * this.partnershipInc.percent - 0.01);
+    const {total_sum, fundraising_plan, total_qty} = data;
+    const price = Math.round(total_qty * this.pricesRange[0] / 100 * this.partnershipInc.percent - 0.01);
     const value = {price, percent: price / fundraising_plan * 100};
 
     this.setterFundraisingPartnerValue = value;
@@ -67,7 +68,7 @@ export class CartService {
   }
 
   public calcFundraisingPercent(data: IShowcaseFundraising): number {
-    return data.total_sum / data.fundraising_plan * 100;
+    return data.total_qty * this.pricesRange[0] / data.fundraising_plan * 100;
   }
 
   public countValuesByPrice(price: number, partner = false): number {

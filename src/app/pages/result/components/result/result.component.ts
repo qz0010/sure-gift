@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {ApiService} from '../../../../modules/shared/services/api.service';
 import {IShowcaseOrder, IShowcaseOrderItem, TOrderStatus} from '../../../../types';
 import {PlatformService} from '../../../../modules/shared/services/platform.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-result',
@@ -24,7 +25,8 @@ export class ResultComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private api: ApiService,
-    private platform: PlatformService
+    private platform: PlatformService,
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {

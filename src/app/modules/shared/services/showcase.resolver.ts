@@ -19,7 +19,7 @@ export class ShowcaseResolver implements Resolve<Observable<any>> {
   resolve(
     route: ActivatedRouteSnapshot, state: RouterStateSnapshot
   ): Observable<IShowcaseItem> {
-    return this.api.getShowCaseList().pipe(map(data => {
+    return this.api.getShowCaseList(route.params.lang).pipe(map(data => {
       const item: IShowcaseItem = data[0];
       this.cart.setterPrices = item.prices;
       this.cart.setterEvent = (item.meta?.fundraising?.events || [])[0];

@@ -1,10 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import {DeviceDetectorService} from 'ngx-device-detector';
-import {ApiService} from './modules/shared/services/api.service';
 import {TranslateService} from '@ngx-translate/core';
 import {CartService} from './modules/shared/services/cart.service';
 import {CartPanelComponent} from './modules/shared/components/cart-panel/cart-panel.component';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router, RoutesRecognized} from '@angular/router';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -23,14 +23,15 @@ export class AppComponent {
     private route: ActivatedRoute,
     private router: Router,
     public cart: CartService,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {
-    this.translate.use(this.translate.defaultLang);
     this.deviceType = this.device.isDesktop() ? 'desktop' : 'mobile';
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.showCart = window?.location?.pathname === '/';
+        console.log('lang', translate.currentLang);
+        const pathname = window?.location?.pathname;
+        this.showCart = pathname === '/' || pathname === `/${translate.currentLang}`;
         this.wrapPb = this.showCart ? this.wrapPb : null;
       }
     });

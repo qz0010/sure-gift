@@ -1,12 +1,17 @@
 <ng-template #valuesTmp let-price="price">
-  <p class="r-table__text" *ngIf="cart.total_cost > 0">
-    Благодаря вам <span class="r-table__text-mark">
-            {{cart.total_cost | countValuesByPrice}} {{cart.total_cost | countValuesByPrice | numerative: [
-    'Child1' | translate, 'Child2' | translate, 'Child3' | translate
-  ]}} {{cart.total_cost | countValuesByPrice | numerative: [
-    'Visit1' | translate, 'Visit2' | translate, 'Visit3' | translate
-  ]}}</span> киноконцерт
-    <br>{{cart.oneValuePrice | money}} = 1 входной билет для ребенка
+  <p class="r-table__text" *ngIf="cart.total_cost > 0" [innerHTML]="
+    'TicketsChildrenText3' | translate:{
+      count: (price | countValuesByPrice) + ' ' + (price | countValuesByPrice | numerative: [
+        'Child1' | translate, 'Child2' | translate, 'Child3' | translate
+      ]) + ' ' + (price | countValuesByPrice | numerative: [
+        'Visit1' | translate, 'Visit2' | translate, 'Visit3' | translate
+      ]),
+      countPartner: (price | countValuesByPrice:{partner: true}) + ' ' + (price | countValuesByPrice:{partner: true} | numerative: [
+        'Child1' | translate, 'Child2' | translate, 'Child3' | translate
+      ]),
+      moneyPerson: cart.oneValuePrice | money
+    }
+    ">
   </p>
 </ng-template>
 
@@ -20,7 +25,7 @@
   <section class="mxn-section mxn-section_mb-1 mxn-section_pad-1 mxn-section_theme-1">
     <div class="mxn-section-head mxn-section-head_mb-1">
       <div class="mxn-section-head-row mxn-section-head-row_mb-1">
-        <h4 class="mxn-title mxn-title_sz-1">Ваш взнос</h4>
+        <h4 class="mxn-title mxn-title_sz-1">{{'YourDonate' | translate}}</h4>
       </div>
     </div>
 
@@ -34,7 +39,7 @@
             </span>
             </div>
             <div class="r-table__td r-table__td_text mxn-desktop">
-              <ng-container [ngTemplateOutlet]="valuesTmp"></ng-container>
+              <ng-container [ngTemplateOutlet]="valuesTmp" [ngTemplateOutletContext]="{price: cart.total_cost}"></ng-container>
             </div>
             <div class="r-table__td mxn-mobile">
               <!--             (click)="onDelete()"-->
@@ -45,7 +50,7 @@
               </div>
             </div>
             <div class="r-table__td r-table__td_text mxn-mobile">
-              <ng-container [ngTemplateOutlet]="valuesTmp"></ng-container>
+              <ng-container [ngTemplateOutlet]="valuesTmp" [ngTemplateOutletContext]="{price: cart.total_cost}"></ng-container>
             </div>
             <div class="r-table__td r-table__td_buttons r-table__td_m-full-width">
               <div class="r-table__items r-table__items_cart">
@@ -79,7 +84,7 @@
             <div class="r-table__td r-table__td_head">
               <div class="r-table__td-row">
                 <span class="r-table__value r-table__value_c-3">
-                  Итоговая сумма взноса
+                  {{'CartTotal' | translate}}
                 </span>
               </div>
             </div>

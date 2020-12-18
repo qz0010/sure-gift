@@ -16,15 +16,20 @@ export class MoneyPipe implements PipeTransform {
   }
 
   transform(price: number): string {
-    const result = price / 100;
+    const result = Math.round(price / 100 - 0.01);
     const lang = this.translate.currentLang || this.translate.defaultLang;
     const currency: IShowcaseCurrency = this.globalResolveData.showcase?.Currency;
     const currencyCode: string = currency?.code?.replace('RUR', 'RUB') || this.cart.default_currency;
 
-    if (window?.Intl?.NumberFormat) {
-      return new Intl.NumberFormat(`${lang}-${lang.toUpperCase()}`, {
-        style: 'currency', currency: currencyCode, maximumSignificantDigits: 10
-      })
+    if (window?.Intl?.NumberFormat && this.globalResolveData.settings?.widget_settings?.locale) {
+      const options: any = {
+        style: 'currency', currency: currencyCode
+      };
+      if (lang === 'ru') {
+        options.maximumSignificantDigits = 10;
+      }
+      //${this.globalResolveData.settings?.widget_settings?.locale}
+      return new Intl.NumberFormat(`${this.globalResolveData.settings?.widget_settings?.locale}`, options)
         .format(result);
     }
     return `${result} ${currency?.sign}`;

@@ -1,10 +1,10 @@
 <div class="s-related">
   <div class="s-related__head">
-    <h4 class="s-related__title">Организаторы</h4>
+    <h4 class="s-related__title">{{'Organisers' | translate}}</h4>
   </div>
   <div class="s-related__body">
     <app-tabs theme="2">
-      <app-tabs-tab [tabTitle]="item.tabTitle" *ngFor="let item of items">
+      <app-tabs-tab [tabTitle]="item.tabTitle | multilang" *ngFor="let item of items">
         <section class="mxn-section mxn-section_pad-1 mxn-section_theme-1">
           <div class="gifts__wrap">
             <div class="gifts__row">
