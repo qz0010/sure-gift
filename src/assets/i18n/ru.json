@@ -29,6 +29,7 @@
   "PartnerText": "Генеральный партнер <span class=\"c-3\">увеличивает</span> каждую транзакцию на <span class=\"c-3\">{{num}}</span>",
   "TicketsChildrenText": "Благодаря вам <span class=\"v-btn__text-mark\">{{count}}</span> киноконцерт <span class=\"c-4\">+ {{countPartner}} от Mastercard</span><br>{{moneyPerson}} = 1 входной билет для ребенка",
   "TicketsChildrenText2": "Благодаря вам <span class=\"v-btn__text-mark\">{{count}}</span> киноконцерт<br>{{moneyPerson}} = 1 входной билет для ребенка",
+  "TicketsChildrenText3": "Благодаря вам <span class=\"r-table__text-mark\">{{count}}</span> киноконцерт<br>{{moneyPerson}} = 1 входной билет для ребенка",
   "DateTitle": "Дата и время",
   "LocationTitle": "Место проведения",
   "ConductorTitle": "Дирижёр",
@@ -45,5 +46,6 @@
   "OfferText2": "условиями покупки билетов и обработкой персональных данных",
   "Share": "Поделиться",
   "ResultText": "Благодаря вам {{count}} {{can}} бесплатно посетить киноконцерт Disney «Холодное сердце». За всеми анонсами вы можете следить на нашем сайте и в наших социальных сетях.",
-  "DefaultErrorText": "Что-то пошло не так"
+  "DefaultErrorText": "Что-то пошло не так",
+  "HowTitle": "Как это работает"
 }

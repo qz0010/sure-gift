@@ -17,7 +17,6 @@ export class InitResolver implements Resolve<Observable<any>> {
   ) {
   }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    console.log(route);
     this.translate.setDefaultLang(route.params.lang === 'ru' ? 'ru' : 'en');
     this.translate.use(route.params.lang);
     this.globalResolveData.setterLang = route.params.lang;

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, TransferState} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,9 +9,11 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SharedModule} from './modules/shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PopoverModule} from './modules/popover/popover.module';
+import {translateBrowserLoaderFactory} from './loaders/translate-browser.loader';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -21,13 +23,13 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     imports: [
         BrowserModule.withServerTransition({appId: 'serverApp'}),
         AppRoutingModule,
+        TransferHttpCacheModule,
         TranslateModule.forRoot({
-            defaultLanguage: 'ru',
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (createTranslateLoader),
-                deps: [HttpClient]
-            }
+          loader: {
+            provide: TranslateLoader,
+            useFactory: translateBrowserLoaderFactory,
+            deps: [HttpClient, TransferState]
+          }
         }),
         SharedModule,
         BrowserAnimationsModule,

@@ -55,7 +55,6 @@ export class CartPanelComponent implements OnInit, AfterViewInit, OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(() => {
         this.setRect();
-        console.log('resize', this);
       });
   }
 

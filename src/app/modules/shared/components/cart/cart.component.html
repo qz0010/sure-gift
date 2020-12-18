@@ -35,6 +35,7 @@
           <div class="r-table__tr r-table__tr_wrap r-table__tr_ali-c">
             <div class="r-table__td r-table__td_head">
             <span class="r-table__value" *ngIf="cart.currEvent?.name">
+              {{cart.total_cost}}
               {{cart.currEvent.name | multilang}}
             </span>
             </div>

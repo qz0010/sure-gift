@@ -29,7 +29,6 @@ export class AppComponent {
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        console.log('lang', translate.currentLang);
         const pathname = window?.location?.pathname;
         this.showCart = pathname === '/' || pathname === `/${translate.currentLang}`;
         this.wrapPb = this.showCart ? this.wrapPb : null;

@@ -17,7 +17,7 @@ export class NumberFormatPipe implements PipeTransform {
   transform(value: number): string | number {
     const lang = this.translate.currentLang || this.translate.defaultLang;
 
-    if (window.Intl && window.Intl.NumberFormat) {
+    if (window?.Intl && window?.Intl?.NumberFormat) {
       const options: any = {
         style: 'decimal'
       };

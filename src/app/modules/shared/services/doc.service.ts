@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { GlobalService } from './global.service';
 import {GlobalResolveDataService} from './global-resolve-data.service';
 import {IMultiLangField, ISettings} from '../../../types';
+import {ApiService} from './api.service';
 
 export interface IDocs {
   gift_offer?: IMultiLangField;
@@ -24,7 +25,8 @@ export class DocService {
 
   constructor(
     private global: GlobalService,
-    private globalResolveData: GlobalResolveDataService
+    private globalResolveData: GlobalResolveDataService,
+    private api: ApiService
   ) {
     // globalResolveData.settings$.subscribe(s => {
     //   if (s.offer) {
@@ -38,18 +40,21 @@ export class DocService {
     // });
   }
 
-  init(s: ISettings) {
+  init(s: ISettings): void {
     this.docs.gift_offer = s.gift_offer;
     this.docs.offer = s.offer;
   }
 
-  public openPopup(name: keyof IDocs) {
-    this.data.src = this.docs[name];
-    this.global.toggleBodyOverflow(true);
-    this.showHidePopupSource.next(true);
+  public openPopup(name: keyof IDocs): void {
+    this.api.getOffer().subscribe(offer => {
+      this.data.src = offer;
+      this.global.toggleBodyOverflow(true);
+      this.showHidePopupSource.next(true);
+    });
+    // this.data.src = this.docs[name];
   }
 
-  public closePopup() {
+  public closePopup(): void {
     this.global.toggleBodyOverflow(false);
     this.showHidePopupSource.next(false);
   }

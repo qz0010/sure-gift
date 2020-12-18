@@ -40,7 +40,6 @@ export class TabsComponent implements AfterContentInit {
   // }
 
   ngAfterContentInit() {
-    console.log('tabs');
     // this.uuid = this.uuid || 'tabs_uuid';
     // this.storageKey = `${this.storageKey}_${this.uuid}`;
     // const storageData = getCookie(this.storageKey);

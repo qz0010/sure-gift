@@ -16,7 +16,7 @@ export class MoneyPipe implements PipeTransform {
   }
 
   transform(price: number): string {
-    const result = Math.round(price / 100 - 0.01);
+    const result = Math.round(price / 100);
     const lang = this.translate.currentLang || this.translate.defaultLang;
     const currency: IShowcaseCurrency = this.globalResolveData.showcase?.Currency;
     const currencyCode: string = currency?.code?.replace('RUR', 'RUB') || this.cart.default_currency;

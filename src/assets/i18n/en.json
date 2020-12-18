@@ -46,5 +46,6 @@
   "OfferText2": "terms of purchase and allow to process my personal details",
   "Share": "Share",
   "ResultText": "Thanks to you a {{count}} {{can}} to attend Disney film music concert Frozen. Follow all updates on our website and social media.",
-  "DefaultErrorText": "Something went wrong"
+  "DefaultErrorText": "Something went wrong",
+  "HowTitle": "How it works"
 }
